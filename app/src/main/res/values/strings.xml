@@ -41,4 +41,10 @@
     <string name="label_reset">Reset</string>
     <string name="label_huy">Huỷ</string>
     <string name="label_ngoai_ke_hoach">Ngoài kế hoạch</string>
+    <string name="label_ma_dinh_danh_qlts">Mã định danh:</string>
+    <string name="label_thiet_bi_qlts">Thiết bị:</string>
+    <string name="label_nhom_thiet_bi_qlts">Nhóm thiết bị:</string>
+    <string name="label_trang_thai_qlts">Trạng thái:</string>
+    <string name="label_action_qlts">Action</string>
+    <string name="label_thay_doi_trang_thai_qlts">Thay đổi trạng thái</string>
 </resources>
