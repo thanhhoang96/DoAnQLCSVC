@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
     <string name="app_name">QLCoSoVatChat</string>
 
     <!--Login screen-->
@@ -8,7 +8,7 @@
     <string name="button.text_label">Login</string>
     <string name="text_view.login_label">Login</string>
 
-    <!--menu-->
+    <!--menu screen-->
     <string name="menu_drawer_open">Open</string>
     <string name="menu_drawer_close">Close</string>
     <string name="text_view.main_screen.qlts_label">Quản lí tài sản</string>
@@ -16,4 +16,29 @@
     <string name="text_view.main_screen.qlkh.label">Quản lí kế hoạch</string>
     <string name="logout_label">Logout</string>
 
+    <!--Quan li yeu cau screen-->
+    <string name="search_label">Search</string>
+    <string name="label_tieu_de_yeu_cau">Tiêu đề yêu cầu</string>
+    <string name="label_ngay_tao_yeu_cau">Ngày tạo yêu cầu</string>
+    <string name="label_trang_thai_yeu_cau">Trạng thái</string>
+    <string name="label_action_yeu_cau">Action</string>
+    <string name="label_sua">Sửa</string>
+    <string name="label_xoa">Xóa</string>
+
+    <!--Tao moi yeu cau screen-->
+    <string name="label_tao_moi">Tạo mới</string>
+    <string name="label_yeu_cau">Yêu cầu</string>
+    <string name="label_mua_sam">Yêu cầu mua sắm</string>
+    <string name="label_sua_chua">Yêu cầu sửa chữa</string>
+    <string name="label_tieu_de">Tiêu đề</string>
+    <string name="label_them_thiet_bi">Thêm thiết bị</string>
+    <string name="label_theo_ke_hoach">Theo kế hoạch</string>
+    <string name="label_thiet_bi">Thiết bị</string>
+    <string name="label_nhom_thiet_bi">Nhóm thiết bị</string>
+    <string name="label_so_luong">Số lượng</string>
+    <string name="label_giai_trinh">Giải trình</string>
+    <string name="label_tao_va_gui_yeu_cau">Tạo và gửi yêu cầu</string>
+    <string name="label_reset">Reset</string>
+    <string name="label_huy">Huỷ</string>
+    <string name="label_ngoai_ke_hoach">Ngoài kế hoạch</string>
 </resources>
