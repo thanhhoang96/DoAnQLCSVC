@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Login screen -->
+    <dimen name="edit_text.text_size">18sp</dimen>
+    <dimen name="text_view.title_text_size">25sp</dimen>
+    <dimen name="login_screen_edt_height">57dp</dimen>
+    <dimen name="button.login_text_size">16sp</dimen>
+</resources>

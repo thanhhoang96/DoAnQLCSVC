@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">QLCoSoVatChat</string>
+
+    <!--Login screen-->
+    <string name="name_app">App\nQuản Lí Cơ Sở Vật Chất</string>
+    <string name="hint.edit_text.username">Username</string>
+    <string name="hint.edit_text.password">Password</string>
+    <string name="button.text_label">Login</string>
+    <string name="text_view.login_label">Login</string>
+
+    <!--menu-->
+    <string name="menu_drawer_open">Open</string>
+    <string name="menu_drawer_close">Close</string>
+    <string name="text_view.main_screen.qlts_label">Quản lí tài sản</string>
+    <string name="text_view.main_screen.qlyc.label">Quản lí yêu cầu</string>
+    <string name="text_view.main_screen.qlkh.label">Quản lí kế hoạch</string>
+    <string name="logout_label">Logout</string>
+
+</resources>
