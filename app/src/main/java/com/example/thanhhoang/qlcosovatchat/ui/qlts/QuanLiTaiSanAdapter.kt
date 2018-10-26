@@ -10,7 +10,9 @@ import com.example.thanhhoang.qlcosovatchat.data.TaiSan
 import kotlinx.android.synthetic.main.item_qlts.view.*
 
 class QuanLiTaiSanAdapter(private var taiSanList: MutableList<TaiSan>) : RecyclerView.Adapter<QuanLiTaiSanAdapter.QuanLiTaiSanVH>() {
+
     internal var sentPositionItemQlts: (Int) -> Unit = {}
+
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): QuanLiTaiSanVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_qlts, parent, false)
         return QuanLiTaiSanVH(view)

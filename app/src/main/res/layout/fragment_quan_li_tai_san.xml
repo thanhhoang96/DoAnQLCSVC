@@ -25,7 +25,7 @@
             android:textColor="@color/colorBlueMedium" />
 
         <ImageView
-            android:id="@+id/imgClearInputQlyc"
+            android:id="@+id/imgClearInputQlts"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"

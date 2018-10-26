@@ -47,4 +47,5 @@
     <string name="label_trang_thai_qlts">Trạng thái:</string>
     <string name="label_action_qlts">Action</string>
     <string name="label_thay_doi_trang_thai_qlts">Thay đổi trạng thái</string>
+    <string name="label_xoa_qlkh">Xóa</string>
 </resources>
