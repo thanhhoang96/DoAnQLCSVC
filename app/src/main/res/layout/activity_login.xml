@@ -46,8 +46,7 @@
             android:inputType="text"
             android:paddingEnd="20dp"
             android:paddingStart="20dp"
-            android:textColor="@color/colorGrayDark"
-            android:textColorHint="@color/colorGrayMedium"
+            android:textColorHint="@color/colorGrayDark"
             android:textSize="@dimen/edit_text.text_size" />
 
         <EditText
@@ -62,8 +61,7 @@
             android:inputType="textPassword"
             android:paddingEnd="20dp"
             android:paddingStart="20dp"
-            android:textColor="@color/colorGrayDark"
-            android:textColorHint="@color/colorGrayMedium"
+            android:textColorHint="@color/colorGrayDark"
             android:textSize="@dimen/edit_text.text_size" />
 
         <Button
@@ -74,6 +72,7 @@
             android:background="@drawable/bg_btn_login"
             android:enabled="false"
             android:focusable="false"
+            android:textStyle="bold"
             android:text="@string/button.text_label"
             android:textAllCaps="false"
             android:textSize="@dimen/button.login_text_size" />
