@@ -9,6 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
+import com.example.thanhhoang.qlcosovatchat.data.model.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -62,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnLogin.setOnClickListener { _ ->
-            viewModel.login(edtUsername.text.toString(), edtPassword.text.toString())
+            viewModel.login(UserRequest(edtUsername.text.toString(), edtPassword.text.toString()))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ handleLoginSuccess() }, { handelLoginError() })

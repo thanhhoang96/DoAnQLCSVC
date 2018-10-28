@@ -1,5 +1,6 @@
 package com.example.thanhhoang.qlcosovatchat.ui.login
 
+import com.example.thanhhoang.qlcosovatchat.data.model.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import io.reactivex.Single
@@ -15,8 +16,8 @@ class LoginViewModel(private val repository: Repository) {
         behaviorButtonLoginState.onNext(!username.isEmpty() && !password.isEmpty())
     }
 
-    fun login(username: String, password: String): Single<LoginResponse> {
-        return repository.login(username, password)
+    fun login(userRequest: UserRequest): Single<LoginResponse> {
+        return repository.login(userRequest)
                 .doOnSubscribe {
                     behaviorHandleLogin.onNext(true)
                 }

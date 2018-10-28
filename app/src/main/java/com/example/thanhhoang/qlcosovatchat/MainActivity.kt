@@ -5,6 +5,7 @@ import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBar
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
 import com.example.thanhhoang.qlcosovatchat.extention.replaceFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlkh.QuanLiKeHoachFragment
@@ -14,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var actionBar: ActionBar? = null
+    private val repository = Repository(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         drawerToggle.isDrawerIndicatorEnabled = true
         drawerLayoutContain.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
+
+        tvPerson.text = repository.getFullName()
     }
 
     private fun updateView() {

@@ -2,19 +2,13 @@ package com.example.thanhhoang.qlcosovatchat.ui.splash
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
-import com.example.thanhhoang.qlcosovatchat.extention.moveActivity
 import com.example.thanhhoang.qlcosovatchat.ui.login.LoginActivity
 
-/**
- * Asian Tech Co., Ltd.
- * Created by at-nhanphan on 10/27/18
- */
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var viewModel: SplashViewModel

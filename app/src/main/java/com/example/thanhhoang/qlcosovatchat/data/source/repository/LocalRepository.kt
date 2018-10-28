@@ -12,7 +12,7 @@ class LocalRepository(private val context: Context) : LocalDataSource {
 
     companion object {
         private const val KEY_TOKEN = "key_token"
-        private const val KEY_USER_NAME= "key_username"
+        private const val KEY_USER_NAME = "key_username"
         private const val KEY_FULL_NAME = "key_fullName"
     }
 
@@ -24,9 +24,11 @@ class LocalRepository(private val context: Context) : LocalDataSource {
 
     internal fun saveAccessToken(token: String) = pref.edit().putString(KEY_TOKEN, token).apply()
 
-    internal fun saveInfoUser(userName: String, fullName: String){
-        pref.edit().putString(KEY_USER_NAME, userName).apply()
-        pref.edit().putString(KEY_FULL_NAME, fullName).apply()
+    internal fun saveInfoUser(userName: String, fullName: String) {
+        pref.edit().apply {
+            putString(KEY_USER_NAME, userName)
+            putString(KEY_FULL_NAME, fullName)
+        }.apply()
     }
 
     @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -34,8 +36,7 @@ class LocalRepository(private val context: Context) : LocalDataSource {
 
     private fun getAccessToken() = pref.getString(KEY_TOKEN, "")
 
-    private fun getUserInfo(){
-        pref.getString(KEY_USER_NAME, null)
-        pref.getString(KEY_FULL_NAME, null)
-    }
+    fun getUsername() = pref.getString(KEY_USER_NAME, "")
+
+    fun getFullName() = pref.getString(KEY_FULL_NAME, "")
 }
