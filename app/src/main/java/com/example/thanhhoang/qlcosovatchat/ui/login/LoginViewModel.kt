@@ -1,13 +1,27 @@
 package com.example.thanhhoang.qlcosovatchat.ui.login
 
+import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
+import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
+import io.reactivex.Single
 import io.reactivex.subjects.BehaviorSubject
 
-class LoginViewModel {
-    private val behaviorButtonLogin = BehaviorSubject.create<Boolean>()
+class LoginViewModel(private val repository: Repository) {
+    private val behaviorButtonLoginState = BehaviorSubject.create<Boolean>()
+    private val behaviorHandleLogin = BehaviorSubject.create<Boolean>()
 
-    fun handleValidLoginFieldsState(): BehaviorSubject<Boolean> = behaviorButtonLogin
+    fun handleValidLoginFieldsState(): BehaviorSubject<Boolean> = behaviorButtonLoginState
 
     fun validateLoginFields(username: String, password: String) {
-        behaviorButtonLogin.onNext(!username.isEmpty() && !password.isEmpty())
+        behaviorButtonLoginState.onNext(!username.isEmpty() && !password.isEmpty())
+    }
+
+    fun login(username: String, password: String): Single<LoginResponse> {
+        return repository.login(username, password)
+                .doOnSubscribe {
+                    behaviorHandleLogin.onNext(true)
+                }
+                .doFinally {
+                    behaviorHandleLogin.onNext(false)
+                }
     }
 }

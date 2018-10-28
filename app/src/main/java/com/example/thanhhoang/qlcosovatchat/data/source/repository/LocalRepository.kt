@@ -12,6 +12,8 @@ class LocalRepository(private val context: Context) : LocalDataSource {
 
     companion object {
         private const val KEY_TOKEN = "key_token"
+        private const val KEY_USER_NAME= "key_username"
+        private const val KEY_FULL_NAME = "key_fullName"
     }
 
     private val pref by lazy {
@@ -20,11 +22,20 @@ class LocalRepository(private val context: Context) : LocalDataSource {
 
     override fun isValidToken(token: String): Boolean = token == getAccessToken()
 
-    private fun getAccessToken() = pref.getString(KEY_TOKEN, "")
-
     internal fun saveAccessToken(token: String) = pref.edit().putString(KEY_TOKEN, token).apply()
+
+    internal fun saveInfoUser(userName: String, fullName: String){
+        pref.edit().putString(KEY_USER_NAME, userName).apply()
+        pref.edit().putString(KEY_FULL_NAME, fullName).apply()
+    }
 
     @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     override fun hasAccessToken() = getAccessToken().isNotEmpty()
 
+    private fun getAccessToken() = pref.getString(KEY_TOKEN, "")
+
+    private fun getUserInfo(){
+        pref.getString(KEY_USER_NAME, null)
+        pref.getString(KEY_FULL_NAME, null)
+    }
 }

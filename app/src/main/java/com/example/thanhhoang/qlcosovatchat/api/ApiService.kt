@@ -10,9 +10,8 @@ import retrofit2.http.POST
 
 interface ApiService {
 
-    //todo method call api
     @POST("/login")
-    fun login(@Field("username") userName:String , @Field("password") password:String): Single<LoginResponse>
+    fun login(@Field("username") userName: String, @Field("password") password: String): Single<LoginResponse>
 
     companion object Factory {
         fun create(): ApiService {
@@ -25,5 +24,4 @@ interface ApiService {
             return retrofit.create(ApiService::class.java)
         }
     }
-
 }
