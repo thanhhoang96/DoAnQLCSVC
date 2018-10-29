@@ -38,7 +38,7 @@ class QuanLiTaiSanAdapter(private var taiSanList: MutableList<TaiSan>) : Recycle
                 tvNhomThietBiQlts.text = taiSan.nhomThietBi
                 tvTrangThaiQlts.text = taiSan.trangThai
                 if (tvTrangThaiQlts.text == "Dang su dung") {
-                    tvTrangThaiQlts.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_light))
+                    tvTrangThaiQlts.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
                 } else {
                     tvTrangThaiQlts.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_light))
                 }

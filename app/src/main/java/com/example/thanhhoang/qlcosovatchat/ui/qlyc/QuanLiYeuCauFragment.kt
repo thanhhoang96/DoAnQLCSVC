@@ -47,5 +47,9 @@ class QuanLiYeuCauFragment : Fragment() {
         btnTaoMoiYc.setOnClickListener {
             activity?.addFragment(R.id.flContainer, TaoMoiYeuCauFragment())
         }
+
+        imgClearInputQlyc.setOnClickListener {
+            edtSearchQlyc.setText("")
+        }
     }
 }
