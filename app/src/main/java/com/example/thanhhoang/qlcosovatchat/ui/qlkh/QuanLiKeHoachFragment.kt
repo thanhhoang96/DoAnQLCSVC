@@ -26,6 +26,7 @@ class QuanLiKeHoachFragment : Fragment() {
 
         initData()
         initView()
+        handleListener()
         handleListenerFromInterface()
     }
 
@@ -41,6 +42,12 @@ class QuanLiKeHoachFragment : Fragment() {
         recyclerViewQlkh.apply {
             layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
             adapter = keHoachAdapter
+        }
+    }
+
+    private fun handleListener() {
+        imgClearInputQlkh.setOnClickListener {
+            edtSearchQlkh.setText("")
         }
     }
 

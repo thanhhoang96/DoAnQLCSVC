@@ -8,5 +8,7 @@
     <color name="colorGrayDark">#7b8a97</color>
     <color name="colorGrayMedium">#babfc4</color>
     <color name="colorGrayLight">#dedede</color>
-    <color name="colorBlueMedium">#0099dd</color>r>
+    <color name="colorBlueMedium">#0099dd</color>
+
+    <color name="colorGreenMedium">#43a047</color>
 </resources>

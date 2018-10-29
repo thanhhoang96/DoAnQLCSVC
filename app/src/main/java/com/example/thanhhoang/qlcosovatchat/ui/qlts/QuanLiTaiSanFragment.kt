@@ -1,15 +1,19 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlts
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.TaiSan
+import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
+import kotlinx.android.synthetic.main.dialog_change_state_qlts.view.*
 import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 
 class QuanLiTaiSanFragment : Fragment() {
@@ -25,6 +29,7 @@ class QuanLiTaiSanFragment : Fragment() {
 
         initData()
         initView()
+        handleListener()
         handleListenerFromInterface()
     }
 
@@ -48,9 +53,47 @@ class QuanLiTaiSanFragment : Fragment() {
         }
     }
 
+    private fun handleListener() {
+        imgClearInputQlts.setOnClickListener {
+            edtSearchQlts.setText("")
+        }
+
+        edtSearchQlts.afterTextChanged {
+
+        }
+    }
+
     private fun handleListenerFromInterface() {
         taiSanAdapter?.sentPositionItemQlts = {
-            Log.d("xxx", it.toString())
+            showDialogChangeState(it)
+        }
+    }
+
+    @SuppressLint("InflateParams")
+    private fun showDialogChangeState(position: Int) {
+        val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_change_state_qlts, null)
+
+        val mBuilder = context?.let {
+            AlertDialog.Builder(it)
+                    .setView(mDialogView)
+                    .setTitle("Trạng thái")
+        }
+        val mAlertDialog = mBuilder?.show()
+
+        if (taiSanList?.get(position)?.trangThai == "Dang su dung")
+            mDialogView.rbDangSuDungState.isChecked = true
+        else
+            mDialogView.rbHuHongState.isChecked = true
+
+        mDialogView.btnLuu.setOnClickListener {
+            taiSanList?.get(position)?.trangThai = if (mDialogView.rbHuHongState.isChecked)
+                mDialogView.rbHuHongState.text.toString() else mDialogView.rbDangSuDungState.text.toString()
+            taiSanAdapter?.notifyDataSetChanged()
+            mAlertDialog?.dismiss()
+        }
+
+        mDialogView.btnHuy.setOnClickListener {
+            mAlertDialog?.dismiss()
         }
     }
 }

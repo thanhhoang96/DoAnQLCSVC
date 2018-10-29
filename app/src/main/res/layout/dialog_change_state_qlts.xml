@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <View
+        android:id="@+id/viewLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrayDark" />
+
+    <RadioGroup
+        android:id="@+id/rgState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewLine"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rbHuHongState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#ff8a65"
+            android:checked="true"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:text="@string/label_hu_hong"
+            android:textColor="#3949ab"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry,UnusedAttribute" />
+
+        <RadioButton
+            android:id="@+id/rbDangSuDungState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#ff8a65"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:text="@string/label_dang_su_dung"
+            android:textColor="#3949ab"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry,UnusedAttribute" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnLuu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rgState"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="15dp"
+        android:background="#f48fb1"
+        android:text="@string/label_luu_state"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnHuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rgState"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_toStartOf="@id/btnLuu"
+        android:layout_toLeftOf="@id/btnLuu"
+        android:background="#f48fb1"
+        android:text="@string/label_huy_state"
+        android:textAllCaps="false" />
+</RelativeLayout>
