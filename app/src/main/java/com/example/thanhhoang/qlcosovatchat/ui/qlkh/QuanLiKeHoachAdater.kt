@@ -39,7 +39,7 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
                 tvNgayTaoQlkh.text = keHoach.ngayTaoKh
                 tvTrangThaiQlKh.text = keHoach.trangThai
                 if (tvTrangThaiQlKh.text == "Da xac nhan") {
-                    tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_light))
+                    tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
                     tvActionQlkh.visibility = View.GONE
                 } else {
                     tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_light))

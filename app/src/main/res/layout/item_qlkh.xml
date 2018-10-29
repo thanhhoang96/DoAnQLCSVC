@@ -7,7 +7,7 @@
     android:layout_marginLeft="10dp"
     android:layout_marginRight="7dp"
     android:layout_marginStart="10dp"
-    android:layout_marginTop="2dp"
+    android:layout_marginTop="3dp"
     android:background="@drawable/custom_input_text_login"
     android:padding="5dp">
 
@@ -24,8 +24,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mã kế hoạch"
-                android:textColor="@color/colorGrayDark"
+                android:text="@string/label_ma_ke_hoach"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -45,8 +44,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tên kế hoạch"
-                android:textColor="@color/colorGrayDark"
+                android:text="@string/label_ten_ke_hoach"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -66,8 +64,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Loại kế hoạch"
-                android:textColor="@color/colorGrayDark"
+                android:text="@string/label_loai_ke_hoach"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -87,8 +84,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ngày tạo"
-                android:textColor="@color/colorGrayDark"
+                android:text="@string/label_ngay_tao"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -109,8 +105,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Trạng thái"
-                android:textColor="@color/colorGrayDark"
+                android:text="@string/label_trang_thai_ke_hoach"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 

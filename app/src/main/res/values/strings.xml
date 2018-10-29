@@ -41,11 +41,24 @@
     <string name="label_reset">Reset</string>
     <string name="label_huy">Huỷ</string>
     <string name="label_ngoai_ke_hoach">Ngoài kế hoạch</string>
+
+    <!--quan li tai san screen-->
     <string name="label_ma_dinh_danh_qlts">Mã định danh:</string>
     <string name="label_thiet_bi_qlts">Thiết bị:</string>
     <string name="label_nhom_thiet_bi_qlts">Nhóm thiết bị:</string>
     <string name="label_trang_thai_qlts">Trạng thái:</string>
-    <string name="label_action_qlts">Action</string>
+    <string name="label_action_qlts">Change Status</string>
     <string name="label_thay_doi_trang_thai_qlts">Thay đổi trạng thái</string>
+
+    <!--quan li ke hoach screen-->
     <string name="label_xoa_qlkh">Xóa</string>
+    <string name="label_ma_ke_hoach">Mã kế hoạch:</string>
+    <string name="label_ten_ke_hoach">Tên kế hoạch:</string>
+    <string name="label_loai_ke_hoach">Loại kế hoạch:</string>
+    <string name="label_ngay_tao">Ngày tạo:</string>
+    <string name="label_trang_thai_ke_hoach">Trạng thái:</string>
+    <string name="label_hu_hong">Hu hong</string>
+    <string name="label_dang_su_dung">Dang su dung</string>
+    <string name="label_luu_state">Luu</string>
+    <string name="label_huy_state">Huy</string>
 </resources>
