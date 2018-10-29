@@ -1,18 +1,18 @@
 package com.example.thanhhoang.qlcosovatchat.api
 
+import com.example.thanhhoang.qlcosovatchat.data.model.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Field
+import retrofit2.http.Body
 import retrofit2.http.POST
 
 interface ApiService {
 
-    //todo method call api
     @POST("/login")
-    fun login(@Field("username") userName:String , @Field("password") password:String): Single<LoginResponse>
+    fun login(@Body userRequest: UserRequest): Single<LoginResponse>
 
     companion object Factory {
         fun create(): ApiService {
@@ -25,5 +25,4 @@ interface ApiService {
             return retrofit.create(ApiService::class.java)
         }
     }
-
 }

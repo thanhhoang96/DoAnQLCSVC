@@ -6,12 +6,9 @@ import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
+import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.ui.login.LoginActivity
 
-/**
- * Asian Tech Co., Ltd.
- * Created by at-nhanphan on 10/27/18
- */
 class SplashActivity : AppCompatActivity() {
 
     private lateinit var viewModel: SplashViewModel
@@ -19,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        viewModel = SplashViewModel()
+        viewModel = SplashViewModel(Repository(this))
 
         Handler().postDelayed({
             startActivity(Intent(this, if (viewModel.hasAccessToken()) MainActivity::class.java else LoginActivity::class.java))

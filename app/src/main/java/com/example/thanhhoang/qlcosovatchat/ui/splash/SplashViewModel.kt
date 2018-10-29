@@ -1,12 +1,7 @@
 package com.example.thanhhoang.qlcosovatchat.ui.splash
 
-/**
- * Asian Tech Co., Ltd.
- * Created by at-nhanphan on 10/27/18
- */
-class SplashViewModel {
+import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 
-    internal fun hasAccessToken(): Boolean {
-        return false
-    }
+class SplashViewModel(private val repository: Repository) {
+    internal fun hasAccessToken(): Boolean = repository.hasAccessToken()
 }
