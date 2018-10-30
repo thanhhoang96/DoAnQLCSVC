@@ -44,12 +44,10 @@ class MainActivity : AppCompatActivity() {
         drawerToggle.isDrawerIndicatorEnabled = true
         drawerLayoutContain.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
-
-        tvPerson.text = repository.getFullName()
     }
 
     private fun updateView() {
-        tvPerson.text = intent.getStringExtra("username")
+        tvPerson.text = repository.getFullName()
         addFragment(R.id.flContainer, QuanLiTaiSanFragment())
     }
 
