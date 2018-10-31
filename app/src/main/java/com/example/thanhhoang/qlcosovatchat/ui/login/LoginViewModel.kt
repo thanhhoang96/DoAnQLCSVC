@@ -1,6 +1,6 @@
 package com.example.thanhhoang.qlcosovatchat.ui.login
 
-import com.example.thanhhoang.qlcosovatchat.data.model.UserRequest
+import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import io.reactivex.Single

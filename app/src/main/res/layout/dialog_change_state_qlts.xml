@@ -46,6 +46,19 @@
             android:textSize="18sp"
             android:textStyle="bold"
             tools:ignore="RtlSymmetry,UnusedAttribute" />
+
+        <RadioButton
+            android:id="@+id/rbDangSuaChuaState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="#ff8a65"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:text="@string/label_dang_sua_chua"
+            android:textColor="#3949ab"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="RtlSymmetry,UnusedAttribute" />
     </RadioGroup>
 
     <Button

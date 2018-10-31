@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.thanhhoang.qlcosovatchat.R
-import com.example.thanhhoang.qlcosovatchat.data.YeuCau
+import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCau
 import kotlinx.android.synthetic.main.item_qlyc.view.*
 
 class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : RecyclerView.Adapter<QuanLiYeuCauAdapter.QuanLiYeuCauVH>() {

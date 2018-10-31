@@ -9,15 +9,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.R
-import com.example.thanhhoang.qlcosovatchat.data.TaiSan
+import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
+import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_change_state_qlts.view.*
 import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 
 class QuanLiTaiSanFragment : Fragment() {
-    private var taiSanList: MutableList<TaiSan>? = null
+    private var viewModel: QuanLiTaiSanViewModel? = null
+    private var taiSanList: MutableList<Infra>? = null
     private var taiSanAdapter: QuanLiTaiSanAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,22 +30,20 @@ class QuanLiTaiSanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initData()
+        connApi()
         initView()
         handleListener()
         handleListenerFromInterface()
     }
 
-    private fun initData() {
-        taiSanList = arrayListOf()
-        taiSanList?.add(TaiSan("100_123_5345", "Dell", "May tinh", "Dang su dung"))
-        taiSanList?.add(TaiSan("100_123_5346", "Vaio", "May tinh", "Hu hong"))
-        taiSanList?.add(TaiSan("100_123_5347", "cp001", "May in", "Hu hong"))
-        taiSanList?.add(TaiSan("100_123_5348", "mac", "May tinh", "Dang su dung"))
-        taiSanList?.add(TaiSan("100_123_5349", "Dell", "May tinh", "Dang su dung"))
-        taiSanList?.add(TaiSan("100_123_5350", "Vaio", "May tinh", "Hu hong"))
-        taiSanList?.add(TaiSan("100_123_5351", "Dell", "May tinh", "Dang su dung"))
-        taiSanList?.add(TaiSan("100_123_5352", "Vaio", "May tinh", "Hu hong"))
+    @SuppressLint("CheckResult")
+    private fun connApi() {
+        viewModel = activity?.let { Repository(it) }?.let { QuanLiTaiSanViewModel(it) }
+
+        viewModel?.taiSanList()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({
+                    taiSanList = it.data.taiSanList
+                }, {})
     }
 
     private fun initView() {
@@ -80,14 +81,15 @@ class QuanLiTaiSanFragment : Fragment() {
         }
         val mAlertDialog = mBuilder?.show()
 
-        if (taiSanList?.get(position)?.trangThai == "Dang su dung")
-            mDialogView.rbDangSuDungState.isChecked = true
-        else
-            mDialogView.rbHuHongState.isChecked = true
+        when {
+            taiSanList?.get(position)?.unitEquipmentState == "DSD" -> mDialogView.rbDangSuDungState.isChecked = true
+            taiSanList?.get(position)?.unitEquipmentState == "HH" -> mDialogView.rbHuHongState.isChecked = true
+            else -> mDialogView.rbDangSuaChuaState.isChecked = true
+        }
 
         mDialogView.btnLuu.setOnClickListener {
-            taiSanList?.get(position)?.trangThai = if (mDialogView.rbHuHongState.isChecked)
-                mDialogView.rbHuHongState.text.toString() else mDialogView.rbDangSuDungState.text.toString()
+            taiSanList?.get(position)?.unitEquipmentState =
+                    if (mDialogView.rbHuHongState.isChecked) "HH" else if (mDialogView.rbDangSuDungState.isChecked) "DSD" else "DSC"
             taiSanAdapter?.notifyDataSetChanged()
             mAlertDialog?.dismiss()
         }
