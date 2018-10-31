@@ -9,7 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
-import com.example.thanhhoang.qlcosovatchat.data.model.UserRequest
+import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import io.reactivex.android.schedulers.AndroidSchedulers

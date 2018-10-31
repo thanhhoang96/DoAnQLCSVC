@@ -1,4 +1,4 @@
-package com.example.thanhhoang.qlcosovatchat.data.model
+package com.example.thanhhoang.qlcosovatchat.data.model.login
 
 import com.google.gson.annotations.SerializedName
 

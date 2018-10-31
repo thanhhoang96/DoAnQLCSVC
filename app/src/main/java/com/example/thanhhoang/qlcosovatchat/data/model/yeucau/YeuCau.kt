@@ -1,4 +1,4 @@
-package com.example.thanhhoang.qlcosovatchat.data
+package com.example.thanhhoang.qlcosovatchat.data.model.yeucau
 
 data class YeuCau(
         var tieuDeYc: String,

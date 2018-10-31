@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.thanhhoang.qlcosovatchat.R
-import com.example.thanhhoang.qlcosovatchat.data.KeHoach
+import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
 import kotlinx.android.synthetic.main.item_qlkh.view.*
 
 class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : RecyclerView.Adapter<QuanLiKeHoachAdapter.QuanLiKeHoachVH>() {

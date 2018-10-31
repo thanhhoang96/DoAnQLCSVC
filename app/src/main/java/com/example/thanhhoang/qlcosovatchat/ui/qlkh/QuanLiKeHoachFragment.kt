@@ -9,7 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.example.thanhhoang.qlcosovatchat.R
-import com.example.thanhhoang.qlcosovatchat.data.KeHoach
+import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
 import kotlinx.android.synthetic.main.fragment_quan_li_ke_hoach.*
 
 class QuanLiKeHoachFragment : Fragment() {

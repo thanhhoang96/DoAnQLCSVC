@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.example.thanhhoang.qlcosovatchat.R
-import com.example.thanhhoang.qlcosovatchat.data.YeuCau
+import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCau
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi.TaoMoiYeuCauFragment
 import kotlinx.android.synthetic.main.fragment_quan_li_yeu_cau.*

@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.thanhhoang.qlcosovatchat.R
-import com.example.thanhhoang.qlcosovatchat.data.TaiSan
+import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
 import kotlinx.android.synthetic.main.item_qlts.view.*
 
-class QuanLiTaiSanAdapter(private var taiSanList: MutableList<TaiSan>) : RecyclerView.Adapter<QuanLiTaiSanAdapter.QuanLiTaiSanVH>() {
+class QuanLiTaiSanAdapter(private var infraList: MutableList<Infra>) : RecyclerView.Adapter<QuanLiTaiSanAdapter.QuanLiTaiSanVH>() {
 
     internal var sentPositionItemQlts: (Int) -> Unit = {}
 
@@ -18,10 +18,10 @@ class QuanLiTaiSanAdapter(private var taiSanList: MutableList<TaiSan>) : Recycle
         return QuanLiTaiSanVH(view)
     }
 
-    override fun getItemCount(): Int = taiSanList.size
+    override fun getItemCount(): Int = infraList.size
 
     override fun onBindViewHolder(viewHordel: QuanLiTaiSanVH, position: Int) {
-        viewHordel.onBind(taiSanList[position])
+        viewHordel.onBind(infraList[position])
     }
 
     inner class QuanLiTaiSanVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -31,12 +31,12 @@ class QuanLiTaiSanAdapter(private var taiSanList: MutableList<TaiSan>) : Recycle
             }
         }
 
-        fun onBind(taiSan: TaiSan) {
+        fun onBind(infra: Infra) {
             itemView.run {
-                tvMaDinhDanhQlts.text = taiSan.maDinhDanh
-                tvThietBiQlts.text = taiSan.tenThietBi
-                tvNhomThietBiQlts.text = taiSan.nhomThietBi
-                tvTrangThaiQlts.text = taiSan.trangThai
+                tvMaDinhDanhQlts.text = infra.maDinhDanh
+                tvThietBiQlts.text = infra.equipment.nameNo
+                tvNhomThietBiQlts.text = infra.groupEquipment.nameNo
+                tvTrangThaiQlts.text = if (infra.unitEquipmentState == "HH") "Hu hong" else if (infra.unitEquipmentState == "DSD") "Dang su dung" else "Dang sua chua"
                 if (tvTrangThaiQlts.text == "Dang su dung") {
                     tvTrangThaiQlts.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
                 } else {

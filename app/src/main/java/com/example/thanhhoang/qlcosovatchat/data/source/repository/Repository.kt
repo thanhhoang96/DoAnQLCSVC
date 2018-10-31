@@ -1,8 +1,9 @@
 package com.example.thanhhoang.qlcosovatchat.data.source.repository
 
 import android.content.Context
-import com.example.thanhhoang.qlcosovatchat.data.model.UserRequest
+import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
+import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.LocalDataSource
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.RemoteDataSource
 import io.reactivex.Single
@@ -21,6 +22,8 @@ class Repository(context: Context) : LocalDataSource, RemoteDataSource {
     override fun isValidToken(token: String): Boolean = localRepository.isValidToken(token)
 
     override fun hasAccessToken(): Boolean = localRepository.hasAccessToken()
+
+    override fun getTaiSan(): Single<TaiSanResponse> = remoteRepository.getTaiSan()
 
     fun getFullName() = localRepository.getFullName()
 }
