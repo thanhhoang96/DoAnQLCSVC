@@ -11,7 +11,7 @@ import io.reactivex.Single
 class Repository(context: Context) : LocalDataSource, RemoteDataSource {
 
     private val localRepository = LocalRepository(context)
-    private val remoteRepository = RemoteRepository(context)
+    private val remoteRepository = RemoteRepository()
 
     override fun login(userRequest: UserRequest): Single<LoginResponse> =
             remoteRepository.login(userRequest).doOnSuccess {

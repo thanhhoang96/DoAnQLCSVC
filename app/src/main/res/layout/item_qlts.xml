@@ -2,12 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginEnd="7dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="7dp"
+    android:layout_height="95dp"
     android:layout_marginStart="10dp"
+    android:layout_marginLeft="10dp"
     android:layout_marginTop="3dp"
+    android:layout_marginEnd="7dp"
+    android:layout_marginRight="7dp"
     android:background="@drawable/custom_input_text_login"
     android:padding="5dp">
 
@@ -25,16 +25,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_ma_dinh_danh_qlts"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvMaDinhDanhQlts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:textSize="16sp" />
+                android:layout_marginLeft="5dp"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -45,16 +45,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_thiet_bi_qlts"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvThietBiQlts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:textSize="16sp" />
+                android:layout_marginLeft="5dp"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -65,16 +65,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_nhom_thiet_bi_qlts"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvNhomThietBiQlts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:textSize="16sp" />
+                android:layout_marginLeft="5dp"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -85,16 +85,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/label_trang_thai_qlts"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvTrangThaiQlts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:layout_marginStart="5dp"
-                android:textSize="16sp"
+                android:layout_marginLeft="5dp"
+                android:textSize="14sp"
                 android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
@@ -105,13 +105,14 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:background="@drawable/bg_btn_login"
         android:padding="5dp"
         android:text="@string/label_action_qlts"
         android:textColor="@android:color/white"
-        android:textSize="16sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         tools:ignore="RelativeOverlap" />
 </RelativeLayout>

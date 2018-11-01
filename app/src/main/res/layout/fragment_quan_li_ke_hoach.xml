@@ -21,7 +21,7 @@
             android:drawableStart="@android:drawable/ic_menu_search"
             android:hint="@string/search_label"
             android:inputType="text"
-            android:padding="15dp"
+            android:padding="10dp"
             android:textColor="@color/colorBlueMedium" />
 
         <ImageView

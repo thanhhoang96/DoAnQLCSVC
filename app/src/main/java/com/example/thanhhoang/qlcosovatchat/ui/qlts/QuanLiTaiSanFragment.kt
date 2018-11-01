@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
@@ -30,28 +31,30 @@ class QuanLiTaiSanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        connApi()
         initView()
+        connApi()
         handleListener()
         handleListenerFromInterface()
     }
 
-    @SuppressLint("CheckResult")
-    private fun connApi() {
-        viewModel = activity?.let { Repository(it) }?.let { QuanLiTaiSanViewModel(it) }
-
-        viewModel?.taiSanList()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribe({
-                    taiSanList = it.data.taiSanList
-                }, {})
-    }
-
     private fun initView() {
-        taiSanAdapter = taiSanList?.let { QuanLiTaiSanAdapter(it) }
+        taiSanList = arrayListOf()
+        taiSanAdapter = QuanLiTaiSanAdapter(taiSanList as ArrayList<Infra>)
         recyclerViewQlts.apply {
             layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
             adapter = taiSanAdapter
         }
+    }
+
+    @SuppressLint("CheckResult")
+    private fun connApi() {
+        viewModel = QuanLiTaiSanViewModel(Repository(activity as MainActivity))
+        viewModel?.taiSanList()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({
+                    taiSanList?.clear()
+                    taiSanList?.addAll(it.data.taiSanList)
+                    taiSanAdapter?.notifyDataSetChanged()
+                }, {})
     }
 
     private fun handleListener() {

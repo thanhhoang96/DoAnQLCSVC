@@ -1,3 +1,5 @@
 package com.example.thanhhoang.qlcosovatchat.data.model.taisan
 
-data class TaiSanData(var taiSanList: MutableList<Infra>)
+import com.google.gson.annotations.SerializedName
+
+data class TaiSanData(@SerializedName("infrastructures")var taiSanList: MutableList<Infra>)
