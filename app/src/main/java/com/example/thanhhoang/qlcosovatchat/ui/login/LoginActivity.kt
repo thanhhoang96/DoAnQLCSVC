@@ -12,6 +12,7 @@ import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
+import com.example.thanhhoang.qlcosovatchat.extention.moveActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_login.*
@@ -75,9 +76,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handleLoginSuccess() {
-        val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("username", edtUsername.text.toString())
-        startActivity(intent)
+        moveActivity(Intent(this, MainActivity::class.java))
     }
 
     private fun handelLoginError() {
