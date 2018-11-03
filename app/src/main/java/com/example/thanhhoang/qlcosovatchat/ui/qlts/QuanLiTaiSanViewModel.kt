@@ -5,5 +5,5 @@ import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import io.reactivex.Single
 
 class QuanLiTaiSanViewModel(private val repository: Repository) {
-    fun taiSanList(authHeader: String): Single<TaiSanResponse> = repository.getTaiSan(authHeader)
+    fun taiSanList(): Single<TaiSanResponse> = repository.getTaiSan()
 }

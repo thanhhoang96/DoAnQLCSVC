@@ -8,5 +8,5 @@ import io.reactivex.Single
 interface RemoteDataSource {
     fun login(userRequest: UserRequest): Single<LoginResponse>
 
-    fun getTaiSan(authHeader: String): Single<TaiSanResponse>
+    fun getTaiSan(): Single<TaiSanResponse>
 }

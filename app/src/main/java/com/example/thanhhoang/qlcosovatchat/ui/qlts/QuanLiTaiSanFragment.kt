@@ -50,7 +50,7 @@ class QuanLiTaiSanFragment : Fragment() {
     @SuppressLint("CheckResult")
     private fun connApi() {
         viewModel = QuanLiTaiSanViewModel(repository)
-        viewModel?.taiSanList(repository.getAccessToken())?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
+        viewModel?.taiSanList()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({
                     taiSanList?.clear()
                     taiSanList?.addAll(it.data.taiSanList)

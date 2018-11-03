@@ -1,4 +1,4 @@
-package com.example.thanhhoang.qlcosovatchat.util
+package com.example.thanhhoang.qlcosovatchat.api
 
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject

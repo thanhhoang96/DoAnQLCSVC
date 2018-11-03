@@ -18,17 +18,17 @@ interface ApiService {
     fun login(@Body userRequest: UserRequest): Single<LoginResponse>
 
     @GET("/asset-management")
-    fun getTaiSan(@Header("Authorization") authHeader: String): Single<TaiSanResponse>
+    fun getTaiSan(): Single<TaiSanResponse>
 
-    companion object Factory {
-        fun create(): ApiService {
-            val retrofit = Retrofit.Builder()
-                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("http://192.168.1.15:5070/")
-                    .build()
-
-            return retrofit.create(ApiService::class.java)
-        }
-    }
+//    companion object Factory {
+//        fun create(): ApiService {
+//            val retrofit = Retrofit.Builder()
+//                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+//                    .addConverterFactory(GsonConverterFactory.create())
+//                    .baseUrl("http://192.168.1.15:5070/")
+//                    .build()
+//
+//            return retrofit.create(ApiService::class.java)
+//        }
+//    }
 }
