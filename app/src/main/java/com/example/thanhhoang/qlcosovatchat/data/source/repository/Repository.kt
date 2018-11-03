@@ -25,5 +25,5 @@ class Repository(context: Context) : LocalDataSource, RemoteDataSource {
 
     override fun getTaiSan(): Single<TaiSanResponse> = remoteRepository.getTaiSan()
 
-    fun getFullName() = localRepository.getFullName()
+    override fun getFullName(): String = localRepository.getFullName()
 }

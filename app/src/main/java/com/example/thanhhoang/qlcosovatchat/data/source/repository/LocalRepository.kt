@@ -34,9 +34,9 @@ class LocalRepository(private val context: Context) : LocalDataSource {
     @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     override fun hasAccessToken() = getAccessToken().isNotEmpty()
 
+    override fun getFullName() = pref.getString(KEY_FULL_NAME, "")
+
     private fun getAccessToken() = pref.getString(KEY_TOKEN, "")
 
     fun getUsername() = pref.getString(KEY_USER_NAME, "")
-
-    fun getFullName() = pref.getString(KEY_FULL_NAME, "")
 }
