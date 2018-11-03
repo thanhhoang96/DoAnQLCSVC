@@ -23,6 +23,7 @@ class QuanLiTaiSanFragment : Fragment() {
     private var viewModel: QuanLiTaiSanViewModel? = null
     private var taiSanList: MutableList<Infra>? = null
     private var taiSanAdapter: QuanLiTaiSanAdapter? = null
+    private val repository = Repository(activity as MainActivity)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_quan_li_tai_san, container, false)
@@ -48,8 +49,8 @@ class QuanLiTaiSanFragment : Fragment() {
 
     @SuppressLint("CheckResult")
     private fun connApi() {
-        viewModel = QuanLiTaiSanViewModel(Repository(activity as MainActivity))
-        viewModel?.taiSanList()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
+        viewModel = QuanLiTaiSanViewModel(repository)
+        viewModel?.taiSanList(repository.getAccessToken())?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({
                     taiSanList?.clear()
                     taiSanList?.addAll(it.data.taiSanList)

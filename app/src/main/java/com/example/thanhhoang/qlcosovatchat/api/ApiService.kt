@@ -9,6 +9,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 interface ApiService {
@@ -17,7 +18,7 @@ interface ApiService {
     fun login(@Body userRequest: UserRequest): Single<LoginResponse>
 
     @GET("/asset-management")
-    fun getTaiSan(): Single<TaiSanResponse>
+    fun getTaiSan(@Header("Authorization") authHeader: String): Single<TaiSanResponse>
 
     companion object Factory {
         fun create(): ApiService {

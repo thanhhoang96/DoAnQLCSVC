@@ -23,7 +23,9 @@ class Repository(context: Context) : LocalDataSource, RemoteDataSource {
 
     override fun hasAccessToken(): Boolean = localRepository.hasAccessToken()
 
-    override fun getTaiSan(): Single<TaiSanResponse> = remoteRepository.getTaiSan()
+    override fun getTaiSan(authHeader: String): Single<TaiSanResponse> = remoteRepository.getTaiSan(authHeader)
 
     override fun getFullName(): String = localRepository.getFullName()
+
+    override fun getAccessToken(): String = localRepository.getAccessToken()
 }

@@ -7,4 +7,6 @@ interface LocalDataSource {
     fun hasAccessToken(): Boolean
 
     fun getFullName(): String
+
+    fun getAccessToken(): String
 }

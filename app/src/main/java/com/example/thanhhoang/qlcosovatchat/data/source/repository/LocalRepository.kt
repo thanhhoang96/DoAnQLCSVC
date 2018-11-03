@@ -36,7 +36,7 @@ class LocalRepository(private val context: Context) : LocalDataSource {
 
     override fun getFullName() = pref.getString(KEY_FULL_NAME, "")
 
-    private fun getAccessToken() = pref.getString(KEY_TOKEN, "")
+    override fun getAccessToken() = pref.getString(KEY_TOKEN, "")
 
     fun getUsername() = pref.getString(KEY_USER_NAME, "")
 }
