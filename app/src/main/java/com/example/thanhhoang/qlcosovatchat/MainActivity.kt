@@ -1,13 +1,19 @@
 package com.example.thanhhoang.qlcosovatchat
 
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBar
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import com.example.thanhhoang.qlcosovatchat.data.source.repository.LocalRepository
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
+import com.example.thanhhoang.qlcosovatchat.extention.moveActivity
 import com.example.thanhhoang.qlcosovatchat.extention.replaceFragment
+import com.example.thanhhoang.qlcosovatchat.extention.showDialog
+import com.example.thanhhoang.qlcosovatchat.ui.login.LoginActivity
 import com.example.thanhhoang.qlcosovatchat.ui.qlkh.QuanLiKeHoachFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlts.QuanLiTaiSanFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.QuanLiYeuCauFragment
@@ -16,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private var actionBar: ActionBar? = null
     private val repository = Repository(this)
+    private val localRepository = LocalRepository(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,6 +77,14 @@ class MainActivity : AppCompatActivity() {
             replaceFragment(R.id.flContainer, QuanLiKeHoachFragment())
         }
         tvLogout.setOnClickListener {
+            showDialog(
+                    "Bạn có chắc chắn muốn đăng xuất không?",
+                    "Ok",
+                    "Huỷ",
+                    DialogInterface.OnClickListener { _, _ ->
+                        localRepository.saveAccessToken("")
+                        moveActivity(Intent(this, LoginActivity::class.java))
+                    })
             drawerLayoutContain.closeDrawer(GravityCompat.START)
         }
     }
