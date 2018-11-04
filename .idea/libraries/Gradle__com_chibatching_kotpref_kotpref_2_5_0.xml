@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.chibatching.kotpref:kotpref-2.5.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/kotpref-2.5.0.aar/af022f7dfdcfc5a1cc4ddc6c9e8e88d6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/kotpref-2.5.0.aar/af022f7dfdcfc5a1cc4ddc6c9e8e88d6/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.chibatching.kotpref/kotpref/2.5.0/44f487bb5f87868bff8a659aa9e363e726e223a4/kotpref-2.5.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

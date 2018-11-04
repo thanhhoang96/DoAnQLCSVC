@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
@@ -48,7 +47,7 @@ class QuanLiTaiSanFragment : Fragment() {
 
     @SuppressLint("CheckResult")
     private fun connApi() {
-        viewModel = QuanLiTaiSanViewModel(Repository(activity as MainActivity))
+        viewModel = QuanLiTaiSanViewModel(Repository())
         viewModel?.taiSanList()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({
                     taiSanList?.clear()

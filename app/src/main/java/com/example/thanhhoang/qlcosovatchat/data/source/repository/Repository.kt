@@ -1,6 +1,5 @@
 package com.example.thanhhoang.qlcosovatchat.data.source.repository
 
-import android.content.Context
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
@@ -8,9 +7,9 @@ import com.example.thanhhoang.qlcosovatchat.data.source.datasource.LocalDataSour
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.RemoteDataSource
 import io.reactivex.Single
 
-class Repository(context: Context) : LocalDataSource, RemoteDataSource {
+class Repository : LocalDataSource, RemoteDataSource {
 
-    private val localRepository = LocalRepository(context)
+    private val localRepository = LocalRepository()
     private val remoteRepository = RemoteRepository()
 
     override fun login(userRequest: UserRequest): Single<LoginResponse> =
