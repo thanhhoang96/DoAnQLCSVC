@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class LoginActivity : AppCompatActivity() {
-    private val viewModel = LoginViewModel(Repository(this))
+    private val viewModel = LoginViewModel(Repository())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

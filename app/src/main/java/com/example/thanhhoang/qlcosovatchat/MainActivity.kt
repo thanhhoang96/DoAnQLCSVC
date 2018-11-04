@@ -21,8 +21,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private var actionBar: ActionBar? = null
-    private val repository = Repository(this)
-    private val localRepository = LocalRepository(this)
+    private val repository = Repository()
+    private val localRepository = LocalRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
