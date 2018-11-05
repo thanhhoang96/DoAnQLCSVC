@@ -2,6 +2,7 @@ package com.example.thanhhoang.qlcosovatchat.ui.login
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -13,6 +14,7 @@ import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import com.example.thanhhoang.qlcosovatchat.extention.moveActivity
+import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_login.*
@@ -20,6 +22,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class LoginActivity : AppCompatActivity() {
     private val viewModel = LoginViewModel(Repository())
+    private var dialog: Dialog? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,10 @@ class LoginActivity : AppCompatActivity() {
         handleReceiveEvent()
     }
 
-    private fun initView() {}
+    private fun initView() {
+        dialog = DialogProgressbarUtils.showProgressDialog(this)
+        dialog?.setCancelable(false)
+    }
 
     @SuppressLint("CheckResult")
     private fun handleReceiveEvent() {
@@ -64,8 +70,10 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnLogin.setOnClickListener { _ ->
+            dialog?.show()
             viewModel.login(UserRequest(edtUsername.text.toString(), edtPassword.text.toString()))
                     .subscribeOn(Schedulers.io())
+                    .doFinally { dialog?.dismiss() }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe({ handleLoginSuccess() }, { handelLoginError() })
         }
@@ -76,6 +84,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handleLoginSuccess() {
+
         moveActivity(Intent(this, MainActivity::class.java))
     }
 

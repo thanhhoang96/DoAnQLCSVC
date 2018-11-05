@@ -1,6 +1,7 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlts
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
@@ -9,17 +10,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
+import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_change_state_qlts.view.*
 import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 
 class QuanLiTaiSanFragment : Fragment() {
+    private var dialog: Dialog? = null
+
     private var viewModel: QuanLiTaiSanViewModel? = null
     private var taiSanList: MutableList<Infra>? = null
     private var taiSanAdapter: QuanLiTaiSanAdapter? = null
@@ -30,6 +35,9 @@ class QuanLiTaiSanFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
+        dialog?.setCancelable(false)
 
         initView()
         connApi()
@@ -48,9 +56,11 @@ class QuanLiTaiSanFragment : Fragment() {
 
     @SuppressLint("CheckResult")
     private fun connApi() {
+        dialog?.show()
         viewModel = QuanLiTaiSanViewModel(Repository())
         viewModel?.taiSanList()
                 ?.subscribeOn(Schedulers.io())
+                ?.doFinally { dialog?.dismiss() }
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({
                     updateList(it)
@@ -65,14 +75,14 @@ class QuanLiTaiSanFragment : Fragment() {
         edtSearchQlts.afterTextChanged { _ ->
             val msg = edtSearchQlts.text.toString()
             if (msg.isEmpty()) {
-                viewModel?.searchTaiSan(null, null)
+                viewModel?.searchTaiSan(spState.selectedItem.toString(), null)
                         ?.subscribeOn(Schedulers.io())
                         ?.observeOn(AndroidSchedulers.mainThread())
                         ?.subscribe({
                             updateList(it)
                         }, {})
             } else {
-                viewModel?.searchTaiSan(msg, spState.selectedItem.toString())
+                viewModel?.searchTaiSan(spState.selectedItem.toString(), msg)
                         ?.subscribeOn(Schedulers.io())
                         ?.observeOn(AndroidSchedulers.mainThread())
                         ?.subscribe({
