@@ -5,6 +5,7 @@ import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -71,11 +72,13 @@ class LoginActivity : AppCompatActivity() {
 
         btnLogin.setOnClickListener { _ ->
             dialog?.show()
-            viewModel.login(UserRequest(edtUsername.text.toString(), edtPassword.text.toString()))
-                    .subscribeOn(Schedulers.io())
-                    .doFinally { dialog?.dismiss() }
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({ handleLoginSuccess() }, { handelLoginError() })
+            Handler().postDelayed({
+                viewModel.login(UserRequest(edtUsername.text.toString(), edtPassword.text.toString()))
+                        .subscribeOn(Schedulers.io())
+                        .doFinally { dialog?.dismiss() }
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({ handleLoginSuccess() }, { handelLoginError() })
+            }, 2000)
         }
     }
 

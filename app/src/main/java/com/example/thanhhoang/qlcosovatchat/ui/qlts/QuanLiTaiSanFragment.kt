@@ -3,6 +3,7 @@ package com.example.thanhhoang.qlcosovatchat.ui.qlts
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
@@ -58,13 +59,15 @@ class QuanLiTaiSanFragment : Fragment() {
     private fun connApi() {
         dialog?.show()
         viewModel = QuanLiTaiSanViewModel(Repository())
-        viewModel?.taiSanList()
-                ?.subscribeOn(Schedulers.io())
-                ?.doFinally { dialog?.dismiss() }
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribe({
-                    updateList(it)
-                }, {})
+        Handler().postDelayed({
+            viewModel?.taiSanList()
+                    ?.subscribeOn(Schedulers.io())
+                    ?.doFinally { dialog?.dismiss() }
+                    ?.observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribe({
+                        updateList(it)
+                    }, {})
+        }, 2000)
     }
 
     private fun handleListener() {
