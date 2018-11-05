@@ -17,7 +17,7 @@
     <string name="logout_label">Logout</string>
 
     <!--Quan li yeu cau screen-->
-    <string name="search_label">Search</string>
+    <string name="hint_search_label">Mã định danh</string>
     <string name="label_tieu_de_yeu_cau">Tiêu đề yêu cầu</string>
     <string name="label_ngay_tao_yeu_cau">Ngày tạo yêu cầu</string>
     <string name="label_trang_thai_yeu_cau">Trạng thái</string>
@@ -62,4 +62,11 @@
     <string name="label_luu_state">Luu</string>
     <string name="label_huy_state">Huy</string>
     <string name="label_dang_sua_chua">Dang sua chua</string>
+
+     <!--action qlts-->
+    <string-array name="state_array">
+        <item>Dang su dung</item>
+        <item>Hu hong</item>
+        <item>Dang sua chua</item>
+    </string-array>
 </resources>

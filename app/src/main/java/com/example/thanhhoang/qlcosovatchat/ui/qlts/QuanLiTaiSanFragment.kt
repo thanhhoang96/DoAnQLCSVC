@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
+import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -48,11 +49,11 @@ class QuanLiTaiSanFragment : Fragment() {
     @SuppressLint("CheckResult")
     private fun connApi() {
         viewModel = QuanLiTaiSanViewModel(Repository())
-        viewModel?.taiSanList()?.subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())
+        viewModel?.taiSanList()
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({
-                    taiSanList?.clear()
-                    taiSanList?.addAll(it.data.taiSanList)
-                    taiSanAdapter?.notifyDataSetChanged()
+                    updateList(it)
                 }, {})
     }
 
@@ -61,8 +62,23 @@ class QuanLiTaiSanFragment : Fragment() {
             edtSearchQlts.setText("")
         }
 
-        edtSearchQlts.afterTextChanged {
-
+        edtSearchQlts.afterTextChanged { _ ->
+            val msg = edtSearchQlts.text.toString()
+            if (msg.isEmpty()) {
+                viewModel?.searchTaiSan(null, null)
+                        ?.subscribeOn(Schedulers.io())
+                        ?.observeOn(AndroidSchedulers.mainThread())
+                        ?.subscribe({
+                            updateList(it)
+                        }, {})
+            } else {
+                viewModel?.searchTaiSan(msg, spState.selectedItem.toString())
+                        ?.subscribeOn(Schedulers.io())
+                        ?.observeOn(AndroidSchedulers.mainThread())
+                        ?.subscribe({
+                            updateList(it)
+                        }, {})
+            }
         }
     }
 
@@ -99,5 +115,11 @@ class QuanLiTaiSanFragment : Fragment() {
         mDialogView.btnHuy.setOnClickListener {
             mAlertDialog?.dismiss()
         }
+    }
+
+    private fun updateList(taiSan: TaiSanResponse) {
+        taiSanList?.clear()
+        taiSanList?.addAll(taiSan.data.taiSanList)
+        taiSanAdapter?.notifyDataSetChanged()
     }
 }

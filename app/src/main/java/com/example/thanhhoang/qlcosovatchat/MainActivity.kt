@@ -9,10 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.LocalRepository
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
-import com.example.thanhhoang.qlcosovatchat.extention.addFragment
-import com.example.thanhhoang.qlcosovatchat.extention.moveActivity
-import com.example.thanhhoang.qlcosovatchat.extention.replaceFragment
-import com.example.thanhhoang.qlcosovatchat.extention.showDialog
+import com.example.thanhhoang.qlcosovatchat.extention.*
 import com.example.thanhhoang.qlcosovatchat.ui.login.LoginActivity
 import com.example.thanhhoang.qlcosovatchat.ui.qlkh.QuanLiKeHoachFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlts.QuanLiTaiSanFragment
@@ -31,6 +28,12 @@ class MainActivity : AppCompatActivity() {
         initView()
         updateView()
         handleListener()
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        if (supportFragmentManager.backStackEntryCount > 1) popBackStackFragment()
+        else moveTaskToBack(true)
     }
 
     private fun initView() {

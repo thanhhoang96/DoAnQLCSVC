@@ -13,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -21,6 +22,9 @@ interface ApiService {
 
     @GET("/asset-management")
     fun getTaiSan(): Single<TaiSanResponse>
+
+    @GET("/asset-management")
+    fun searchTaiSan(@Query("action") state: String?, @Query("keyword") maDinhDanh: String?): Single<TaiSanResponse>
 
     companion object Factory {
         fun create(): ApiService {

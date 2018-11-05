@@ -18,9 +18,11 @@ class Repository : LocalDataSource, RemoteDataSource {
                 localRepository.saveInfoUser(it.data.user.userName, it.data.user.fullName)
             }
 
-    override fun hasAccessToken(): Boolean = localRepository.hasAccessToken()
-
     override fun getTaiSan(): Single<TaiSanResponse> = remoteRepository.getTaiSan()
+
+    override fun searchTaiSan(state: String?, maDinhDanh: String?): Single<TaiSanResponse> = remoteRepository.searchTaiSan(state, maDinhDanh)
+
+    override fun hasAccessToken(): Boolean = localRepository.hasAccessToken()
 
     override fun getFullName(): String = localRepository.getFullName()
 }

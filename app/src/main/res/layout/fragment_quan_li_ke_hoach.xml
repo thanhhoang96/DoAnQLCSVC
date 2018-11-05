@@ -19,7 +19,7 @@
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:drawablePadding="10dp"
             android:drawableStart="@android:drawable/ic_menu_search"
-            android:hint="@string/search_label"
+            android:hint="@string/hint_search_label"
             android:inputType="text"
             android:padding="10dp"
             android:textColor="@color/colorBlueMedium" />

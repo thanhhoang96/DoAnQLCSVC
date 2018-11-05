@@ -14,4 +14,6 @@ class RemoteRepository : RemoteDataSource {
     override fun login(userRequest: UserRequest): Single<LoginResponse> = apiService.login(userRequest)
 
     override fun getTaiSan(): Single<TaiSanResponse> = apiService.getTaiSan()
+
+    override fun searchTaiSan(state: String?, maDinhDanh: String?): Single<TaiSanResponse> = apiService.searchTaiSan(state, maDinhDanh)
 }

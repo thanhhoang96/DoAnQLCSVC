@@ -6,4 +6,5 @@ import io.reactivex.Single
 
 class QuanLiTaiSanViewModel(private val repository: Repository) {
     fun taiSanList(): Single<TaiSanResponse> = repository.getTaiSan()
+    fun searchTaiSan(state: String?, maDinhDanh: String?) = repository.searchTaiSan(state, maDinhDanh)
 }
