@@ -1,6 +1,8 @@
 package com.example.thanhhoang.qlcosovatchat.api
 
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
+import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Equipment
+import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.util.Pref
@@ -10,14 +12,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
-    @POST("/login/")
+    @POST("/login")
     fun login(@Body userRequest: UserRequest): Single<LoginResponse>
 
     @GET("/asset-management")
@@ -25,6 +24,9 @@ interface ApiService {
 
     @GET("/asset-management")
     fun searchTaiSan(@Query("action") state: String?, @Query("keyword") maDinhDanh: String?): Single<TaiSanResponse>
+
+    @PATCH("/asset-management/status")
+    fun changeStatusTaiSan(@Body unitEquipmentId: EquipmentId): Single<TaiSanResponse>
 
     companion object Factory {
         fun create(): ApiService {
@@ -45,7 +47,7 @@ interface ApiService {
                     .client(builder.build())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("http://192.168.1.15:5070/")
+                    .baseUrl("http://192.168.1.15:5070")
                     .build()
 
             return retrofit.create(ApiService::class.java)

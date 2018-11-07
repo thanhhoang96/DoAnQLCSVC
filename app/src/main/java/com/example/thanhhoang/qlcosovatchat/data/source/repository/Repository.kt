@@ -1,6 +1,7 @@
 package com.example.thanhhoang.qlcosovatchat.data.source.repository
 
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
+import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.LocalDataSource
@@ -21,6 +22,8 @@ class Repository : LocalDataSource, RemoteDataSource {
     override fun getTaiSan(): Single<TaiSanResponse> = remoteRepository.getTaiSan()
 
     override fun searchTaiSan(state: String?, maDinhDanh: String?): Single<TaiSanResponse> = remoteRepository.searchTaiSan(state, maDinhDanh)
+
+    override fun changeStatusTaiSan(equipmentId: EquipmentId): Single<TaiSanResponse> = remoteRepository.changeStatusTaiSan(equipmentId)
 
     override fun hasAccessToken(): Boolean = localRepository.hasAccessToken()
 

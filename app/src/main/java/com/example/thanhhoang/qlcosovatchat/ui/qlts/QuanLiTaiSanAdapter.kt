@@ -36,7 +36,7 @@ class QuanLiTaiSanAdapter(private var infraList: MutableList<Infra>) : RecyclerV
                 tvMaDinhDanhQlts.text = infra.maDinhDanh
                 tvThietBiQlts.text = infra.equipment.nameNo
                 tvNhomThietBiQlts.text = infra.groupEquipment.name
-                tvTrangThaiQlts.text = if (infra.unitEquipmentState == "HH") "Hu hong" else if (infra.unitEquipmentState == "DSD") "Dang su dung" else "Dang sua chua"
+                tvTrangThaiQlts.text = if (infra.unitEquipmentState == "HH") "Hu hong" else if (infra.unitEquipmentState == "DSD") "Dang su dung" else ""
                 if (tvTrangThaiQlts.text == "Dang su dung") {
                     tvTrangThaiQlts.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
                 } else {

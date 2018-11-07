@@ -7,12 +7,14 @@ import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
+import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
@@ -77,8 +79,10 @@ class QuanLiTaiSanFragment : Fragment() {
 
         edtSearchQlts.afterTextChanged { _ ->
             val msg = edtSearchQlts.text.toString()
+            val status = if (spState.selectedItem.toString() == "Hu hong") "HH" else
+                (if (spState.selectedItem.toString() == "Dang su dung") "DSD" else "DSC")
             if (msg.isEmpty()) {
-                viewModel?.searchTaiSan(spState.selectedItem.toString(), null)
+                viewModel?.searchTaiSan(status, null)
                         ?.subscribeOn(Schedulers.io())
                         ?.observeOn(AndroidSchedulers.mainThread())
                         ?.subscribe({
@@ -96,7 +100,7 @@ class QuanLiTaiSanFragment : Fragment() {
     }
 
     private fun handleListenerFromInterface() {
-        taiSanAdapter?.sentPositionItemQlts = {
+        taiSanAdapter?.sentPositionItemQlts = { it ->
             showDialogChangeState(it)
         }
     }
@@ -118,6 +122,7 @@ class QuanLiTaiSanFragment : Fragment() {
             else -> mDialogView.rbDangSuaChuaState.isChecked = true
         }
 
+        // handle Save data when click button Luu
         mDialogView.btnLuu.setOnClickListener {
             taiSanList?.get(position)?.unitEquipmentState =
                     if (mDialogView.rbHuHongState.isChecked) "HH" else if (mDialogView.rbDangSuDungState.isChecked) "DSD" else "DSC"
@@ -125,8 +130,20 @@ class QuanLiTaiSanFragment : Fragment() {
             mAlertDialog?.dismiss()
         }
 
+        // close dialog when click button huy
         mDialogView.btnHuy.setOnClickListener {
             mAlertDialog?.dismiss()
+        }
+
+        // handle dialog dismiss
+        mAlertDialog?.setOnDismissListener { _ ->
+            viewModel?.changeStatusTaiSan(EquipmentId(taiSanList?.get(position)?.id.toString()))
+                    ?.subscribeOn(Schedulers.io())
+                    ?.observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribe({
+                        Log.d("xxxx", "change state done")
+                    }, {})
+
         }
     }
 
