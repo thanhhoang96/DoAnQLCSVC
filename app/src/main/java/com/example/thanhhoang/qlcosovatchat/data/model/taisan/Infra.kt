@@ -6,6 +6,6 @@ data class Infra(
         @SerializedName("identifierNo") val maDinhDanh: String,
         @SerializedName("_id") val id: String,
         val equipment: Equipment,
-        var unitEquipmentState: String,
+        var unitEquipmentStatus: String,
         val groupEquipment: GroupEquipment
 )

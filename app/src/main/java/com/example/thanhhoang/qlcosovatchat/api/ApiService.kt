@@ -26,7 +26,7 @@ interface ApiService {
     fun searchTaiSan(@Query("action") state: String?, @Query("keyword") maDinhDanh: String?): Single<TaiSanResponse>
 
     @PATCH("/asset-management/status")
-    fun changeStatusTaiSan(@Body unitEquipmentId: EquipmentId): Single<TaiSanResponse>
+    fun changeStatusTaiSan(@Body equipmentId: EquipmentId): Single<TaiSanResponse>
 
     companion object Factory {
         fun create(): ApiService {

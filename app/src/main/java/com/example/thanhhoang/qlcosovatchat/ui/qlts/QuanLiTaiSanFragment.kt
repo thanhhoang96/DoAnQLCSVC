@@ -117,15 +117,14 @@ class QuanLiTaiSanFragment : Fragment() {
         val mAlertDialog = mBuilder?.show()
 
         when {
-            taiSanList?.get(position)?.unitEquipmentState == "DSD" -> mDialogView.rbDangSuDungState.isChecked = true
-            taiSanList?.get(position)?.unitEquipmentState == "HH" -> mDialogView.rbHuHongState.isChecked = true
-            else -> mDialogView.rbDangSuaChuaState.isChecked = true
+            taiSanList?.get(position)?.unitEquipmentStatus == "DSD" -> mDialogView.rbDangSuDungState.isChecked = true
+            taiSanList?.get(position)?.unitEquipmentStatus == "HH" -> mDialogView.rbHuHongState.isChecked = true
         }
 
         // handle Save data when click button Luu
         mDialogView.btnLuu.setOnClickListener {
-            taiSanList?.get(position)?.unitEquipmentState =
-                    if (mDialogView.rbHuHongState.isChecked) "HH" else if (mDialogView.rbDangSuDungState.isChecked) "DSD" else "DSC"
+            taiSanList?.get(position)?.unitEquipmentStatus =
+                    if (mDialogView.rbHuHongState.isChecked) "HH" else "DSD"
             taiSanAdapter?.notifyDataSetChanged()
             mAlertDialog?.dismiss()
         }
@@ -140,10 +139,7 @@ class QuanLiTaiSanFragment : Fragment() {
             viewModel?.changeStatusTaiSan(EquipmentId(taiSanList?.get(position)?.id.toString()))
                     ?.subscribeOn(Schedulers.io())
                     ?.observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribe({
-                        Log.d("xxxx", "change state done")
-                    }, {})
-
+                    ?.subscribe({}, {})
         }
     }
 
