@@ -32,7 +32,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/ic_drop_down"
-            android:contentDescription="@null"/>
+            android:contentDescription="@null" />
 
         <EditText
             android:id="@+id/edtSearchQlts"
@@ -45,10 +45,12 @@
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:drawablePadding="5dp"
             android:hint="@string/hint_search_label"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:padding="10dp"
             android:textColor="@color/colorBlueMedium"
-            tools:ignore="Autofill" />
+            android:windowSoftInputMode="stateHidden"
+            tools:targetApi="o" />
 
         <ImageView
             android:id="@+id/imgClearInputQlts"

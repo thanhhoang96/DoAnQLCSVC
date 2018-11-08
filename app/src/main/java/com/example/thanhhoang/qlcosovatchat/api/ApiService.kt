@@ -5,6 +5,7 @@ import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Equipment
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
+import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
 import com.example.thanhhoang.qlcosovatchat.util.Pref
 import io.reactivex.Single
 import okhttp3.OkHttpClient
@@ -15,10 +16,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
 
 interface ApiService {
-
+    // api login
     @POST("/login")
     fun login(@Body userRequest: UserRequest): Single<LoginResponse>
 
+    // api quan li tai san
     @GET("/asset-management")
     fun getTaiSan(): Single<TaiSanResponse>
 
@@ -27,6 +29,10 @@ interface ApiService {
 
     @PATCH("/asset-management/status")
     fun changeStatusTaiSan(@Body equipmentId: EquipmentId): Single<TaiSanResponse>
+
+    // api quan li yeu cau
+    @GET("/proposal")
+    fun getAllYeuCau(): Single<YeuCauResponse>
 
     companion object Factory {
         fun create(): ApiService {

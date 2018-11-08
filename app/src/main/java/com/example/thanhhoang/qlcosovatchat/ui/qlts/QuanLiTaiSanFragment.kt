@@ -7,7 +7,6 @@ import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -144,8 +143,10 @@ class QuanLiTaiSanFragment : Fragment() {
     }
 
     private fun updateList(taiSan: TaiSanResponse) {
-        taiSanList?.clear()
-        taiSanList?.addAll(taiSan.data.taiSanList)
+        taiSanList?.apply {
+            clear()
+            addAll(taiSan.data.taiSanList)
+        }
         taiSanAdapter?.notifyDataSetChanged()
     }
 }

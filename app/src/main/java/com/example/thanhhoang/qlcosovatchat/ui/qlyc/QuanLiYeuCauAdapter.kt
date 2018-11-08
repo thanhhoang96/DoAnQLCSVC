@@ -38,9 +38,9 @@ class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : Recycle
 
         fun onBind(yeuCau: YeuCau) {
             itemView.run {
-                tvTieuDeYc.text = yeuCau.tieuDeYc
-                tvNgayTaoYc.text = yeuCau.ngayTaoYc
-                tvTrangThaiYc.text = yeuCau.trangThaiYc
+                tvTieuDeYc.text = yeuCau.tieuDeYC
+                tvNgayTaoYc.text = yeuCau.ngayTaoYC
+                tvTrangThaiYc.text = if(yeuCau.trangThaiYC == 0) "Chua duyet" else ( if(yeuCau.trangThaiYC == 1) "Da xac nhan" else "Da duyet")
                 if (tvTrangThaiYc.text == "Da duyet") {
                     tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_light))
                     llActionQlyc.visibility = View.GONE

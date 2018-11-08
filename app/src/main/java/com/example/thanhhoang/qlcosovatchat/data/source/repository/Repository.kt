@@ -4,6 +4,7 @@ import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
+import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.LocalDataSource
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.RemoteDataSource
 import io.reactivex.Single
@@ -28,4 +29,6 @@ class Repository : LocalDataSource, RemoteDataSource {
     override fun hasAccessToken(): Boolean = localRepository.hasAccessToken()
 
     override fun getFullName(): String = localRepository.getFullName()
+
+    override fun getAllYeuCau(): Single<YeuCauResponse> = remoteRepository.getAllYeuCau()
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/llQlyc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -16,13 +17,16 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:background="@drawable/bg_search_qlts"
+            android:drawableStart="@android:drawable/ic_menu_search"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:drawablePadding="10dp"
-            android:drawableStart="@android:drawable/ic_menu_search"
             android:hint="@string/hint_search_label"
+            android:importantForAutofill="no"
             android:inputType="text"
             android:padding="10dp"
-            android:textColor="@color/colorBlueMedium" />
+            android:textColor="@color/colorBlueMedium"
+            android:windowSoftInputMode="stateHidden"
+            tools:targetApi="o" />
 
         <ImageView
             android:id="@+id/imgClearInputQlkh"
@@ -41,9 +45,9 @@
         android:id="@+id/recyclerViewQlkh"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp"
         android:layout_marginEnd="3dp"
         android:layout_marginRight="3dp"
+        android:layout_marginBottom="10dp"
         android:scrollbarSize="4sp"
         android:scrollbarThumbVertical="@android:color/holo_red_light"
         android:scrollbars="vertical" />

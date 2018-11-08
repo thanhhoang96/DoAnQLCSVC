@@ -2,17 +2,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_height="wrap_content"
     android:background="@android:color/white"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/llContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="5dp"
-        android:layout_centerVertical="true"
         android:paddingTop="5dp"
+        android:paddingBottom="5dp"
         android:weightSum="4">
 
         <TextView
@@ -21,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
+            android:autoLink="email"
             android:gravity="center"
             android:textColor="#29b6f6"
             android:textSize="14sp"
@@ -88,9 +90,9 @@
     </LinearLayout>
 
     <View
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:background="@color/colorGrayDark" />

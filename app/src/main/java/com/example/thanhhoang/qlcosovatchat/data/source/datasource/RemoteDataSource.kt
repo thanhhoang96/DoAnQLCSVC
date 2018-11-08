@@ -4,6 +4,7 @@ import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
+import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
 import io.reactivex.Single
 
 interface RemoteDataSource {
@@ -14,4 +15,6 @@ interface RemoteDataSource {
     fun getTaiSan(): Single<TaiSanResponse>
 
     fun changeStatusTaiSan(equipmentId: EquipmentId): Single<TaiSanResponse>
+
+    fun getAllYeuCau(): Single<YeuCauResponse>
 }
