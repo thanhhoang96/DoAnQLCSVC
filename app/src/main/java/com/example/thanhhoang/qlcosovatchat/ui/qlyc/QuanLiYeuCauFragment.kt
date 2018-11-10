@@ -12,17 +12,17 @@ import android.widget.LinearLayout
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCau
-import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
-import com.example.thanhhoang.qlcosovatchat.ui.qlts.QuanLiTaiSanViewModel
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi.TaoMoiYeuCauFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_quan_li_yeu_cau.*
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class QuanLiYeuCauFragment : Fragment() {
     private var dialog: Dialog? = null
     private var viewModel: QuanLiYeuCauViewModel? = null
@@ -36,17 +36,15 @@ class QuanLiYeuCauFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        Helpers.hideSoftKeyboard(activity as MainActivity, (activity as MainActivity).currentFocus)
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 
-        initData()
         initView()
         connApi()
         handleListener()
         handleListenerFromInterface()
     }
-
-    private fun initData() {}
 
     private fun initView() {
         yeuCauList = arrayListOf()
@@ -57,7 +55,7 @@ class QuanLiYeuCauFragment : Fragment() {
         }
     }
 
-    private fun connApi(){
+    private fun connApi() {
         dialog?.show()
         viewModel = QuanLiYeuCauViewModel(Repository())
         Handler().postDelayed({
@@ -81,14 +79,14 @@ class QuanLiYeuCauFragment : Fragment() {
         }
     }
 
-    private fun handleListenerFromInterface(){
+    private fun handleListenerFromInterface() {
 
     }
 
-    private fun updateList(yeuCauResponse: YeuCauResponse) {
+    private fun updateList(responseData: YeuCauResponse) {
         yeuCauList?.apply {
             clear()
-            addAll(yeuCauResponse.data.yeuCauList)
+            addAll(responseData.data.yeuCauList)
         }
         yeuCauAdapter?.notifyDataSetChanged()
     }

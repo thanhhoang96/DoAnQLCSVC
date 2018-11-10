@@ -1,4 +1,9 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlkh
 
-class QuanLiKeHoachViewModel {
+import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
+import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
+import io.reactivex.Single
+
+class QuanLiKeHoachViewModel(private var repository: Repository) {
+    fun getAllKeHoach(): Single<KeHoachResponse> = repository.getAllKeHoach()
 }

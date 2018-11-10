@@ -1,5 +1,6 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlyc
 
+import android.graphics.Paint
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -7,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCau
+import com.example.thanhhoang.qlcosovatchat.util.FormatUtils
 import kotlinx.android.synthetic.main.item_qlyc.view.*
 
 class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : RecyclerView.Adapter<QuanLiYeuCauAdapter.QuanLiYeuCauVH>() {
@@ -38,8 +40,11 @@ class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : Recycle
 
         fun onBind(yeuCau: YeuCau) {
             itemView.run {
-                tvTieuDeYc.text = yeuCau.tieuDeYC
-                tvNgayTaoYc.text = yeuCau.ngayTaoYC
+                tvTieuDeYc.apply {
+                    text = yeuCau.tieuDeYC
+                    paintFlags = Paint.UNDERLINE_TEXT_FLAG
+                }
+                tvNgayTaoYc.text = FormatUtils.formatDisplayDate(yeuCau.ngayTaoYC)
                 tvTrangThaiYc.text = if(yeuCau.trangThaiYC == 0) "Chua duyet" else ( if(yeuCau.trangThaiYC == 1) "Da xac nhan" else "Da duyet")
                 if (tvTrangThaiYc.text == "Da duyet") {
                     tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_light))

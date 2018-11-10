@@ -3,6 +3,7 @@ package com.example.thanhhoang.qlcosovatchat.data.source.repository
 import com.example.thanhhoang.qlcosovatchat.api.ApiService
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
+import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
@@ -22,4 +23,6 @@ class RemoteRepository : RemoteDataSource {
     override fun changeStatusTaiSan(equipmentId: EquipmentId): Single<TaiSanResponse> = apiService.changeStatusTaiSan(equipmentId)
 
     override fun getAllYeuCau(): Single<YeuCauResponse> = apiService.getAllYeuCau()
+
+    override fun getAllKeHoach(): Single<KeHoachResponse> = apiService.getAllKeHoach()
 }

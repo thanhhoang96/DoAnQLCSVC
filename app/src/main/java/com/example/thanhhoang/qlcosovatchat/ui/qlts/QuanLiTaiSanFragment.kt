@@ -19,14 +19,15 @@ import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_change_state_qlts.view.*
 import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 
+@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class QuanLiTaiSanFragment : Fragment() {
     private var dialog: Dialog? = null
-
     private var viewModel: QuanLiTaiSanViewModel? = null
     private var taiSanList: MutableList<Infra>? = null
     private var taiSanAdapter: QuanLiTaiSanAdapter? = null
@@ -38,6 +39,7 @@ class QuanLiTaiSanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Helpers.hideSoftKeyboard(activity as MainActivity, (activity as MainActivity).currentFocus)
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 
@@ -142,10 +144,10 @@ class QuanLiTaiSanFragment : Fragment() {
         }
     }
 
-    private fun updateList(taiSan: TaiSanResponse) {
+    private fun updateList(responseData: TaiSanResponse) {
         taiSanList?.apply {
             clear()
-            addAll(taiSan.data.taiSanList)
+            addAll(responseData.data.taiSanList)
         }
         taiSanAdapter?.notifyDataSetChanged()
     }

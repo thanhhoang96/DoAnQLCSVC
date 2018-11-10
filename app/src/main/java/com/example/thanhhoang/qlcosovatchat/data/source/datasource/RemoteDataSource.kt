@@ -2,6 +2,7 @@ package com.example.thanhhoang.qlcosovatchat.data.source.datasource
 
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
+import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
@@ -17,4 +18,6 @@ interface RemoteDataSource {
     fun changeStatusTaiSan(equipmentId: EquipmentId): Single<TaiSanResponse>
 
     fun getAllYeuCau(): Single<YeuCauResponse>
+
+    fun getAllKeHoach():Single<KeHoachResponse>
 }

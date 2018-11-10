@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
+import com.example.thanhhoang.qlcosovatchat.util.FormatUtils
 import kotlinx.android.synthetic.main.item_qlkh.view.*
 
 class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : RecyclerView.Adapter<QuanLiKeHoachAdapter.QuanLiKeHoachVH>() {
@@ -33,12 +34,12 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
 
         fun onBind(keHoach: KeHoach) {
             itemView.run {
-                tvMaQlkh.text = keHoach.maKeHoach
-                tvTenKhQlkh.text = keHoach.tenKeHoach
-                tvLoaiKhQlkh.text = keHoach.loaiKeHoach
-                tvNgayTaoQlkh.text = keHoach.ngayTaoKh
-                tvTrangThaiQlKh.text = keHoach.trangThai
-                if (tvTrangThaiQlKh.text == "Da xac nhan") {
+                tvTenKhQlkh.text = keHoach.tieuDeKeHoach
+                tvLoaiKhQlkh.text = keHoach.loaiKeHoach.name
+                tvNgayTaoQlkh.text = FormatUtils.formatDisplayDate(keHoach.ngayTaoKeHoach)
+                tvTrangThaiQlKh.text = if (keHoach.trangThaiKeHoach == 0) "Chua duyet" else (if (keHoach.trangThaiKeHoach == 1) "Da xac nhan" else "Da duyet")
+
+                if (tvTrangThaiQlKh.text == "Da duyet") {
                     tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
                     tvActionQlkh.visibility = View.GONE
                 } else {

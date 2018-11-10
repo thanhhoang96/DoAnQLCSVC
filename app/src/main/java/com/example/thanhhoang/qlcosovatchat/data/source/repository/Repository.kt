@@ -2,6 +2,7 @@ package com.example.thanhhoang.qlcosovatchat.data.source.repository
 
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
+import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
@@ -31,4 +32,6 @@ class Repository : LocalDataSource, RemoteDataSource {
     override fun getFullName(): String = localRepository.getFullName()
 
     override fun getAllYeuCau(): Single<YeuCauResponse> = remoteRepository.getAllYeuCau()
+
+    override fun getAllKeHoach(): Single<KeHoachResponse> = remoteRepository.getAllKeHoach()
 }

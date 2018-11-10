@@ -3,6 +3,7 @@ package com.example.thanhhoang.qlcosovatchat.api
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Equipment
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
+import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
@@ -20,7 +21,9 @@ interface ApiService {
     @POST("/login")
     fun login(@Body userRequest: UserRequest): Single<LoginResponse>
 
-    // api quan li tai san
+    /*
+    * call api quan li tai san
+    * */
     @GET("/asset-management")
     fun getTaiSan(): Single<TaiSanResponse>
 
@@ -30,9 +33,17 @@ interface ApiService {
     @PATCH("/asset-management/status")
     fun changeStatusTaiSan(@Body equipmentId: EquipmentId): Single<TaiSanResponse>
 
-    // api quan li yeu cau
+    /*
+    * api quan li yeu cau
+    * */
     @GET("/proposal")
     fun getAllYeuCau(): Single<YeuCauResponse>
+
+    /*
+    * api quan li ke hoach
+    * */
+    @GET("/plan")
+    fun getAllKeHoach(): Single<KeHoachResponse>
 
     companion object Factory {
         fun create(): ApiService {
