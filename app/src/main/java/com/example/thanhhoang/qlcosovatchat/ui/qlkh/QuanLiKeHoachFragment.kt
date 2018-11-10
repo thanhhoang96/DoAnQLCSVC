@@ -16,7 +16,6 @@ import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
 import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
-import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_quan_li_ke_hoach.*
@@ -35,7 +34,6 @@ class QuanLiKeHoachFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Helpers.hideSoftKeyboard(activity as MainActivity, (activity as MainActivity).currentFocus)
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 

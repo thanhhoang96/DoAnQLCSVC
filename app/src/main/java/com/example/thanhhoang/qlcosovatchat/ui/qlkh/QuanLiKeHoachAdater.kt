@@ -1,5 +1,6 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlkh
 
+import android.graphics.Paint
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -34,7 +35,12 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
 
         fun onBind(keHoach: KeHoach) {
             itemView.run {
-                tvTenKhQlkh.text = keHoach.tieuDeKeHoach
+                tvTenKhQlkh.apply {
+                    text = keHoach.tieuDeKeHoach
+                    setTextColor(ContextCompat.getColor(context, R.color.colorBlueMedium))
+                    paintFlags = Paint.UNDERLINE_TEXT_FLAG
+                }
+
                 tvLoaiKhQlkh.text = keHoach.loaiKeHoach.name
                 tvNgayTaoQlkh.text = FormatUtils.formatDisplayDate(keHoach.ngayTaoKeHoach)
                 tvTrangThaiQlKh.text = if (keHoach.trangThaiKeHoach == 0) "Chua duyet" else (if (keHoach.trangThaiKeHoach == 1) "Da xac nhan" else "Da duyet")
