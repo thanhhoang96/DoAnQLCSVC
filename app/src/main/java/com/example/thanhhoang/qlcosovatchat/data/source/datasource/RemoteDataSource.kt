@@ -19,5 +19,7 @@ interface RemoteDataSource {
 
     fun getAllYeuCau(): Single<YeuCauResponse>
 
+    fun searchYeuCau(state: Int?, tieuDe: String?) : Single<YeuCauResponse>
+
     fun getAllKeHoach():Single<KeHoachResponse>
 }

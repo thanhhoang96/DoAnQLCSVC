@@ -39,6 +39,9 @@ interface ApiService {
     @GET("/proposal")
     fun getAllYeuCau(): Single<YeuCauResponse>
 
+    @GET("/proposal")
+    fun searchYeuCau(@Query("action") state: Int?, @Query("keyword") tieuDe: String?): Single<YeuCauResponse>
+
     /*
     * api quan li ke hoach
     * */

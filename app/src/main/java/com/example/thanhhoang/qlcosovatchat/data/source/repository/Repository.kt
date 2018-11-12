@@ -33,5 +33,7 @@ class Repository : LocalDataSource, RemoteDataSource {
 
     override fun getAllYeuCau(): Single<YeuCauResponse> = remoteRepository.getAllYeuCau()
 
+    override fun searchYeuCau(state: Int?, tieuDe: String?): Single<YeuCauResponse> = remoteRepository.searchYeuCau(state, tieuDe)
+
     override fun getAllKeHoach(): Single<KeHoachResponse> = remoteRepository.getAllKeHoach()
 }

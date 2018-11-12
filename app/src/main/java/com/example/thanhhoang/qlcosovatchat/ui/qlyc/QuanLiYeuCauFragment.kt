@@ -15,6 +15,7 @@ import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCau
 import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
+import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi.TaoMoiYeuCauFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -75,10 +76,31 @@ class QuanLiYeuCauFragment : Fragment() {
         imgClearInputQlyc.setOnClickListener {
             edtSearchQlyc.setText("")
         }
+
+        edtSearchQlyc.afterTextChanged { _ ->
+            val msg = edtSearchQlyc.text.toString()
+            val status = if (spStateQlyc.selectedItem.toString() == "Chua duyet") 0 else
+                (if (spStateQlyc.selectedItem.toString() == "Da xac nhan") 1 else 2)
+            if (msg.isEmpty()) {
+                viewModel?.searchYeuCau(status, null)
+                        ?.subscribeOn(Schedulers.io())
+                        ?.observeOn(AndroidSchedulers.mainThread())
+                        ?.subscribe({
+                            updateList(it)
+                        }, {})
+            } else {
+                viewModel?.searchYeuCau(status, msg)
+                        ?.subscribeOn(Schedulers.io())
+                        ?.observeOn(AndroidSchedulers.mainThread())
+                        ?.subscribe({
+                            updateList(it)
+                        }, {})
+            }
+        }
     }
 
     private fun handleListenerFromInterface() {
-
+        //todo click item
     }
 
     private fun updateList(responseData: YeuCauResponse) {

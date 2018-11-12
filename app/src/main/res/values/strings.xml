@@ -62,11 +62,19 @@
     <string name="label_luu_state">Luu</string>
     <string name="label_huy_state">Huy</string>
     <string name="label_dang_sua_chua">Dang sua chua</string>
+    <string name="hint_tieu_de_qlyc">Tiêu đề</string>
 
-     <!--action qlts-->
+    <!--State qlts-->
     <string-array name="state_array">
         <item>Dang su dung</item>
         <item>Hu hong</item>
         <item>Dang sua chua</item>
+    </string-array>
+
+    <!--State qlyc-->
+    <string-array name="state_array_qlyc">
+        <item>Chua duyet</item>
+        <item>Da xac nhan</item>
+        <item>Da duyet</item>
     </string-array>
 </resources>
