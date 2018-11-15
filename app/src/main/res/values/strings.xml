@@ -66,6 +66,7 @@
 
     <!--State qlts-->
     <string-array name="state_array">
+        <item>Tat ca</item>
         <item>Dang su dung</item>
         <item>Hu hong</item>
         <item>Dang sua chua</item>
@@ -73,6 +74,7 @@
 
     <!--State qlyc-->
     <string-array name="state_array_qlyc">
+        <item>Tat ca</item>
         <item>Chua duyet</item>
         <item>Da xac nhan</item>
         <item>Da duyet</item>

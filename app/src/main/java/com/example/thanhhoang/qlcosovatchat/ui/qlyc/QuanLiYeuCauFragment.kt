@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -100,7 +101,13 @@ class QuanLiYeuCauFragment : Fragment() {
     }
 
     private fun handleListenerFromInterface() {
-        //todo click item
+        yeuCauAdapter?.sentPositionItemSuaYeuCau = {
+
+        }
+
+        yeuCauAdapter?.sentPositionItemXoaYeuCau = {
+            showDialogXoaYc(it)
+        }
     }
 
     private fun updateList(responseData: YeuCauResponse) {
@@ -109,5 +116,20 @@ class QuanLiYeuCauFragment : Fragment() {
             addAll(responseData.data.yeuCauList)
         }
         yeuCauAdapter?.notifyDataSetChanged()
+    }
+
+    private fun showDialogXoaYc(position: Int) {
+        val dialogBuilder = AlertDialog.Builder(activity as MainActivity)
+        dialogBuilder.setTitle("Xoá yêu cầu")
+        dialogBuilder.setMessage("Bạn có chắc muốn xoá yêu cầu ${yeuCauList?.get(position)?.tieuDeYC} này không?")
+        dialogBuilder.setPositiveButton("Ok") { dialog, _ ->
+            yeuCauList?.remove(yeuCauList?.get(position))
+            yeuCauAdapter?.notifyDataSetChanged()
+            dialog.dismiss()
+
+        }
+        dialogBuilder.setNegativeButton("Huỷ") { dialog, _ ->
+            dialog.dismiss()
+        }
     }
 }

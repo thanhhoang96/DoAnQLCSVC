@@ -11,9 +11,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
-import com.example.thanhhoang.qlcosovatchat.R.id.spState
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
 import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
@@ -78,30 +78,39 @@ class QuanLiTaiSanFragment : Fragment() {
         }
 
         edtSearchQlts.afterTextChanged { _ ->
-            val msg = edtSearchQlts.text.toString()
-            val status = if (spStateQlts.selectedItem.toString() == "Hu hong") "HH" else
-                (if (spStateQlts.selectedItem.toString() == "Dang su dung") "DSD" else "DSC")
-            if (msg.isEmpty()) {
-                viewModel?.searchTaiSan(status, null)
-                        ?.subscribeOn(Schedulers.io())
-                        ?.observeOn(AndroidSchedulers.mainThread())
-                        ?.subscribe({
-                            updateList(it)
-                        }, {})
-            } else {
-                viewModel?.searchTaiSan(status, msg)
-                        ?.subscribeOn(Schedulers.io())
-                        ?.observeOn(AndroidSchedulers.mainThread())
-                        ?.subscribe({
-                            updateList(it)
-                        }, {})
-            }
+            searchApi()
+        }
+
+        spStateQlts.setOnItemClickListener { parent, view, position, id ->
+            Toast.makeText(activity, spStateQlts.getChildAt(position).toString(), Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun handleListenerFromInterface() {
         taiSanAdapter?.sentPositionItemQlts = { it ->
             showDialogChangeState(it)
+        }
+    }
+
+    @SuppressLint("CheckResult")
+    private fun searchApi() {
+        val msg = edtSearchQlts.text.toString()
+        val status = if (spStateQlts.selectedItem.toString() == "Hu hong") "HH" else
+            (if (spStateQlts.selectedItem.toString() == "Dang su dung") "DSD" else "DSC")
+        if (msg.isEmpty()) {
+            viewModel?.searchTaiSan(status, null)
+                    ?.subscribeOn(Schedulers.io())
+                    ?.observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribe({
+                        updateList(it)
+                    }, {})
+        } else {
+            viewModel?.searchTaiSan(status, msg)
+                    ?.subscribeOn(Schedulers.io())
+                    ?.observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribe({
+                        updateList(it)
+                    }, {})
         }
     }
 

@@ -12,7 +12,8 @@ import com.example.thanhhoang.qlcosovatchat.util.FormatUtils
 import kotlinx.android.synthetic.main.item_qlyc.view.*
 
 class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : RecyclerView.Adapter<QuanLiYeuCauAdapter.QuanLiYeuCauVH>() {
-    internal var sentPositionItemQlyc: (Int) -> Unit = {}
+    internal var sentPositionItemSuaYeuCau: (Int) -> Unit = {}
+    internal var sentPositionItemXoaYeuCau: (Int) -> Unit = {}
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): QuanLiYeuCauVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_qlyc, parent, false)
         return QuanLiYeuCauVH(view)
@@ -27,14 +28,11 @@ class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : Recycle
     inner class QuanLiYeuCauVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
             itemView.tvActionSuaYc.setOnClickListener {
-                sentPositionItemQlyc(adapterPosition)
+                sentPositionItemSuaYeuCau(adapterPosition)
             }
+
             itemView.tvActionXoaYc.setOnClickListener {
-                sentPositionItemQlyc(adapterPosition)
-            }
-            itemView.apply {
-                setOnClickListener {
-                }
+                sentPositionItemXoaYeuCau(adapterPosition)
             }
         }
 
