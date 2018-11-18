@@ -85,7 +85,6 @@ class QuanLiTaiSanFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 searchApi(spStateQlts.selectedItem.toString(), edtSearchQlts.text.toString())
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
@@ -147,7 +146,9 @@ class QuanLiTaiSanFragment : Fragment() {
             viewModel?.changeStatusTaiSan(EquipmentId(taiSanList?.get(position)?.id.toString()))
                     ?.subscribeOn(Schedulers.io())
                     ?.observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribe({}, {})
+                    ?.subscribe({
+                        searchApi(spStateQlts.selectedItem.toString(), edtSearchQlts.text.toString())
+                    }, {})
         }
     }
 

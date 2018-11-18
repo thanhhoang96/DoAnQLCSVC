@@ -28,7 +28,7 @@ interface ApiService {
     fun getTaiSan(): Single<TaiSanResponse>
 
     @GET("/asset-management")
-    fun searchTaiSan(@Query("action") state: String?, @Query("keyword") maDinhDanh: String?): Single<TaiSanResponse>
+    fun searchTaiSan(@Query("active") state: String?, @Query("keyword") maDinhDanh: String?): Single<TaiSanResponse>
 
     @PATCH("/asset-management/status")
     fun changeStatusTaiSan(@Body equipmentId: EquipmentId): Single<TaiSanResponse>
@@ -40,7 +40,7 @@ interface ApiService {
     fun getAllYeuCau(): Single<YeuCauResponse>
 
     @GET("/proposal")
-    fun searchYeuCau(@Query("action") state: Int?, @Query("keyword") tieuDe: String?): Single<YeuCauResponse>
+    fun searchYeuCau(@Query("active") state: Int?, @Query("keyword") tieuDe: String?): Single<YeuCauResponse>
 
     /*
     * api quan li ke hoach
