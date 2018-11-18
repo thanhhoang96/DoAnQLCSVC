@@ -10,8 +10,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.LinearLayout
-import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
@@ -43,7 +43,7 @@ class QuanLiTaiSanFragment : Fragment() {
         dialog?.setCancelable(false)
 
         initView()
-        connApi()
+        loadData()
         handleListener()
         handleListenerFromInterface()
     }
@@ -58,7 +58,7 @@ class QuanLiTaiSanFragment : Fragment() {
     }
 
     @SuppressLint("CheckResult")
-    private fun connApi() {
+    private fun loadData() {
         dialog?.show()
         viewModel = QuanLiTaiSanViewModel(Repository())
         Handler().postDelayed({
@@ -78,11 +78,15 @@ class QuanLiTaiSanFragment : Fragment() {
         }
 
         edtSearchQlts.afterTextChanged { _ ->
-            searchApi()
+            searchApi(spStateQlts.selectedItem.toString(), edtSearchQlts.text.toString())
         }
 
-        spStateQlts.setOnItemClickListener { parent, view, position, id ->
-            Toast.makeText(activity, spStateQlts.getChildAt(position).toString(), Toast.LENGTH_SHORT).show()
+        spStateQlts.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                searchApi(spStateQlts.selectedItem.toString(), edtSearchQlts.text.toString())
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
 
@@ -93,25 +97,20 @@ class QuanLiTaiSanFragment : Fragment() {
     }
 
     @SuppressLint("CheckResult")
-    private fun searchApi() {
-        val msg = edtSearchQlts.text.toString()
-        val status = if (spStateQlts.selectedItem.toString() == "Hu hong") "HH" else
-            (if (spStateQlts.selectedItem.toString() == "Dang su dung") "DSD" else "DSC")
-        if (msg.isEmpty()) {
-            viewModel?.searchTaiSan(status, null)
-                    ?.subscribeOn(Schedulers.io())
-                    ?.observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribe({
-                        updateList(it)
-                    }, {})
-        } else {
-            viewModel?.searchTaiSan(status, msg)
-                    ?.subscribeOn(Schedulers.io())
-                    ?.observeOn(AndroidSchedulers.mainThread())
-                    ?.subscribe({
-                        updateList(it)
-                    }, {})
+    private fun searchApi(state: String, maDinhdanh: String) {
+        val msg = if (maDinhdanh == "") null else maDinhdanh
+        val status = when (state) {
+            "Tat ca" -> null
+            "Hu hong" -> "HH"
+            "Dang su dung" -> "DSD"
+            else -> "DSC"
         }
+        viewModel?.searchTaiSan(status, msg)
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({
+                    updateList(it)
+                }, {})
     }
 
     @SuppressLint("InflateParams")
