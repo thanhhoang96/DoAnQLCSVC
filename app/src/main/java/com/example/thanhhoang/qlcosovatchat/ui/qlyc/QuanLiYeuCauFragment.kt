@@ -146,5 +146,8 @@ class QuanLiYeuCauFragment : Fragment() {
         dialogBuilder.setNegativeButton("Huỷ") { dialog, _ ->
             dialog.dismiss()
         }
+
+        val dialogConfirm = dialogBuilder.create()
+        dialogConfirm.show()
     }
 }
