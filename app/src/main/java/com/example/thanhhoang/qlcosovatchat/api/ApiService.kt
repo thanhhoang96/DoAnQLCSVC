@@ -42,6 +42,9 @@ interface ApiService {
     @GET("/proposal")
     fun searchYeuCau(@Query("active") state: Int?, @Query("keyword") tieuDe: String?): Single<YeuCauResponse>
 
+    @DELETE("/proposal/{id}")
+    fun deleteYeuCau(@Path("id") id: String): Single<YeuCauResponse>
+
     /*
     * api quan li ke hoach
     * */

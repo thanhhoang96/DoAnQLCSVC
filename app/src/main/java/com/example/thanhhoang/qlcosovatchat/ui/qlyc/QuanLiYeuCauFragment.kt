@@ -131,12 +131,17 @@ class QuanLiYeuCauFragment : Fragment() {
     private fun showDialogXoaYc(position: Int) {
         val dialogBuilder = AlertDialog.Builder(activity as MainActivity)
         dialogBuilder.setTitle("Xoá yêu cầu")
-        dialogBuilder.setMessage("Bạn có chắc muốn xoá yêu cầu ${yeuCauList?.get(position)?.tieuDeYC} này không?")
+        dialogBuilder.setMessage("Bạn có chắc muốn xoá yêu cầu [${yeuCauList?.get(position)?.tieuDeYC}] này không?")
         dialogBuilder.setPositiveButton("Ok") { dialog, _ ->
-            yeuCauList?.remove(yeuCauList?.get(position))
-            yeuCauAdapter?.notifyDataSetChanged()
+            yeuCauList?.get(position)?.idYC?.let { it ->
+                viewModel?.deleteYeuCau(it)
+                        ?.subscribeOn(Schedulers.io())
+                        ?.observeOn(AndroidSchedulers.mainThread())
+                        ?.subscribe({
+                            searchYeuCau(spStateQlyc.selectedItem.toString(), edtSearchQlyc.text.toString())
+                        }, {})
+            }
             dialog.dismiss()
-
         }
         dialogBuilder.setNegativeButton("Huỷ") { dialog, _ ->
             dialog.dismiss()

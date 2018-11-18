@@ -7,4 +7,5 @@ import io.reactivex.Single
 class QuanLiYeuCauViewModel(private val repository: Repository) {
     fun getAllYeuCau(): Single<YeuCauResponse> = repository.getAllYeuCau()
     fun searchYeuCau(state: Int?, tieuDe: String?): Single<YeuCauResponse> = repository.searchYeuCau(state, tieuDe)
+    fun deleteYeuCau(id: String): Single<YeuCauResponse> = repository.delateYeuCau(id)
 }

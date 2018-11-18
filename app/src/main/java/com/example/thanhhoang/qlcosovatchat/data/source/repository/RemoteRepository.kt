@@ -26,5 +26,7 @@ class RemoteRepository : RemoteDataSource {
 
     override fun searchYeuCau(state: Int?, tieuDe: String?): Single<YeuCauResponse> = apiService.searchYeuCau(state, tieuDe)
 
+    override fun delateYeuCau(id: String): Single<YeuCauResponse> = apiService.deleteYeuCau(id)
+
     override fun getAllKeHoach(): Single<KeHoachResponse> = apiService.getAllKeHoach()
 }
