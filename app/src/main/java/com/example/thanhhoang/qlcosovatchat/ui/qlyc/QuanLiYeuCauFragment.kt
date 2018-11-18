@@ -1,5 +1,6 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlyc
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.LinearLayout
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
@@ -79,25 +81,33 @@ class QuanLiYeuCauFragment : Fragment() {
         }
 
         edtSearchQlyc.afterTextChanged { _ ->
-            val msg = edtSearchQlyc.text.toString()
-            val status = if (spStateQlyc.selectedItem.toString() == "Chua duyet") 0 else
-                (if (spStateQlyc.selectedItem.toString() == "Da xac nhan") 1 else 2)
-            if (msg.isEmpty()) {
-                viewModel?.searchYeuCau(status, null)
-                        ?.subscribeOn(Schedulers.io())
-                        ?.observeOn(AndroidSchedulers.mainThread())
-                        ?.subscribe({
-                            updateList(it)
-                        }, {})
-            } else {
-                viewModel?.searchYeuCau(status, msg)
-                        ?.subscribeOn(Schedulers.io())
-                        ?.observeOn(AndroidSchedulers.mainThread())
-                        ?.subscribe({
-                            updateList(it)
-                        }, {})
-            }
+            searchYeuCau(spStateQlyc.selectedItem.toString(), edtSearchQlyc.text.toString())
         }
+
+        spStateQlyc.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                searchYeuCau(spStateQlyc.selectedItem.toString(), edtSearchQlyc.text.toString())
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+    }
+
+    @SuppressLint("CheckResult")
+    private fun searchYeuCau(state: String, tieuDe: String) {
+        val msg = if (tieuDe.isEmpty()) null else tieuDe
+        val status = when (state) {
+            "Tat ca" -> null
+            "Chua duyet" -> 0
+            "Da xac nhan" -> 1
+            else -> 2
+        }
+        viewModel?.searchYeuCau(status, msg)
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({
+                    updateList(it)
+                }, {})
     }
 
     private fun handleListenerFromInterface() {

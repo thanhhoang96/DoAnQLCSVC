@@ -43,13 +43,22 @@ class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : Recycle
                     paintFlags = Paint.UNDERLINE_TEXT_FLAG
                 }
                 tvNgayTaoYc.text = FormatUtils.formatDisplayDate(yeuCau.ngayTaoYC)
-                tvTrangThaiYc.text = if(yeuCau.trangThaiYC == 0) "Chua duyet" else ( if(yeuCau.trangThaiYC == 1) "Da xac nhan" else "Da duyet")
-                if (tvTrangThaiYc.text == "Da duyet") {
-                    tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_light))
-                    llActionQlyc.visibility = View.GONE
-                } else {
-                    tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_light))
-                    llActionQlyc.visibility = View.VISIBLE
+                tvTrangThaiYc.text = if (yeuCau.trangThaiYC == 0) "Chua duyet" else
+                    (if (yeuCau.trangThaiYC == 1) "Da xac nhan" else "Da duyet")
+
+                when {
+                    tvTrangThaiYc.text == "Da duyet" -> {
+                        tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_light))
+                        llActionQlyc.visibility = View.GONE
+                    }
+                    tvTrangThaiYc.text == "Da xac nhan" -> {
+                        tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_blue_dark))
+                        llActionQlyc.visibility = View.VISIBLE
+                    }
+                    tvTrangThaiYc.text == "Chua duyet" -> {
+                        tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_dark))
+                        llActionQlyc.visibility = View.VISIBLE
+                    }
                 }
             }
         }
