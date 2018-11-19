@@ -5,8 +5,8 @@
     <string name="name_app">App\nQuản Lí Cơ Sở Vật Chất</string>
     <string name="hint.edit_text.username">Username</string>
     <string name="hint.edit_text.password">Password</string>
-    <string name="button.text_label">Login</string>
-    <string name="text_view.login_label">Login</string>
+    <string name="button.text_label">Đăng nhập</string>
+    <string name="text_view.login_label">Đăng nhập</string>
 
     <!--menu screen-->
     <string name="menu_drawer_open">Open</string>
@@ -14,7 +14,7 @@
     <string name="text_view.main_screen.qlts_label">Quản lí tài sản</string>
     <string name="text_view.main_screen.qlyc.label">Quản lí yêu cầu</string>
     <string name="text_view.main_screen.qlkh.label">Quản lí kế hoạch</string>
-    <string name="logout_label">Logout</string>
+    <string name="logout_label">Đăng xuất</string>
 
     <!--Quan li yeu cau screen-->
     <string name="hint_search_label">Mã định danh</string>
@@ -47,7 +47,7 @@
     <string name="label_thiet_bi_qlts">Thiết bị:</string>
     <string name="label_nhom_thiet_bi_qlts">Nhóm thiết bị:</string>
     <string name="label_trang_thai_qlts">Trạng thái:</string>
-    <string name="label_action_qlts">Change Status</string>
+    <string name="label_action_qlts">Sửa trạng thái</string>
     <string name="label_thay_doi_trang_thai_qlts">Thay đổi trạng thái</string>
 
     <!--quan li ke hoach screen-->
@@ -57,26 +57,30 @@
     <string name="label_loai_ke_hoach">Loại kế hoạch:</string>
     <string name="label_ngay_tao">Ngày tạo:</string>
     <string name="label_trang_thai_ke_hoach">Trạng thái:</string>
-    <string name="label_hu_hong">Hu hong</string>
-    <string name="label_dang_su_dung">Dang su dung</string>
-    <string name="label_luu_state">Luu</string>
-    <string name="label_huy_state">Huy</string>
-    <string name="label_dang_sua_chua">Dang sua chua</string>
+    <string name="label_hu_hong">Hư hỏng</string>
+    <string name="label_dang_su_dung">Đang sử dụng</string>
+    <string name="label_luu_state">Lưu</string>
+    <string name="label_huy_state">Huỷ</string>
+    <string name="label_dang_sua_chua">Đang sửa chữa</string>
     <string name="hint_tieu_de_qlyc">Tiêu đề</string>
+    <string name="label_danh_sach_ke_hoach">Danh sách kế hoạch</string>
+    <string name="label_search_ten_ke_hoach">Tên kế hoạch</string>
+    <string name="label_danh_sach_tai_san">Danh sách tài sản</string>
+    <string name="label_danh_sach_yeu_cau">Danh sánh yêu cầu</string>
 
     <!--State qlts-->
     <string-array name="state_array">
-        <item>Tat ca</item>
-        <item>Dang su dung</item>
-        <item>Hu hong</item>
-        <item>Dang sua chua</item>
+        <item>Tất cả</item>
+        <item>Đang sử dụng</item>
+        <item>Hư hỏng</item>
+        <item>Đang sửa chữa</item>
     </string-array>
 
     <!--State qlyc-->
     <string-array name="state_array_qlyc">
-        <item>Tat ca</item>
-        <item>Chua duyet</item>
-        <item>Da xac nhan</item>
-        <item>Da duyet</item>
+        <item>Tất cả</item>
+        <item>Chưa duyệt</item>
+        <item>Đã xác nhận</item>
+        <item>Đã duyệt</item>
     </string-array>
 </resources>

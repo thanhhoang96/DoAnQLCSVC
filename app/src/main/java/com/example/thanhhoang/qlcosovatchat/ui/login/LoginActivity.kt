@@ -92,7 +92,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun handelLoginError() {
-        Toast.makeText(this, "Sorry, Login Failed", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Xin lỗi, Đăng nhập không thành công!", Toast.LENGTH_SHORT).show()
         edtUsername.setText("")
         edtPassword.setText("")
     }

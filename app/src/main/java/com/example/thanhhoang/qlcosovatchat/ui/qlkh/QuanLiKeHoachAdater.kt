@@ -43,18 +43,18 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
 
                 tvLoaiKhQlkh.text = keHoach.loaiKeHoach.name
                 tvNgayTaoQlkh.text = FormatUtils.formatDisplayDate(keHoach.ngayTaoKeHoach)
-                tvTrangThaiQlKh.text = if (keHoach.trangThaiKeHoach == 0) "Chua duyet" else (if (keHoach.trangThaiKeHoach == 1) "Da xac nhan" else "Da duyet")
+                tvTrangThaiQlKh.text = if (keHoach.trangThaiKeHoach == 0) "Chưa duyệt" else (if (keHoach.trangThaiKeHoach == 1) "Đã xác nhận" else "Đã duyệt")
 
                 when {
-                    tvTrangThaiQlKh.text == "Da duyet" -> {
+                    tvTrangThaiQlKh.text == "Đã duyệt" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
                         tvActionQlkh.visibility = View.GONE
                     }
-                    tvTrangThaiQlKh.text == "Da xac nhan" -> {
+                    tvTrangThaiQlKh.text == "Đã xác nhận" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, android.R.color.holo_blue_dark))
                         tvActionQlkh.visibility = View.VISIBLE
                     }
-                    tvTrangThaiQlKh.text == "Chua duyet" -> {
+                    tvTrangThaiQlKh.text == "Chưa duyệt" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_dark))
                         tvActionQlkh.visibility = View.VISIBLE
                     }

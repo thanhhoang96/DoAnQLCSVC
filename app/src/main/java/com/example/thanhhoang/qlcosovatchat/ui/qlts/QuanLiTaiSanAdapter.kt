@@ -36,13 +36,13 @@ class QuanLiTaiSanAdapter(private var infraList: MutableList<Infra>) : RecyclerV
                 tvMaDinhDanhQlts.text = infra.maDinhDanh
                 tvThietBiQlts.text = infra.equipment.nameNo
                 tvNhomThietBiQlts.text = infra.groupEquipment.name
-                tvTrangThaiQlts.text = if (infra.unitEquipmentStatus == "HH") "Hu hong" else (if (infra.unitEquipmentStatus == "DSD") "Dang su dung" else "Dang sua chua")
+                tvTrangThaiQlts.text = if (infra.unitEquipmentStatus == "HH") "Hư hỏng" else (if (infra.unitEquipmentStatus == "DSD") "Đang sử dụng" else "Đang sửa chữa")
                 when {
-                    tvTrangThaiQlts.text == "Dang su dung" -> {
+                    tvTrangThaiQlts.text == "Đang sử dụng" -> {
                         tvActionQlts.visibility = View.VISIBLE
                         tvTrangThaiQlts.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
                     }
-                    tvTrangThaiQlts.text == "Hu hong" -> {
+                    tvTrangThaiQlts.text == "Hư hỏng" -> {
                         tvActionQlts.visibility = View.VISIBLE
                         tvTrangThaiQlts.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_light))
                     }

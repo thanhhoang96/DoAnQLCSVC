@@ -100,9 +100,9 @@ class QuanLiTaiSanFragment : Fragment() {
     private fun searchApi(state: String, maDinhdanh: String) {
         val msg = if (maDinhdanh.isEmpty()) null else maDinhdanh
         val status = when (state) {
-            "Tat ca" -> null
-            "Hu hong" -> "HH"
-            "Dang su dung" -> "DSD"
+            "Tất cả" -> null
+            "Hư hỏng" -> "HH"
+            "Đang sử dụng" -> "DSD"
             else -> "DSC"
         }
         viewModel?.searchTaiSan(status, msg)

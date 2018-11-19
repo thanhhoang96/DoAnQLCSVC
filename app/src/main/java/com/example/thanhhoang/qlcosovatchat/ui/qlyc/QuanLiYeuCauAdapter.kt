@@ -43,19 +43,19 @@ class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : Recycle
                     paintFlags = Paint.UNDERLINE_TEXT_FLAG
                 }
                 tvNgayTaoYc.text = FormatUtils.formatDisplayDate(yeuCau.ngayTaoYC)
-                tvTrangThaiYc.text = if (yeuCau.trangThaiYC == 0) "Chua duyet" else
-                    (if (yeuCau.trangThaiYC == 1) "Da xac nhan" else "Da duyet")
+                tvTrangThaiYc.text = if (yeuCau.trangThaiYC == 0) "Chưa duyệt" else
+                    (if (yeuCau.trangThaiYC == 1) "Đã xác nhận" else "Đã duyệt")
 
                 when {
-                    tvTrangThaiYc.text == "Da duyet" -> {
+                    tvTrangThaiYc.text == "Đã duyệt" -> {
                         tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_green_light))
                         llActionQlyc.visibility = View.GONE
                     }
-                    tvTrangThaiYc.text == "Da xac nhan" -> {
+                    tvTrangThaiYc.text == "Đã xác nhận" -> {
                         tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_blue_dark))
                         llActionQlyc.visibility = View.VISIBLE
                     }
-                    tvTrangThaiYc.text == "Chua duyet" -> {
+                    tvTrangThaiYc.text == "Chưa duyệt" -> {
                         tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_dark))
                         llActionQlyc.visibility = View.VISIBLE
                     }

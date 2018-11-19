@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCau
@@ -97,9 +98,9 @@ class QuanLiYeuCauFragment : Fragment() {
     private fun searchYeuCau(state: String, tieuDe: String) {
         val msg = if (tieuDe.isEmpty()) null else tieuDe
         val status = when (state) {
-            "Tat ca" -> null
-            "Chua duyet" -> 0
-            "Da xac nhan" -> 1
+            "Tất cả" -> null
+            "Chưa duyệt" -> 0
+            "Đã xác nhận" -> 1
             else -> 2
         }
         viewModel?.searchYeuCau(status, msg)
@@ -139,6 +140,7 @@ class QuanLiYeuCauFragment : Fragment() {
                         ?.observeOn(AndroidSchedulers.mainThread())
                         ?.subscribe({
                             searchYeuCau(spStateQlyc.selectedItem.toString(), edtSearchQlyc.text.toString())
+                            Toast.makeText(activity, "Xoá thành công", Toast.LENGTH_SHORT).show()
                         }, {})
             }
             dialog.dismiss()
