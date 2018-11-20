@@ -17,11 +17,13 @@ interface RemoteDataSource {
 
     fun changeStatusTaiSan(equipmentId: EquipmentId): Single<TaiSanResponse>
 
+    fun getAllTaiSanHuHong(): Single<TaiSanResponse>
+
     fun getAllYeuCau(): Single<YeuCauResponse>
 
-    fun searchYeuCau(state: Int?, tieuDe: String?) : Single<YeuCauResponse>
+    fun searchYeuCau(state: Int?, tieuDe: String?): Single<YeuCauResponse>
 
     fun delateYeuCau(id: String): Single<YeuCauResponse>
 
-    fun getAllKeHoach():Single<KeHoachResponse>
+    fun getAllKeHoach(): Single<KeHoachResponse>
 }

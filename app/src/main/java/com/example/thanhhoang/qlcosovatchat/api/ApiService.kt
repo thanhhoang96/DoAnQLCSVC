@@ -33,6 +33,9 @@ interface ApiService {
     @PATCH("/asset-management/status")
     fun changeStatusTaiSan(@Body equipmentId: EquipmentId): Single<TaiSanResponse>
 
+    @GET("/asset-management/damaged")
+    fun getAllTaiSanHuHong(): Single<TaiSanResponse>
+
     /*
     * api quan li yeu cau
     * */

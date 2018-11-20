@@ -27,6 +27,8 @@ class Repository : LocalDataSource, RemoteDataSource {
 
     override fun changeStatusTaiSan(equipmentId: EquipmentId): Single<TaiSanResponse> = remoteRepository.changeStatusTaiSan(equipmentId)
 
+    override fun getAllTaiSanHuHong(): Single<TaiSanResponse> = remoteRepository.getAllTaiSanHuHong()
+
     override fun hasAccessToken(): Boolean = localRepository.hasAccessToken()
 
     override fun getFullName(): String = localRepository.getFullName()

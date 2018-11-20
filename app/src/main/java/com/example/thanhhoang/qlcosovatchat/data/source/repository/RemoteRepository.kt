@@ -22,6 +22,8 @@ class RemoteRepository : RemoteDataSource {
 
     override fun changeStatusTaiSan(equipmentId: EquipmentId): Single<TaiSanResponse> = apiService.changeStatusTaiSan(equipmentId)
 
+    override fun getAllTaiSanHuHong(): Single<TaiSanResponse> = apiService.getAllTaiSanHuHong()
+
     override fun getAllYeuCau(): Single<YeuCauResponse> = apiService.getAllYeuCau()
 
     override fun searchYeuCau(state: Int?, tieuDe: String?): Single<YeuCauResponse> = apiService.searchYeuCau(state, tieuDe)
