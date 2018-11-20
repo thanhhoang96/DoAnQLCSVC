@@ -67,6 +67,13 @@
     <string name="label_search_ten_ke_hoach">Tên kế hoạch</string>
     <string name="label_danh_sach_tai_san">Danh sách tài sản</string>
     <string name="label_danh_sach_yeu_cau">Danh sánh yêu cầu</string>
+    <string name="hint_nhap_tieu_de_yeu_cau">Nhập tiêu đề</string>
+    <string name="label_nhap_giai_trinh_yeu_cau">Nhập giải trình</string>
+    <string name="label_chon_qlyc_sc">Chọn</string>
+    <string name="label_thiet_bi_qlyc_tmsc">Thiết bị</string>
+    <string name="label_ma_dinh_danh_qlyc_tmsc">Mã định danh</string>
+    <string name="label_nhom_thiet_bi_qlyc_tmsc">Nhóm thiết bị</string>
+    <string name="label_trang_thai_qlyc_tmsc">Trạng thái</string>
 
     <!--State qlts-->
     <string-array name="state_array">
