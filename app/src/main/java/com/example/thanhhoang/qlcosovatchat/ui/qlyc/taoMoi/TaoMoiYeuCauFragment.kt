@@ -60,8 +60,11 @@ class TaoMoiYeuCauFragment : Fragment() {
                 isTaoMoiSuaChua = false
             } else {
                 isTaoMoiSuaChua = true
+                llAllTruongTaoMoiMuaSam.visibility = View.GONE
+                recyclerViewTaoMoiYCMS.visibility = View.GONE
+                llAllTruongTaoMoiSuaChua.visibility = View.VISIBLE
+                recyclerViewTaoMoiYCSC.visibility = View.VISIBLE
                 loadDataSuaChua()
-
             }
         }
     }
