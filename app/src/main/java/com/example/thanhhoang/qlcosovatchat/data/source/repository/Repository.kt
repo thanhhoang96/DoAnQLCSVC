@@ -2,10 +2,7 @@ package com.example.thanhhoang.qlcosovatchat.data.source.repository
 
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
-import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
-import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
-import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
-import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
+import com.example.thanhhoang.qlcosovatchat.data.response.*
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.LocalDataSource
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.RemoteDataSource
 import io.reactivex.Single
@@ -27,7 +24,7 @@ class Repository : LocalDataSource, RemoteDataSource {
 
     override fun changeStatusTaiSan(equipmentId: EquipmentId): Single<TaiSanResponse> = remoteRepository.changeStatusTaiSan(equipmentId)
 
-    override fun getAllTaiSanHuHong(): Single<TaiSanResponse> = remoteRepository.getAllTaiSanHuHong()
+    override fun getAllTaiSanHuHong(): Single<TaiSanHuHongResponse> = remoteRepository.getAllTaiSanHuHong()
 
     override fun hasAccessToken(): Boolean = localRepository.hasAccessToken()
 

@@ -60,6 +60,7 @@ class TaoMoiYeuCauFragment : Fragment() {
                 isTaoMoiSuaChua = false
             } else {
                 isTaoMoiSuaChua = true
+                llThemThietBiMuaSam.visibility = View.GONE
                 llAllTruongTaoMoiMuaSam.visibility = View.GONE
                 recyclerViewTaoMoiYCMS.visibility = View.GONE
                 llAllTruongTaoMoiSuaChua.visibility = View.VISIBLE
@@ -79,7 +80,8 @@ class TaoMoiYeuCauFragment : Fragment() {
                     ?.doFinally { dialog?.dismiss() }
                     ?.observeOn(AndroidSchedulers.mainThread())
                     ?.subscribe({
-                        suaChuaList = it.data.taiSanList
+                        suaChuaList?.clear()
+                        suaChuaList?.addAll(it.data.taiSanHuHongList)
                         bindDataOnRecyclerView(suaChuaList)
                     }, {})
         }, 2000)

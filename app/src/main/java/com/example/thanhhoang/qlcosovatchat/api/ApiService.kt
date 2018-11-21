@@ -3,10 +3,7 @@ package com.example.thanhhoang.qlcosovatchat.api
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Equipment
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
-import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
-import com.example.thanhhoang.qlcosovatchat.data.response.LoginResponse
-import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
-import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
+import com.example.thanhhoang.qlcosovatchat.data.response.*
 import com.example.thanhhoang.qlcosovatchat.util.Pref
 import io.reactivex.Single
 import okhttp3.OkHttpClient
@@ -34,7 +31,7 @@ interface ApiService {
     fun changeStatusTaiSan(@Body equipmentId: EquipmentId): Single<TaiSanResponse>
 
     @GET("/asset-management/damaged")
-    fun getAllTaiSanHuHong(): Single<TaiSanResponse>
+    fun getAllTaiSanHuHong(): Single<TaiSanHuHongResponse>
 
     /*
     * api quan li yeu cau
