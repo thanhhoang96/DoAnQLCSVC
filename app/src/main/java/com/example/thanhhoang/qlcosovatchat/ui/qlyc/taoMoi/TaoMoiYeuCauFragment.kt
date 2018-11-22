@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
@@ -41,7 +42,6 @@ class TaoMoiYeuCauFragment : Fragment() {
 
         initView()
         handleListener()
-        handleListenerFromInterface()
     }
 
     private fun initView() {
@@ -70,8 +70,6 @@ class TaoMoiYeuCauFragment : Fragment() {
         }
     }
 
-    private fun handleListenerFromInterface() {}
-
     private fun loadDataSuaChua() {
         dialog?.show()
         Handler().postDelayed({
@@ -92,6 +90,20 @@ class TaoMoiYeuCauFragment : Fragment() {
         recyclerViewTaoMoiYCSC.apply {
             layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
             adapter = suaChuaAdapter
+        }
+
+        handleListenerFromSuaChuaAdapter()
+    }
+
+    private fun handleListenerFromSuaChuaAdapter() {
+        suaChuaAdapter?.apply {
+            sentPositionTaiSanHuHongIsCheck = {
+                Toast.makeText(activity, "check", Toast.LENGTH_SHORT).show()
+            }
+
+            sentPositionTaiSanHuHongNotCheck = {
+                Toast.makeText(activity, "not check", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
