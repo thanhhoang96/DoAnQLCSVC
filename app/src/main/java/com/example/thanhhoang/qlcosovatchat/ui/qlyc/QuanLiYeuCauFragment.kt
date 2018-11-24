@@ -112,12 +112,14 @@ class QuanLiYeuCauFragment : Fragment() {
     }
 
     private fun handleListenerFromInterface() {
-        yeuCauAdapter?.sentPositionItemSuaYeuCau = {
+        yeuCauAdapter?.apply {
+            sentPositionItemSuaYeuCau = {
 
-        }
+            }
 
-        yeuCauAdapter?.sentPositionItemXoaYeuCau = {
-            showDialogXoaYc(it)
+            sentPositionItemXoaYeuCau = {
+                showDialogXoaYc(it)
+            }
         }
     }
 

@@ -2,6 +2,7 @@ package com.example.thanhhoang.qlcosovatchat.data.source.repository
 
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
+import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaRequest
 import com.example.thanhhoang.qlcosovatchat.data.response.*
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.LocalDataSource
 import com.example.thanhhoang.qlcosovatchat.data.source.datasource.RemoteDataSource
@@ -34,7 +35,9 @@ class Repository : LocalDataSource, RemoteDataSource {
 
     override fun searchYeuCau(state: Int?, tieuDe: String?): Single<YeuCauResponse> = remoteRepository.searchYeuCau(state, tieuDe)
 
-    override fun delateYeuCau(id: String): Single<YeuCauResponse> = remoteRepository.delateYeuCau(id)
+    override fun createYeuCauSuaChua(yeuCauSuaChuaRequest: YeuCauSuaChuaRequest): Single<YeuCauResponse> = remoteRepository.createYeuCauSuaChua(yeuCauSuaChuaRequest)
+
+    override fun deleteYeuCau(id: String): Single<YeuCauResponse> = remoteRepository.deleteYeuCau(id)
 
     override fun getAllKeHoach(): Single<KeHoachResponse> = remoteRepository.getAllKeHoach()
 }

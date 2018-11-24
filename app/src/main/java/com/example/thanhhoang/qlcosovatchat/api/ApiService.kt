@@ -1,8 +1,8 @@
 package com.example.thanhhoang.qlcosovatchat.api
 
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
-import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Equipment
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
+import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaRequest
 import com.example.thanhhoang.qlcosovatchat.data.response.*
 import com.example.thanhhoang.qlcosovatchat.util.Pref
 import io.reactivex.Single
@@ -41,6 +41,9 @@ interface ApiService {
 
     @GET("/proposal")
     fun searchYeuCau(@Query("active") state: Int?, @Query("keyword") tieuDe: String?): Single<YeuCauResponse>
+
+    @POST("/proposal/prepair")
+    fun createYeuCauSuaChua(@Body yeuCauSuaChuaRequest: YeuCauSuaChuaRequest): Single<YeuCauResponse>
 
     @DELETE("/proposal/{id}")
     fun deleteYeuCau(@Path("id") id: String): Single<YeuCauResponse>
