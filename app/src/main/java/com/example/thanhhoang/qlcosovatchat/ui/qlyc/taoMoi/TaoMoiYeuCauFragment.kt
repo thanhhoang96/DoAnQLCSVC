@@ -29,7 +29,6 @@ class TaoMoiYeuCauFragment : Fragment() {
     private var muaSamList: MutableList<YeuCau>? = null
     private var suaChuaAdapter: TaoMoiSuaChuaAdapter? = null
     private var muaSamAdapter: TaoMoiMuaSamAdapter? = null
-
     private var taiSanIdList: MutableList<String>? = null
 
     private var isTaoMoiSuaChua = false
@@ -95,8 +94,14 @@ class TaoMoiYeuCauFragment : Fragment() {
                             ?.doFinally { dialog?.dismiss() }
                             ?.observeOn(AndroidSchedulers.mainThread())
                             ?.subscribe({
-                                if (it != null)
+                                if (it != null) {
                                     Toast.makeText(activity, "Tạo yêu cầu sửa chữa thành công", Toast.LENGTH_SHORT).show()
+                                    (activity as MainActivity).apply {
+                                        popBackStackFragment()
+                                        createYeuCauSuccess()
+                                    }
+
+                                }
                             }, { handleTaoYeuCauFailed() })
                 }
             }

@@ -56,7 +56,7 @@ class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : Recycle
                         llActionQlyc.visibility = View.VISIBLE
                     }
                     tvTrangThaiYc.text == "Chưa duyệt" -> {
-                        tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_dark))
+                        tvTrangThaiYc.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_light))
                         llActionQlyc.visibility = View.VISIBLE
                     }
                 }

@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     private val repository = Repository()
     private val localRepository = LocalRepository()
 
+    internal var createYeuCauSuccess: () -> Unit = {}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

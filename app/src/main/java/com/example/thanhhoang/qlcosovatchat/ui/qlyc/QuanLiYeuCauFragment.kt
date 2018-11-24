@@ -44,7 +44,7 @@ class QuanLiYeuCauFragment : Fragment() {
         dialog?.setCancelable(false)
 
         initView()
-        connApi()
+        loadData()
         handleListener()
         handleListenerFromInterface()
     }
@@ -58,7 +58,7 @@ class QuanLiYeuCauFragment : Fragment() {
         }
     }
 
-    private fun connApi() {
+    private fun loadData() {
         dialog?.show()
         viewModel = QuanLiYeuCauViewModel(Repository())
         Handler().postDelayed({
@@ -120,6 +120,10 @@ class QuanLiYeuCauFragment : Fragment() {
             sentPositionItemXoaYeuCau = {
                 showDialogXoaYc(it)
             }
+        }
+
+        (activity as MainActivity).createYeuCauSuccess = {
+            loadData()
         }
     }
 
