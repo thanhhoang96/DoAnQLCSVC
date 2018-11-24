@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
@@ -34,6 +35,7 @@ class TaoMoiYeuCauFragment : Fragment() {
     private var isTaoMoiSuaChua = false
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        (activity as MainActivity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         return inflater.inflate(R.layout.fragment_tao_moi_yc, container, false)
     }
 

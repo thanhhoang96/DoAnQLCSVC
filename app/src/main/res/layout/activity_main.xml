@@ -14,7 +14,8 @@
             android:id="@+id/toolbarMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimaryDark" />
+            android:background="@color/colorPrimaryDark"
+            android:theme="@style/ToolBarStyle" />
 
         <FrameLayout
             android:id="@+id/flContainer"
@@ -43,8 +44,8 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
                 android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="80dp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
@@ -57,8 +58,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:textColor="@android:color/white" />
             </LinearLayout>
         </FrameLayout>
@@ -69,8 +70,8 @@
             android:layout_height="57dp"
             android:layout_below="@+id/flHeader"
             android:gravity="center_vertical"
-            android:paddingEnd="32dp"
             android:paddingStart="32dp"
+            android:paddingEnd="32dp"
             android:text="@string/text_view.main_screen.qlts_label"
             android:textColor="@color/colorBlueMedium"
             android:textSize="18sp"
@@ -82,8 +83,8 @@
             android:layout_height="57dp"
             android:layout_below="@+id/tvQuanLiTaiSan"
             android:gravity="center_vertical"
-            android:paddingEnd="32dp"
             android:paddingStart="32dp"
+            android:paddingEnd="32dp"
             android:text="@string/text_view.main_screen.qlyc.label"
             android:textColor="@color/colorBlueMedium"
             android:textSize="18sp"
@@ -95,8 +96,8 @@
             android:layout_height="57dp"
             android:layout_below="@+id/tvQuanLiYeuCau"
             android:gravity="center_vertical"
-            android:paddingEnd="32dp"
             android:paddingStart="32dp"
+            android:paddingEnd="32dp"
             android:text="@string/text_view.main_screen.qlkh.label"
             android:textColor="@color/colorBlueMedium"
             android:textSize="18sp"
@@ -115,8 +116,8 @@
             android:layout_height="57dp"
             android:layout_below="@+id/view"
             android:gravity="center_vertical"
-            android:paddingEnd="32dp"
             android:paddingStart="32dp"
+            android:paddingEnd="32dp"
             android:text="@string/logout_label"
             android:textColor="@color/colorBlueMedium"
             android:textSize="18sp"
