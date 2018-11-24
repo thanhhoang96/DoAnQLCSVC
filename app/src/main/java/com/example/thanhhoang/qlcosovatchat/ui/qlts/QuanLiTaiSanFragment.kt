@@ -10,6 +10,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.AdapterView
 import android.widget.LinearLayout
 import com.example.thanhhoang.qlcosovatchat.MainActivity
@@ -33,6 +34,7 @@ class QuanLiTaiSanFragment : Fragment() {
     private var taiSanAdapter: QuanLiTaiSanAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        (activity as MainActivity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         return inflater.inflate(R.layout.fragment_quan_li_tai_san, container, false)
     }
 
