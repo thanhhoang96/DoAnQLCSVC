@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fbe9e7"
     android:orientation="vertical">
 
     <TextView
@@ -16,7 +17,7 @@
         android:textSize="22sp"
         android:textStyle="bold" />
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorGrayDark" />
@@ -40,11 +41,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:textColor="#ffab91"
+            android:textColor="#ce93d8"
             android:textSize="18sp" />
     </LinearLayout>
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorGrayDark" />
@@ -52,8 +53,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
         android:padding="10dp">
 
         <TextView
@@ -112,7 +111,8 @@
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -134,10 +134,11 @@
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textColor="@android:color/holo_blue_light"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorGrayDark" />
@@ -205,7 +206,7 @@
             android:textStyle="bold" />
     </LinearLayout>
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/colorGrayDark" />
@@ -221,7 +222,7 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <view
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="5dp"
@@ -233,9 +234,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="5dp"
-            android:background="#9ccc65"
+            android:background="#64b5f6"
             android:text="@string/label_tro_ve_yeu_cau_detail"
             android:textAllCaps="false"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>

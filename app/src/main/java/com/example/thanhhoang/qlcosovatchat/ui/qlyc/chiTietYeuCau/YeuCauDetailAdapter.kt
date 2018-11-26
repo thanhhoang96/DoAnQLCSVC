@@ -29,7 +29,7 @@ class YeuCauDetailAdapter(private var yeuCauDetailList: MutableList<ItemYcDetail
                 tvMaDinhDanhYcDetail.text = itemDetail.maDinhDanh
                 tvTenThietYcDetail.text = itemDetail.equipment.name
                 tvNhomThietBiYcDetail.text = itemDetail.groupEquipment.name
-                tvDonViYeuCauDetail.text = itemDetail.equipment.measureUnit.name
+                tvDonViTinhYcDetail.text = itemDetail.equipment.measureUnit.name
             }
         }
     }

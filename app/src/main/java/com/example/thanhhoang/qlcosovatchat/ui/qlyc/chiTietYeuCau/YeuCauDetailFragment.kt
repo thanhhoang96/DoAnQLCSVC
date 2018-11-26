@@ -51,7 +51,7 @@ class YeuCauDetailFragment : Fragment() {
             Handler().postDelayed({
                 id?.let { it ->
                     viewModel?.getYeuCauDetail(it)
-                            ?.observeOn(Schedulers.io())
+                            ?.subscribeOn(Schedulers.io())
                             ?.doFinally { dialog?.dismiss() }
                             ?.observeOn(AndroidSchedulers.mainThread())
                             ?.subscribe({
@@ -77,6 +77,7 @@ class YeuCauDetailFragment : Fragment() {
         tvNgayTaoYcDetail.text = yeuCauDetail.ngayTaoYeuCauDetail
         tvDonViYcDetail.text = yeuCauDetail.unit.name
         tvTrangThaiYcDetail.text = if (yeuCauDetail.trangThaiYcDetail == 0) "Chưa duyệt" else if (yeuCauDetail.trangThaiYcDetail == 0) "Đã xác nhận" else "Đã duyệt"
+        tvLoaiYeuCauYcDetail.text = yeuCauDetail.type.name
         yeuCauDetailAdapter = YeuCauDetailAdapter(yeuCauDetail.listYeuCauDetail)
         recyclerViewYcDetail.apply {
             layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)

@@ -1,3 +1,3 @@
 package com.example.thanhhoang.qlcosovatchat.data.model.taisan
 
-data class GroupEquipment(val name: String, val nameNo: String)
+data class GroupEquipment(var name: String, var nameNo: String)
