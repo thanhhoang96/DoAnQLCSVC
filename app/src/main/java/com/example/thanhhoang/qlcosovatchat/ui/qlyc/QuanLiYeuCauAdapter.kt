@@ -14,6 +14,8 @@ import kotlinx.android.synthetic.main.item_qlyc.view.*
 class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : RecyclerView.Adapter<QuanLiYeuCauAdapter.QuanLiYeuCauVH>() {
     internal var sentPositionItemSuaYeuCau: (Int) -> Unit = {}
     internal var sentPositionItemXoaYeuCau: (Int) -> Unit = {}
+    internal var sentPositionGetYeuCauDetail: (Int) -> Unit = {}
+
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): QuanLiYeuCauVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_qlyc, parent, false)
         return QuanLiYeuCauVH(view)
@@ -27,12 +29,18 @@ class QuanLiYeuCauAdapter(private var yeuCauList: MutableList<YeuCau>) : Recycle
 
     inner class QuanLiYeuCauVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
-            itemView.tvActionSuaYc.setOnClickListener {
-                sentPositionItemSuaYeuCau(adapterPosition)
-            }
+            itemView.apply {
+                tvActionSuaYc.setOnClickListener {
+                    sentPositionItemSuaYeuCau(adapterPosition)
+                }
 
-            itemView.tvActionXoaYc.setOnClickListener {
-                sentPositionItemXoaYeuCau(adapterPosition)
+                tvActionXoaYc.setOnClickListener {
+                    sentPositionItemXoaYeuCau(adapterPosition)
+                }
+
+                tvTieuDeYc.setOnClickListener {
+                    sentPositionGetYeuCauDetail(adapterPosition)
+                }
             }
         }
 

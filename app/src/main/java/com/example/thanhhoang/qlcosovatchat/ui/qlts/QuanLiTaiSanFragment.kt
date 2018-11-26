@@ -161,5 +161,6 @@ class QuanLiTaiSanFragment : Fragment() {
             addAll(responseData.data.taiSanList)
         }
         taiSanAdapter?.notifyDataSetChanged()
+        recyclerViewQlts.scrollToPosition(0)
     }
 }

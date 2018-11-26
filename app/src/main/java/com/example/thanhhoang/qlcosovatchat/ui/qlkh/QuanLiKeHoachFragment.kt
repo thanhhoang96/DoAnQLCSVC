@@ -20,6 +20,7 @@ import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_quan_li_ke_hoach.*
+import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class QuanLiKeHoachFragment : Fragment() {
@@ -86,5 +87,6 @@ class QuanLiKeHoachFragment : Fragment() {
             addAll(responseData.data.keHoachList)
         }
         keHoachAdapter?.notifyDataSetChanged()
+        recyclerViewQlkh.scrollToPosition(0)
     }
 }

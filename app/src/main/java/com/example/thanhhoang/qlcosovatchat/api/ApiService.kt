@@ -42,6 +42,9 @@ interface ApiService {
     @GET("/proposal")
     fun searchYeuCau(@Query("active") state: Int?, @Query("keyword") tieuDe: String?): Single<YeuCauResponse>
 
+    @GET("/proposal/{id}")
+    fun getYeuCauDetail(@Path("id") id: String): Single<YeuCauDetailResponse>
+
     @POST("/proposal/prepair")
     fun createYeuCauSuaChua(@Body yeuCauSuaChuaRequest: YeuCauSuaChuaRequest): Single<YeuCauResponse>
 

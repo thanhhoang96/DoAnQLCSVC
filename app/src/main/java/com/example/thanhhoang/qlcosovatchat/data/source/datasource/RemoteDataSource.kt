@@ -21,6 +21,8 @@ interface RemoteDataSource {
 
     fun searchYeuCau(state: Int?, tieuDe: String?): Single<YeuCauResponse>
 
+    fun getYeuCauDetail(id: String): Single<YeuCauDetailResponse>
+
     fun createYeuCauSuaChua(yeuCauSuaChuaRequest: YeuCauSuaChuaRequest): Single<YeuCauResponse>
 
     fun deleteYeuCau(id: String): Single<YeuCauResponse>

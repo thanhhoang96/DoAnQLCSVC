@@ -21,6 +21,7 @@ import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
+import com.example.thanhhoang.qlcosovatchat.ui.qlyc.chiTietYeuCau.YeuCauDetailFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi.TaoMoiYeuCauFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -42,9 +43,6 @@ class QuanLiYeuCauFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
-        dialog?.setCancelable(false)
-
         initView()
         loadData()
         handleListener()
@@ -52,6 +50,9 @@ class QuanLiYeuCauFragment : Fragment() {
     }
 
     private fun initView() {
+        dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
+        dialog?.setCancelable(false)
+
         yeuCauList = arrayListOf()
         yeuCauAdapter = yeuCauList?.let { QuanLiYeuCauAdapter(it) }
         recyclerViewListQlyc.apply {
@@ -122,6 +123,14 @@ class QuanLiYeuCauFragment : Fragment() {
             sentPositionItemXoaYeuCau = {
                 showDialogXoaYc(it)
             }
+
+            sentPositionGetYeuCauDetail = {
+                val bundle = Bundle()
+                bundle.putString("yeuCauID", yeuCauList?.get(it)?.idYC)
+                val yeuCauDetailFragment = YeuCauDetailFragment()
+                yeuCauDetailFragment.arguments = bundle
+                (activity as MainActivity).addFragment(R.id.flContainer, yeuCauDetailFragment)
+            }
         }
 
         (activity as MainActivity).createYeuCauSuccess = {
@@ -135,6 +144,7 @@ class QuanLiYeuCauFragment : Fragment() {
             addAll(responseData.data.yeuCauList)
         }
         yeuCauAdapter?.notifyDataSetChanged()
+        recyclerViewListQlyc.scrollToPosition(0)
     }
 
     private fun showDialogXoaYc(position: Int) {

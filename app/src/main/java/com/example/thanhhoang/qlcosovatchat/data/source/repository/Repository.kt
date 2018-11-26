@@ -35,6 +35,8 @@ class Repository : LocalDataSource, RemoteDataSource {
 
     override fun searchYeuCau(state: Int?, tieuDe: String?): Single<YeuCauResponse> = remoteRepository.searchYeuCau(state, tieuDe)
 
+    override fun getYeuCauDetail(id: String): Single<YeuCauDetailResponse> =remoteRepository.getYeuCauDetail(id)
+
     override fun createYeuCauSuaChua(yeuCauSuaChuaRequest: YeuCauSuaChuaRequest): Single<YeuCauResponse> = remoteRepository.createYeuCauSuaChua(yeuCauSuaChuaRequest)
 
     override fun deleteYeuCau(id: String): Single<YeuCauResponse> = remoteRepository.deleteYeuCau(id)

@@ -74,6 +74,16 @@
     <string name="label_ma_dinh_danh_qlyc_tmsc">Mã định danh</string>
     <string name="label_nhom_thiet_bi_qlyc_tmsc">Nhóm thiết bị</string>
     <string name="label_trang_thai_qlyc_tmsc">Trạng thái</string>
+    <string name="label_giai_trinh_detail">Giải trình:</string>
+    <string name="label_ngay_tao_detail">Ngày tạo:</string>
+    <string name="label_don_vi_detail">Đơn vị:</string>
+    <string name="label_trang_thai_detail">Trạng thái:</string>
+    <string name="label_loai_yeu_cau_detail">Loại yêu cầu:</string>
+    <string name="label_tro_ve_yeu_cau_detail">Trở về</string>
+    <string name="label_ma_dinh_danh_yc_detail">Mã định danh</string>
+    <string name="label_ten_thiet_bi_yc_detail">Tên thiết bị</string>
+    <string name="label_nhom_thiet_bi_yc_detail">Nhóm thiết bị</string>
+    <string name="label_don_vi_tinh_yc_detail">Đơn vị tính</string>
 
     <!--State qlts-->
     <string-array name="state_array">
