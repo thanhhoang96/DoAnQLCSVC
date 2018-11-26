@@ -38,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         super.onBackPressed()
         val currentFragment = supportFragmentManager.findFragmentById(R.id.flContainer)
         when (currentFragment) {
+            is QuanLiTaiSanFragment -> moveTaskToBack(true)
             is QuanLiYeuCauFragment -> replaceFragment(R.id.flContainer, QuanLiTaiSanFragment())
             is QuanLiKeHoachFragment -> replaceFragment(R.id.flContainer, QuanLiTaiSanFragment())
             is TaoMoiYeuCauFragment -> popBackStackFragment()
