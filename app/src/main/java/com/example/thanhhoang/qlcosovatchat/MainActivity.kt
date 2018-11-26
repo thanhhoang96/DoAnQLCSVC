@@ -14,8 +14,6 @@ import com.example.thanhhoang.qlcosovatchat.ui.login.LoginActivity
 import com.example.thanhhoang.qlcosovatchat.ui.qlkh.QuanLiKeHoachFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlts.QuanLiTaiSanFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.QuanLiYeuCauFragment
-import com.example.thanhhoang.qlcosovatchat.ui.qlyc.chiTietYeuCau.YeuCauDetailFragment
-import com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi.TaoMoiYeuCauFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,14 +34,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.flContainer)
-        when (currentFragment) {
-            is QuanLiTaiSanFragment -> moveTaskToBack(true)
-            is QuanLiYeuCauFragment -> replaceFragment(R.id.flContainer, QuanLiTaiSanFragment())
-            is QuanLiKeHoachFragment -> replaceFragment(R.id.flContainer, QuanLiTaiSanFragment())
-            is TaoMoiYeuCauFragment -> popBackStackFragment()
-            is YeuCauDetailFragment -> popBackStackFragment()
-        }
+        val countFragmentBackStack = supportFragmentManager.backStackEntryCount
+        if (countFragmentBackStack == 1) {
+            if (supportFragmentManager.findFragmentById(R.id.flContainer) is QuanLiTaiSanFragment)
+                moveTaskToBack(true)
+            else
+                replaceFragment(R.id.flContainer, QuanLiTaiSanFragment())
+        } else
+            popBackStackFragment()
     }
 
     private fun initView() {

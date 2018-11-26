@@ -52,7 +52,7 @@
             android:gravity="center"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="@color/colorGrayDark"
             android:textSize="14sp" />
     </LinearLayout>
 
