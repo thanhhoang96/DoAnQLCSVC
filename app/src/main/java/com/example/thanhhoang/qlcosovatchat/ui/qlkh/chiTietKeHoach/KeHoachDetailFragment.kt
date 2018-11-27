@@ -78,9 +78,9 @@ class KeHoachDetailFragment : Fragment() {
         tvNgayTaoKhDetail.text = keHoachDetail.ngayTaoKh
         tvDonViKhDetail.text = keHoachDetail.unit.name
         tvTrangThaiKhDetail.text = if (keHoachDetail.trangThaiKhDetail == 0) "Chưa duyệt" else if (keHoachDetail.trangThaiKhDetail == 0) "Đã xác nhận" else "Đã duyệt"
-        tvLoaiYeuCauYcDetail.text = keHoachDetail.type.name
+        tvLoaiYeuCauKhDetail.text = keHoachDetail.type.name
         keHoachDetailAdapter = KeHoachDetailAdapter(keHoachDetail.itemKhList)
-        recyclerViewYcDetail.apply {
+        recyclerViewKhDetail.apply {
             layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
             adapter = keHoachDetailAdapter
         }
