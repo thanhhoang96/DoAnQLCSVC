@@ -33,4 +33,6 @@ class RemoteRepository : RemoteDataSource {
     override fun deleteYeuCau(id: String): Single<YeuCauResponse> = apiService.deleteYeuCau(id)
 
     override fun getAllKeHoach(): Single<KeHoachResponse> = apiService.getAllKeHoach()
+
+    override fun getKeHoachDetail(id: String): Single<KeHoachDetailResponse> = apiService.getKeHoachDetail(id)
 }

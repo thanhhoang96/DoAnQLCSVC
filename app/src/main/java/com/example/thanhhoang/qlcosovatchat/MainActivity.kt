@@ -33,11 +33,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
         val countFragmentBackStack = supportFragmentManager.backStackEntryCount
-        if (countFragmentBackStack == 1) {
+        if (countFragmentBackStack <= 1) {
             if (supportFragmentManager.findFragmentById(R.id.flContainer) is QuanLiTaiSanFragment)
-                moveTaskToBack(true)
+                super.onBackPressed()
             else
                 replaceFragment(R.id.flContainer, QuanLiTaiSanFragment())
         } else

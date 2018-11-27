@@ -28,4 +28,6 @@ interface RemoteDataSource {
     fun deleteYeuCau(id: String): Single<YeuCauResponse>
 
     fun getAllKeHoach(): Single<KeHoachResponse>
+
+    fun getKeHoachDetail(id: String): Single<KeHoachDetailResponse>
 }

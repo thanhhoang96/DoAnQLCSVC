@@ -16,11 +16,12 @@ import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
 import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
+import com.example.thanhhoang.qlcosovatchat.extention.addFragment
+import com.example.thanhhoang.qlcosovatchat.ui.qlkh.chiTietKeHoach.KeHoachDetailFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_quan_li_ke_hoach.*
-import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class QuanLiKeHoachFragment : Fragment() {
@@ -76,8 +77,18 @@ class QuanLiKeHoachFragment : Fragment() {
     }
 
     private fun handleListenerFromInterface() {
-        keHoachAdapter?.sentPositionItemQlKh = {
-            Log.d("xxx", it.toString())
+        keHoachAdapter?.apply {
+            sentPositionItemQlKh = {
+                Log.d("xxx", it.toString())
+            }
+
+            sentPositionItemKhDtail = {
+                val bundle = Bundle()
+                bundle.putString("keHoachID", keHoachList?.get(it)?.id)
+                val keHoachDetail = KeHoachDetailFragment()
+                keHoachDetail.arguments = bundle
+                (activity as MainActivity).addFragment(R.id.flContainer, keHoachDetail)
+            }
         }
     }
 

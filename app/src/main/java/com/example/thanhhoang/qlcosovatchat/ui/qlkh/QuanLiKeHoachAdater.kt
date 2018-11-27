@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.item_qlkh.view.*
 class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : RecyclerView.Adapter<QuanLiKeHoachAdapter.QuanLiKeHoachVH>() {
 
     internal var sentPositionItemQlKh: (Int) -> Unit = {}
+    internal var sentPositionItemKhDtail: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): QuanLiKeHoachVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_qlkh, parent, false)
@@ -30,6 +31,10 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
         init {
             itemView.tvActionQlkh.setOnClickListener {
                 sentPositionItemQlKh(adapterPosition)
+            }
+
+            itemView.tvTenKhQlkh.setOnClickListener {
+                sentPositionItemKhDtail(adapterPosition)
             }
         }
 

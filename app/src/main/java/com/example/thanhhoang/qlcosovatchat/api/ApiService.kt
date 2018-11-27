@@ -57,6 +57,9 @@ interface ApiService {
     @GET("/plan")
     fun getAllKeHoach(): Single<KeHoachResponse>
 
+    @GET("/plan/{id}")
+    fun getKeHoachDetail(@Path("id") id: String): Single<KeHoachDetailResponse>
+
     companion object Factory {
         fun create(): ApiService {
             val builder = OkHttpClient.Builder()

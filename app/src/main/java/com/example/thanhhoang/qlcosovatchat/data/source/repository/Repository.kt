@@ -42,4 +42,6 @@ class Repository : LocalDataSource, RemoteDataSource {
     override fun deleteYeuCau(id: String): Single<YeuCauResponse> = remoteRepository.deleteYeuCau(id)
 
     override fun getAllKeHoach(): Single<KeHoachResponse> = remoteRepository.getAllKeHoach()
+
+    override fun getKeHoachDetail(id: String): Single<KeHoachDetailResponse> = remoteRepository.getKeHoachDetail(id)
 }
