@@ -78,7 +78,10 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -102,10 +105,11 @@
                     android:id="@+id/recyclerViewQlkh"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="3dp"
                     android:layout_marginRight="3dp"
-                    android:layout_marginBottom="10dp"
-                    android:scrollbarSize="4sp"
+                    android:layout_marginBottom="5dp"
+                    android:scrollbarSize="2sp"
                     android:scrollbarThumbVertical="@android:color/holo_red_light"
                     android:scrollbars="vertical" />
             </FrameLayout>
