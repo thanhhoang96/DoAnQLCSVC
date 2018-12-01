@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.AdapterView
 import android.widget.LinearLayout
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
@@ -24,7 +25,6 @@ import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_quan_li_ke_hoach.*
-import kotlinx.android.synthetic.main.fragment_quan_li_yeu_cau.*
 
 class QuanLiKeHoachFragment : Fragment() {
     private var dialog: Dialog? = null
@@ -77,8 +77,16 @@ class QuanLiKeHoachFragment : Fragment() {
             edtSearchQlkh.setText("")
         }
 
-        edtSearchQlyc.afterTextChanged { _ ->
+        edtSearchQlkh.afterTextChanged { _ ->
             searchKeHoach(spStateQlkh.selectedItem.toString(), edtSearchQlkh.text.toString())
+        }
+
+        spStateQlkh.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                searchKeHoach(spStateQlkh.selectedItem.toString(), edtSearchQlkh.text.toString())
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
     }
 
@@ -122,6 +130,8 @@ class QuanLiKeHoachFragment : Fragment() {
         }
         keHoachAdapter?.notifyDataSetChanged()
         recyclerViewQlkh.scrollToPosition(0)
+
+        tvKeHoachNotFound.visibility = if (keHoachList?.size == 0) View.VISIBLE else View.GONE
     }
 
     private fun showDialogXoaKh(position: Int) {

@@ -95,6 +95,9 @@
     <string name="ycms_detail_don_vi_tinh">Đơn vị tính</string>
     <string name="ycms_detail_nhom_thiet_bi">Nhóm thiết b</string>
     <string name="ycms_detail_ten_thiet_bi">Tên thiết bị</string>
+    <string name="label_not_found_tai_san">Không tìm thấy tài sản</string>
+    <string name="label_not_found_yeu_cau">Không tìm thấy yêu cầu</string>
+    <string name="label_not_found_ke_hoach">Không tìm thấy kế hoạch</string>
 
     <!--State qlts-->
     <string-array name="state_array">

@@ -160,7 +160,10 @@ class QuanLiTaiSanFragment : Fragment() {
             clear()
             addAll(responseData.data.taiSanList)
         }
+
         taiSanAdapter?.notifyDataSetChanged()
         recyclerViewQlts.scrollToPosition(0)
+
+        tvTaiSanNotFound.visibility = if (taiSanList?.size == 0) View.VISIBLE else View.GONE
     }
 }
