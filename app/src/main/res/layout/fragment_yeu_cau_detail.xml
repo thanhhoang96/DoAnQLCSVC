@@ -144,9 +144,11 @@
         android:background="@color/colorGrayDark" />
 
     <LinearLayout
+        android:id="@+id/llTableYcsc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:visibility="gone"
         android:weightSum="6">
 
         <TextView
@@ -207,11 +209,12 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/llTableYcms"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:weightSum="7"
-        android:visibility="gone">
+        android:visibility="gone"
+        android:weightSum="7">
 
         <TextView
             android:layout_width="0dp"

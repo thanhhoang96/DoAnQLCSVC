@@ -83,12 +83,16 @@ class YeuCauDetailFragment : Fragment() {
         tvLoaiYeuCauYcDetail.text = yeuCauDetail.type.name
         if (isYeuCauMuaSam != null) {
             if (isYeuCauMuaSam as Boolean) {
+                llTableYcsc.visibility = View.GONE
+                llTableYcms.visibility = View.VISIBLE
                 yeuCauMsDetailAdapter = YeuCauMsDetailAdapter(yeuCauDetail.listYeuCauDetail)
                 recyclerViewYcDetail.apply {
                     layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
                     adapter = yeuCauMsDetailAdapter
                 }
             } else {
+                llTableYcsc.visibility = View.VISIBLE
+                llTableYcms.visibility = View.GONE
                 yeuCauDetailAdapter = YeuCauDetailAdapter(yeuCauDetail.listYeuCauDetail)
                 recyclerViewYcDetail.apply {
                     layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
