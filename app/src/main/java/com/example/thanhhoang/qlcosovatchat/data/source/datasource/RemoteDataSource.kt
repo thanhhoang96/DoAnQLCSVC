@@ -29,5 +29,7 @@ interface RemoteDataSource {
 
     fun getAllKeHoach(): Single<KeHoachResponse>
 
+    fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse>
+
     fun getKeHoachDetail(id: String): Single<KeHoachDetailResponse>
 }

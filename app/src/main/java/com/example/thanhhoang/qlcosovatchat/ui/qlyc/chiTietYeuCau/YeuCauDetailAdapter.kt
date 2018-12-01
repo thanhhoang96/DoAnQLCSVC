@@ -27,9 +27,9 @@ class YeuCauDetailAdapter(private var yeuCauDetailList: MutableList<ItemYcDetail
         fun onBind(itemDetail: ItemYcDetail) {
             itemView.run {
                 tvMaDinhDanhYcDetail.text = itemDetail.maDinhDanh
-                tvTenThietYcDetail.text = itemDetail.equipment.name
-                tvNhomThietBiYcDetail.text = itemDetail.groupEquipment.name
-                tvDonViTinhYcDetail.text = itemDetail.equipment.measureUnit.name
+                tvTenThietYcDetail.text = itemDetail.equipment?.name
+                tvNhomThietBiYcDetail.text = itemDetail.groupEquipment?.name
+                tvDonViTinhYcDetail.text = itemDetail.equipment?.measureUnit?.name
             }
         }
     }

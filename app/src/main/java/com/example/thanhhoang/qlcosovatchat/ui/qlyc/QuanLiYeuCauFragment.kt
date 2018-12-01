@@ -126,7 +126,10 @@ class QuanLiYeuCauFragment : Fragment() {
 
             sentPositionGetYeuCauDetail = {
                 val bundle = Bundle()
-                bundle.putString("yeuCauID", yeuCauList?.get(it)?.idYC)
+                bundle.apply {
+                    putString("yeuCauID", yeuCauList?.get(it)?.idYC)
+                    putBoolean("ycType", yeuCauList?.get(it)?.type?.name == "Yêu cầu mua sắm")
+                }
                 val yeuCauDetailFragment = YeuCauDetailFragment()
                 yeuCauDetailFragment.arguments = bundle
                 (activity as MainActivity).addFragment(R.id.flContainer, yeuCauDetailFragment)

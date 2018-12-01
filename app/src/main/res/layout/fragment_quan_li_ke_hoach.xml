@@ -4,23 +4,47 @@
     android:id="@+id/llQlyc"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffab91"
+    android:background="#dcedc8"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <Spinner
+            android:id="@+id/spStateQlkh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/bg_state_qlts"
+            android:entries="@array/state_array_qlyc"
+            android:padding="5dp"
+            android:paddingStart="25dp"
+            android:paddingLeft="25dp"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ic_drop_down"
+            android:contentDescription="@null" />
+
         <EditText
             android:id="@+id/edtSearchQlkh"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="15dp"
+            android:layout_below="@id/spStateQlkh"
+            android:layout_margin="10dp"
             android:background="@drawable/bg_search_qlts"
             android:drawableStart="@android:drawable/ic_menu_search"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:drawablePadding="10dp"
-            android:hint="@string/label_search_ten_ke_hoach"
+            android:hint="@string/hint_nhap_tieu_de_yeu_cau"
             android:importantForAutofill="no"
             android:inputType="text"
             android:padding="10dp"
@@ -32,11 +56,12 @@
             android:id="@+id/imgClearInputQlkh"
             android:layout_width="25dp"
             android:layout_height="25dp"
+            android:layout_below="@id/spStateQlkh"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
             android:background="@drawable/ic_close"
             android:contentDescription="@null" />
     </RelativeLayout>
@@ -44,12 +69,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:paddingBottom="10dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="#5c6bc0"
         android:text="@string/label_danh_sach_ke_hoach"
-        android:gravity="center"/>
+        android:textColor="#5c6bc0"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewQlkh"

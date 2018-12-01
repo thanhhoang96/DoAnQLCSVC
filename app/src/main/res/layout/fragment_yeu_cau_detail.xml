@@ -206,6 +206,85 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:weightSum="7"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/ycms_detail_ten_thiet_bi"
+            android:textColor="#ff8a65"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:ignore="NestedWeights" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayDark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="@string/ycms_detail_nhom_thiet_bi"
+            android:textColor="#ff8a65"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayDark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ycms_detail_don_vi_tinh"
+            android:textColor="#ff8a65"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayDark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ycms_detail_sl_yeu_cau"
+            android:textColor="#ff8a65"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayDark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ycms_detail_sl_duyet"
+            android:textColor="#ff8a65"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"

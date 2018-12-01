@@ -90,6 +90,11 @@
     <string name="ke_hoach_detail_sl_de_nghi">Sl đề nghị</string>
     <string name="ke_hoach_detail_sl_duyet">Sl duyệt</string>
     <string name="ke_hoach_detail_don_gia">Đơn giá</string>
+    <string name="ycms_detail_sl_duyet">Sl duyệt</string>
+    <string name="ycms_detail_sl_yeu_cau">Sl yêu cầu</string>
+    <string name="ycms_detail_don_vi_tinh">Đơn vị tính</string>
+    <string name="ycms_detail_nhom_thiet_bi">Nhóm thiết b</string>
+    <string name="ycms_detail_ten_thiet_bi">Tên thiết bị</string>
 
     <!--State qlts-->
     <string-array name="state_array">

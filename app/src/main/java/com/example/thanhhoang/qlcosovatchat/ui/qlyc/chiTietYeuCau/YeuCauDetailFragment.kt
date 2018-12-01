@@ -23,6 +23,8 @@ class YeuCauDetailFragment : Fragment() {
     private var dialog: Dialog? = null
     private var viewModel: YeuCauDetailViewModel? = null
     private var yeuCauDetailAdapter: YeuCauDetailAdapter? = null
+    private var yeuCauMsDetailAdapter: YeuCauMsDetailAdapter? = null
+    private var isYeuCauMuaSam: Boolean? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_yeu_cau_detail, container, false)
@@ -32,6 +34,7 @@ class YeuCauDetailFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val id = arguments?.getString("yeuCauID")
+        isYeuCauMuaSam = arguments?.getBoolean("ycType")
 
         initData()
         loadData(id)
@@ -78,10 +81,20 @@ class YeuCauDetailFragment : Fragment() {
         tvDonViYcDetail.text = yeuCauDetail.unit.name
         tvTrangThaiYcDetail.text = if (yeuCauDetail.trangThaiYcDetail == 0) "Chưa duyệt" else if (yeuCauDetail.trangThaiYcDetail == 0) "Đã xác nhận" else "Đã duyệt"
         tvLoaiYeuCauYcDetail.text = yeuCauDetail.type.name
-        yeuCauDetailAdapter = YeuCauDetailAdapter(yeuCauDetail.listYeuCauDetail)
-        recyclerViewYcDetail.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
-            adapter = yeuCauDetailAdapter
+        if (isYeuCauMuaSam != null) {
+            if (isYeuCauMuaSam as Boolean) {
+                yeuCauMsDetailAdapter = YeuCauMsDetailAdapter(yeuCauDetail.listYeuCauDetail)
+                recyclerViewYcDetail.apply {
+                    layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+                    adapter = yeuCauMsDetailAdapter
+                }
+            } else {
+                yeuCauDetailAdapter = YeuCauDetailAdapter(yeuCauDetail.listYeuCauDetail)
+                recyclerViewYcDetail.apply {
+                    layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+                    adapter = yeuCauDetailAdapter
+                }
+            }
         }
     }
 }

@@ -6,6 +6,7 @@ import com.google.gson.annotations.SerializedName
 
 data class ItemYcDetail(
         @SerializedName("identifierNo") var maDinhDanh: String,
-        var equipment: Equipment,
-        var groupEquipment: GroupEquipment
+        @SerializedName("planItem") var planItem: PlanItem?,
+        var equipment: Equipment?,
+        var groupEquipment: GroupEquipment?
 )

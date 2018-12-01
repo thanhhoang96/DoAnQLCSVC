@@ -1,11 +1,12 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlkh
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,13 +18,14 @@ import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
 import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
+import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import com.example.thanhhoang.qlcosovatchat.ui.qlkh.chiTietKeHoach.KeHoachDetailFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_quan_li_ke_hoach.*
+import kotlinx.android.synthetic.main.fragment_quan_li_yeu_cau.*
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class QuanLiKeHoachFragment : Fragment() {
     private var dialog: Dialog? = null
     private var viewModel: QuanLiKeHoachViewModel? = null
@@ -38,16 +40,16 @@ class QuanLiKeHoachFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
-        dialog?.setCancelable(false)
-
         initView()
-        connApi()
+        loadData()
         handleListener()
         handleListenerFromInterface()
     }
 
     private fun initView() {
+        dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
+        dialog?.setCancelable(false)
+
         keHoachList = arrayListOf()
         keHoachAdapter = keHoachList?.let { QuanLiKeHoachAdapter(it) }
         recyclerViewQlkh.apply {
@@ -56,7 +58,7 @@ class QuanLiKeHoachFragment : Fragment() {
         }
     }
 
-    private fun connApi() {
+    private fun loadData() {
         dialog?.show()
         viewModel = QuanLiKeHoachViewModel(Repository())
         Handler().postDelayed({
@@ -74,12 +76,16 @@ class QuanLiKeHoachFragment : Fragment() {
         imgClearInputQlkh.setOnClickListener {
             edtSearchQlkh.setText("")
         }
+
+        edtSearchQlyc.afterTextChanged { _ ->
+            searchKeHoach(spStateQlkh.selectedItem.toString(), edtSearchQlkh.text.toString())
+        }
     }
 
     private fun handleListenerFromInterface() {
         keHoachAdapter?.apply {
-            sentPositionItemQlKh = {
-                Log.d("xxx", it.toString())
+            sentPositionXoaItemQlKh = {
+                showDialogXoaKh(it)
             }
 
             sentPositionItemKhDtail = {
@@ -92,6 +98,23 @@ class QuanLiKeHoachFragment : Fragment() {
         }
     }
 
+    @SuppressLint("CheckResult")
+    private fun searchKeHoach(trangThai: String, tenKeHoach: String) {
+        val msg = if (tenKeHoach.isEmpty()) null else tenKeHoach
+        val status = when (trangThai) {
+            "Tất cả" -> null
+            "Chưa duyệt" -> 0
+            "Đã xác nhận" -> 1
+            else -> 2
+        }
+        viewModel?.searchKeHoach(status, msg)
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({
+                    updateList(it)
+                }, {})
+    }
+
     private fun updateList(responseData: KeHoachResponse) {
         keHoachList?.apply {
             clear()
@@ -99,5 +122,21 @@ class QuanLiKeHoachFragment : Fragment() {
         }
         keHoachAdapter?.notifyDataSetChanged()
         recyclerViewQlkh.scrollToPosition(0)
+    }
+
+    private fun showDialogXoaKh(position: Int) {
+        val dialogBuilder = AlertDialog.Builder(activity as MainActivity)
+        dialogBuilder.setTitle("Xoá kế hoạch")
+        dialogBuilder.setMessage("Bạn có chắc muốn xoá yêu cầu [${keHoachList?.get(position)?.tieuDeKeHoach}] này không?")
+        dialogBuilder.setPositiveButton("Ok") { dialog, _ ->
+            //todo xoa ke hoach
+            dialog.dismiss()
+        }
+        dialogBuilder.setNegativeButton("Huỷ") { dialog, _ ->
+            dialog.dismiss()
+        }
+
+        val dialogConfirm = dialogBuilder.create()
+        dialogConfirm.show()
     }
 }
