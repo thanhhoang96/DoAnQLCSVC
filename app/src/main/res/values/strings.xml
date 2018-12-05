@@ -98,6 +98,29 @@
     <string name="label_not_found_tai_san">Không tìm thấy tài sản</string>
     <string name="label_not_found_yeu_cau">Không tìm thấy yêu cầu</string>
     <string name="label_not_found_ke_hoach">Không tìm thấy kế hoạch</string>
+    <string name="tao_moi_ke_hoach_ten_thiet_bi">Tên thiết bị</string>
+    <string name="tao_moi_ke_hoach_nhom_thiet_bi">Nhóm thiết bị</string>
+    <string name="tao_moi_ke_hoach_don_vi_tinh">Đơn vị tính</string>
+    <string name="tao_moi_ke_hoach_sl_de_nghi">Sl đề nghị</string>
+    <string name="tao_moi_ke_hoach_don_gia">Đơn giá</string>
+    <string name="tao_moi_ke_hoach_thanh_tien">Thành tiền</string>
+    <string name="tao_moi_ke_hoach_action">Action</string>
+    <string name="tao_moi_ke_hoach_chon_thiet_bi">Chọn thiết bị</string>
+    <string name="tao_moi_ke_hoach_chon_loai_ke_hoach">Chọn loại kế hoạch</string>
+    <string name="tao_moi_ke_hoach_chon_ten_ke_hoach">Tên kế hoạch</string>
+    <string name="tao_moi_ke_hoach_nhap_ten_ke_hoach">Nhập tên kế hoạch</string>
+    <string name="tao_moi_ke_hoach_label">Tạo mới kế hoạch</string>
+    <string name="tao_moi_ke_hoach_btn_tro_ve">Trở về</string>
+    <string name="tao_moi_ke_hoach_btn_tao_gui_ke_hoach">Tạo và gửi kế hoạch</string>
+    <string name="tao_moi_ke_hoach_ghi_chu_label">Ghi chú</string>
+    <string name="tao_moi_ke_hoach_nhap_ghi_chu">Nhập ghi chú</string>
+
+    <string name="tmkh_chon_thiet_bi_huy">Huỷ</string>
+    <string name="tmkh_chon_thiet_bi_luu">Lưu</string>
+    <string name="tmkh_chon_thiet_bi_so_luong">Số lượng</string>
+    <string name="tmkh_chon_thiet_bi_label_chon_thiet_bi">Chọn thiết bị</string>
+    <string name="tmkh_chon_thiet_bi_label_thiet_bi">Thiết bị</string>
+    <string name="tmkh_chon_thiet_bi_label_nhom_thiet_bi">Nhóm thiết bị</string>
 
     <!--State qlts-->
     <string-array name="state_array">

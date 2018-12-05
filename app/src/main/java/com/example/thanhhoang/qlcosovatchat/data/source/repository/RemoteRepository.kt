@@ -37,4 +37,6 @@ class RemoteRepository : RemoteDataSource {
     override fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse> = apiService.searchKeHoach(trangThai, tenKeHoach)
 
     override fun getKeHoachDetail(id: String): Single<KeHoachDetailResponse> = apiService.getKeHoachDetail(id)
+
+    override fun getLoaiKeHoach(): Single<LoaiKeHoachResponse> = apiService.getLoaiKeHoach()
 }

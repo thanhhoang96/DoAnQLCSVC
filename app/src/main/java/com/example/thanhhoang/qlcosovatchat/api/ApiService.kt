@@ -63,6 +63,9 @@ interface ApiService {
     @GET("/plan")
     fun searchKeHoach(@Query("active") trangThai: Int?, @Query("keyword") tenKeHoach: String?): Single<KeHoachResponse>
 
+    @GET("/plan-type")
+    fun getLoaiKeHoach(): Single<LoaiKeHoachResponse>
+
     companion object Factory {
         fun create(): ApiService {
             val builder = OkHttpClient.Builder()

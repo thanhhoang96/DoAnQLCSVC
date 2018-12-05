@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#81d4fa"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="@string/tmkh_chon_thiet_bi_label_chon_thiet_bi"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/tmkh_chon_thiet_bi_label_nhom_thiet_bi"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/spLoaiKeHoachChonThietBi"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/bg_search_qlts"
+            android:drawableEnd="@drawable/ic_drop_down"
+            android:drawableRight="@drawable/ic_drop_down"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:hint="@string/tao_moi_ke_hoach_chon_loai_ke_hoach"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/tmkh_chon_thiet_bi_label_thiet_bi"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/spThietBiChonThietBi"
+            android:layout_width="205dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="54dp"
+            android:layout_marginLeft="54dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginRight="55dp"
+            android:background="@drawable/bg_search_qlts"
+            android:drawableEnd="@drawable/ic_drop_down"
+            android:drawableRight="@drawable/ic_drop_down"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:hint="@string/tmkh_chon_thiet_bi_label_chon_thiet_bi"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            tools:ignore="RtlSymmetry" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/tmkh_chon_thiet_bi_so_luong"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/edtSoLuongChonThietBi"
+            android:layout_width="60dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="46dp"
+            android:layout_marginLeft="46dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/bg_search_qlts"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:paddingStart="10dp"
+            android:paddingLeft="10dp"
+            android:textSize="16sp"
+            tools:ignore="LabelFor,RtlSymmetry"
+            tools:targetApi="o" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorGrayDark" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingEnd="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="10dp"
+        tools:ignore="RtlSymmetry">
+
+        <Button
+            android:id="@+id/btnLuuChonThietBi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/tmkh_chon_thiet_bi_luu"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnHuyChonThietBi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toStartOf="@id/btnLuuChonThietBi"
+            android:layout_toLeftOf="@id/btnLuuChonThietBi"
+            android:text="@string/tmkh_chon_thiet_bi_huy"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+</LinearLayout>

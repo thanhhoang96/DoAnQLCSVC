@@ -21,6 +21,7 @@ import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import com.example.thanhhoang.qlcosovatchat.ui.qlkh.chiTietKeHoach.KeHoachDetailFragment
+import com.example.thanhhoang.qlcosovatchat.ui.qlkh.taoKeHoach.TaoKeHoachFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -87,6 +88,10 @@ class QuanLiKeHoachFragment : Fragment() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        btnTaoMoiKH.setOnClickListener {
+            activity?.addFragment(R.id.flContainer, TaoKeHoachFragment())
         }
     }
 
