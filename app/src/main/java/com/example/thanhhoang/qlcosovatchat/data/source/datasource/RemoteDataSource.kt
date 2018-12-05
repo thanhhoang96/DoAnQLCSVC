@@ -34,4 +34,8 @@ interface RemoteDataSource {
     fun getKeHoachDetail(id: String): Single<KeHoachDetailResponse>
 
     fun getLoaiKeHoach(): Single<LoaiKeHoachResponse>
+
+    fun getNhomThietBi(): Single<NhomThietBiResponse>
+
+    fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse>
 }

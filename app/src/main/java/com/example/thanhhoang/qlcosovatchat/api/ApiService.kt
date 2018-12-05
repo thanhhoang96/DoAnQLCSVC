@@ -66,6 +66,12 @@ interface ApiService {
     @GET("/plan-type")
     fun getLoaiKeHoach(): Single<LoaiKeHoachResponse>
 
+    @GET("/equipment-group")
+    fun getNhomThietBi(): Single<NhomThietBiResponse>
+
+    @GET("/equipment/equipments-by-group-equipment")
+    fun getThietBi(@Query("equipmentGroup") idEquipmentGroup: String): Single<ThietBiResponse>
+
     companion object Factory {
         fun create(): ApiService {
             val builder = OkHttpClient.Builder()

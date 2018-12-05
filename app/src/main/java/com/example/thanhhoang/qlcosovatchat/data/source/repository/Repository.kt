@@ -48,4 +48,8 @@ class Repository : LocalDataSource, RemoteDataSource {
     override fun getKeHoachDetail(id: String): Single<KeHoachDetailResponse> = remoteRepository.getKeHoachDetail(id)
 
     override fun getLoaiKeHoach(): Single<LoaiKeHoachResponse> = remoteRepository.getLoaiKeHoach()
+
+    override fun getNhomThietBi(): Single<NhomThietBiResponse> = remoteRepository.getNhomThietBi()
+
+    override fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse> = remoteRepository.getThietBi(idGroupThietBi)
 }
