@@ -79,9 +79,9 @@ class TaoKeHoachFragment : Fragment() {
     @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     @SuppressLint("InflateParams", "CheckResult")
     private fun showDialogChonThietBi() {
-        val listGroup = arrayListOf<NhomThietBi>()
-        val listNhomThietBi = arrayListOf<String>()
-        val listThietBi = arrayListOf<String>()
+        val listGroup: MutableList<NhomThietBi> = mutableListOf()
+        val listNhomThietBi: MutableList<String> = mutableListOf()
+        val listThietBi: MutableList<String> = mutableListOf()
         val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_chon_thiet_bi_tmkh, null)
 
         val mBuilder = context?.let {
