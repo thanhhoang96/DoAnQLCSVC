@@ -76,7 +76,6 @@ class TaoKeHoachFragment : Fragment() {
         spLoaiKeHoachTaoMoiKh?.adapter = adapter1
     }
 
-    @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     @SuppressLint("InflateParams", "CheckResult")
     private fun showDialogChonThietBi() {
         val listGroup: MutableList<NhomThietBi> = mutableListOf()

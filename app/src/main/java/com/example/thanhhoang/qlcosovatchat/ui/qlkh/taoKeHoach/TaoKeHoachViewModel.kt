@@ -8,6 +8,8 @@ import io.reactivex.Single
 
 class TaoKeHoachViewModel(private var repository: Repository) {
     fun getLoaiKeHoach(): Single<LoaiKeHoachResponse> = repository.getLoaiKeHoach()
+
     fun getNhomThietBi(): Single<NhomThietBiResponse> = repository.getNhomThietBi()
+
     fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse> = repository.getThietBi(idGroupThietBi)
 }
