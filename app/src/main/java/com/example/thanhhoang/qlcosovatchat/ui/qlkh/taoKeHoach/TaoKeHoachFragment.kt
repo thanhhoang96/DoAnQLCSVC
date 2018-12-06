@@ -16,7 +16,6 @@ import com.example.thanhhoang.qlcosovatchat.data.response.LoaiKeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.dialog_chon_thiet_bi_tmkh.*
 import kotlinx.android.synthetic.main.dialog_chon_thiet_bi_tmkh.view.*
 import kotlinx.android.synthetic.main.fragment_tao_moi_kh.*
 
@@ -101,7 +100,7 @@ class TaoKeHoachFragment : Fragment() {
                     }
                     val adapterNhomThietBi = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_spinner_item, listNhomThietBi)
                     adapterNhomThietBi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    spNhomThietBi?.adapter = adapterNhomThietBi
+                    mDialogView.spNhomThietBi?.adapter = adapterNhomThietBi
                 }, {})
 
         mDialogView.spNhomThietBi.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -110,17 +109,17 @@ class TaoKeHoachFragment : Fragment() {
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                listThietBi.clear()
                 viewModel?.getThietBi(listGroup[position].idGroupThietBi)
                         ?.subscribeOn(Schedulers.io())
                         ?.observeOn(AndroidSchedulers.mainThread())
                         ?.subscribe({ it ->
-                            it.data.listThietBi.forEach {
-                                listThietBi.add(it.name)
+                            it.data.listThietBi.forEach { listThietBi.add(it.name) }
 
-                                val adapterThietBi = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_spinner_item, listThietBi)
-                                adapterThietBi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                                spNhomThietBi?.adapter = adapterThietBi
-                            }
+                            val adapterThietBi = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_spinner_item, listThietBi)
+                            adapterThietBi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                            mDialogView.spThietBi?.adapter = adapterThietBi
+
                         }, {})
             }
 
