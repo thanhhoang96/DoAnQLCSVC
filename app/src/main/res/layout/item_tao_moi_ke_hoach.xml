@@ -18,8 +18,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:textColor="#880e4f"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tvNhomThietBiItemTmkh"
@@ -30,8 +29,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:textColor="#880e4f"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tvDonViItemTmkh"
@@ -42,8 +40,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:textColor="#880e4f"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tvSlDeNghiItemTmkh"
@@ -54,8 +51,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:textColor="#880e4f"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tvDonGiaItemTmkh"
@@ -66,8 +62,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:textColor="#880e4f"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tvThanhTienItemTmkh"
@@ -78,8 +73,7 @@
             android:gravity="center"
             android:padding="3dp"
             android:textColor="#880e4f"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tvXoaItemTmkh"
@@ -91,12 +85,13 @@
             android:padding="3dp"
             android:text="Xoá"
             android:textColor="@color/colorBlueMedium"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@color/colorGrayMedium" />
 </LinearLayout>

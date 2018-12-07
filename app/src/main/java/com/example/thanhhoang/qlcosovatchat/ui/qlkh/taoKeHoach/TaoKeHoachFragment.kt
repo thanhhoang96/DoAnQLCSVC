@@ -21,7 +21,6 @@ import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.dialog_chon_thiet_bi_tmkh.*
 import kotlinx.android.synthetic.main.dialog_chon_thiet_bi_tmkh.view.*
 import kotlinx.android.synthetic.main.fragment_tao_moi_kh.*
 
@@ -92,7 +91,9 @@ class TaoKeHoachFragment : Fragment() {
         }
 
         (activity as MainActivity).dialogChonThietBiDismiss = {
-            listKeHoach.add(listEquipment[positionEquipment])
+            val thietBi = listEquipment[positionEquipment]
+            thietBi.soLuong = soLuong
+            listKeHoach.add(thietBi)
             taoKeHoachAdapter?.notifyDataSetChanged()
         }
     }
@@ -100,7 +101,7 @@ class TaoKeHoachFragment : Fragment() {
     @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
     private fun showLoaiKeHoachList(response: LoaiKeHoachResponse) {
         response.data.loaiKeHoachList.forEach {
-            listLoaiKeHoach?.add(it.name)
+            listLoaiKeHoach.add(it.name)
         }
 
         val adapter1 = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_spinner_item, listLoaiKeHoach)
@@ -170,10 +171,10 @@ class TaoKeHoachFragment : Fragment() {
 
         // handle Save data when click button Luu
         mDialogView.btnLuuChonThietBi.setOnClickListener {
-            if (edtSoLuongChonThietBi.text.toString().isNullOrEmpty()) {
+            if (mDialogView.edtSoLuongChonThietBi.text.toString().isEmpty()) {
                 Toast.makeText(activity as MainActivity, "Mời bạn nhập số lượng thiết bị trước khi Lưu", Toast.LENGTH_SHORT).show()
             } else {
-                soLuong = edtSoLuongChonThietBi?.text.toString().toInt()
+                soLuong = mDialogView.edtSoLuongChonThietBi?.text.toString().toInt()
                 (activity as MainActivity).dialogChonThietBiDismiss()
                 mAlertDialog?.dismiss()
             }
