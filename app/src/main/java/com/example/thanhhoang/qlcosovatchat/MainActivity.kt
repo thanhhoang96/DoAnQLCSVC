@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private val localRepository = LocalRepository()
 
     internal var createYeuCauSuccess: () -> Unit = {}
+    internal var dialogChonThietBiDismiss: () -> Unit = {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

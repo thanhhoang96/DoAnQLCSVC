@@ -69,7 +69,7 @@ interface ApiService {
     @GET("/equipment-group")
     fun getNhomThietBi(): Single<NhomThietBiResponse>
 
-    @GET("/equipment/equipments-by-group-equipment")
+    @GET("/equipment/all-by-equipment-group")
     fun getThietBi(@Query("equipmentGroup") idEquipmentGroup: String): Single<ThietBiResponse>
 
     companion object Factory {
