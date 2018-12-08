@@ -7,5 +7,5 @@ data class KeHoach(
         @SerializedName("title") var tieuDeKeHoach: String,
         @SerializedName("planStatus") var trangThaiKeHoach: Int,
         @SerializedName("createdAt") var ngayTaoKeHoach: String,
-        @SerializedName("type") var loaiKeHoach: LoaiKeHoach
+        @SerializedName("type") var loaiKeHoach: LoaiKeHoach?
 )

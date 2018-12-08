@@ -54,5 +54,5 @@ class Repository : LocalDataSource, RemoteDataSource {
 
     override fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse> = remoteRepository.getThietBi(idGroupThietBi)
 
-    override fun createNewKeHoach(plans: Plans): Single<Void> = remoteRepository.createNewKeHoach(plans)
+    override fun createNewKeHoach(plans: Plans): Single<KeHoachResponse> = remoteRepository.createNewKeHoach(plans)
 }

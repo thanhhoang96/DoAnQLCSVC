@@ -1,6 +1,7 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlkh.taoKeHoach
 
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.Plans
+import com.example.thanhhoang.qlcosovatchat.data.response.KeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.LoaiKeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.NhomThietBiResponse
 import com.example.thanhhoang.qlcosovatchat.data.response.ThietBiResponse
@@ -14,5 +15,5 @@ class TaoKeHoachViewModel(private var repository: Repository) {
 
     fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse> = repository.getThietBi(idGroupThietBi)
 
-    fun createNewKeHoach(plans: Plans): Single<Void> = repository.createNewKeHoach(plans)
+    fun createNewKeHoach(plans: Plans): Single<KeHoachResponse> = repository.createNewKeHoach(plans)
 }

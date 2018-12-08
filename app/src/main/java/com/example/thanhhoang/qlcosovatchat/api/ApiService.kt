@@ -74,7 +74,7 @@ interface ApiService {
     fun getThietBi(@Query("equipmentGroup") idEquipmentGroup: String): Single<ThietBiResponse>
 
     @POST("/plan")
-    fun createNewKeHoach(@Body plans: Plans): Single<Void>
+    fun createNewKeHoach(@Body plans: Plans): Single<KeHoachResponse>
 
 
     companion object Factory {

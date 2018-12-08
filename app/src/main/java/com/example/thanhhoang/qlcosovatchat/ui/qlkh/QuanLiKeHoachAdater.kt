@@ -46,7 +46,7 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
                     paintFlags = Paint.UNDERLINE_TEXT_FLAG
                 }
 
-                tvLoaiKhQlkh.text = keHoach.loaiKeHoach.name
+                tvLoaiKhQlkh.text = keHoach.loaiKeHoach?.name
                 tvNgayTaoQlkh.text = FormatUtils.formatDisplayDate(keHoach.ngayTaoKeHoach)
                 tvTrangThaiQlKh.text = if (keHoach.trangThaiKeHoach == 0) "Chưa duyệt" else (if (keHoach.trangThaiKeHoach == 1) "Đã xác nhận" else "Đã duyệt")
 

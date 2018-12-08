@@ -3,6 +3,7 @@ package com.example.thanhhoang.qlcosovatchat.ui.qlkh.taoKeHoach
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
+import android.os.Handler
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.EquipmentItem
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.Plans
+import com.example.thanhhoang.qlcosovatchat.data.model.loaikehoach.ItemLoaiKeHoach
 import com.example.thanhhoang.qlcosovatchat.data.model.nhomthietbi.NhomThietBi
 import com.example.thanhhoang.qlcosovatchat.data.model.thietbi.ThietBi
 import com.example.thanhhoang.qlcosovatchat.data.response.LoaiKeHoachResponse
@@ -33,13 +35,16 @@ class TaoKeHoachFragment : Fragment() {
     private var viewModel: TaoKeHoachViewModel? = null
     private var taoKeHoachAdapter: TaoKeHoachAdapter? = null
 
-    private var listLoaiKeHoach: MutableList<String> = mutableListOf()
+    private var listTypePlan: MutableList<ItemLoaiKeHoach> = mutableListOf()
     private var listKeHoach: MutableList<ThietBi> = mutableListOf()
     private var listGroup: MutableList<NhomThietBi> = mutableListOf()
     private var listEquipment: MutableList<ThietBi> = mutableListOf()
     private var listNhomThietBi: MutableList<String> = mutableListOf()
+
+    private var listLoaiKeHoach: MutableList<String> = mutableListOf()
     private var listThietBi: MutableList<String> = mutableListOf()
 
+    private var positionLoaiPlan = 0
     private var positionGroup = 0
     private var positionEquipment = 0
     private var soLuong = 0
@@ -66,6 +71,10 @@ class TaoKeHoachFragment : Fragment() {
                 ?.subscribeOn(Schedulers.io())
                 ?.observeOn(AndroidSchedulers.mainThread())
                 ?.subscribe({
+                    listTypePlan.apply {
+                        clear()
+                        addAll(it.data.loaiKeHoachList)
+                    }
                     showLoaiKeHoachList(it)
                 }, {})
         // init list data
@@ -79,10 +88,20 @@ class TaoKeHoachFragment : Fragment() {
 
     // event
     private fun handleListener() {
+        spLoaiKeHoachTaoMoiKh.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                positionLoaiPlan = position
+            }
+        }
+
         btnChonThietBiTaoMoiKh.setOnClickListener { showDialogChonThietBi() }
 
         btnTaoGuiKeHoach.setOnClickListener { _ ->
-            if (spLoaiKeHoachTaoMoiKh.selectedItem.toString().isEmpty() && listKeHoach.size == 0 && edtTenKeHoachTaoMoi.text.toString().isEmpty())
+            if (listKeHoach.size == 0 || edtTenKeHoachTaoMoi.text.toString().isEmpty())
                 Toast.makeText(activity, "Vui lòng nhập đầy đủ các trường", Toast.LENGTH_SHORT).show()
             else {
                 dialog?.show()
@@ -91,18 +110,20 @@ class TaoKeHoachFragment : Fragment() {
                 listKeHoach.forEach {
                     it.soLuong?.let { it1 -> EquipmentItem(it.idThietBi, it1) }?.let { it2 -> listPlanItem.add(it2) }
                 }
-                val plan = Plans(edtTenKeHoachTaoMoi.text.toString(), edtGhiChuTaoMoiKh.text.toString(), spLoaiKeHoachTaoMoiKh.selectedItem.toString(), listPlanItem)
+                val plan = Plans(edtTenKeHoachTaoMoi.text.toString(), edtGhiChuTaoMoiKh.text.toString(), listTypePlan[positionLoaiPlan].id, listPlanItem)
 
-                viewModel?.createNewKeHoach(plan)
-                        ?.subscribeOn(Schedulers.io())
-                        ?.doFinally { dialog?.dismiss() }
-                        ?.observeOn(AndroidSchedulers.mainThread())
-                        ?.subscribe({
-                            (activity as MainActivity).apply {
-                                createKeHoachSuccesListener()
-                                popBackStackFragment()
-                            }
-                        }, {})
+                Handler().postDelayed({
+                    viewModel?.createNewKeHoach(plan)
+                            ?.subscribeOn(Schedulers.io())
+                            ?.doFinally { dialog?.dismiss() }
+                            ?.observeOn(AndroidSchedulers.mainThread())
+                            ?.subscribe({
+                                (activity as MainActivity).apply {
+                                    createKeHoachSuccesListener()
+                                    popBackStackFragment()
+                                }
+                            }, {})
+                }, 2000)
             }
         }
 

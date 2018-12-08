@@ -40,5 +40,5 @@ interface RemoteDataSource {
 
     fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse>
 
-    fun createNewKeHoach(plans: Plans): Single<Void>
+    fun createNewKeHoach(plans: Plans): Single<KeHoachResponse>
 }
