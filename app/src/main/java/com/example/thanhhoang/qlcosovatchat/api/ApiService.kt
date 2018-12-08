@@ -76,6 +76,9 @@ interface ApiService {
     @POST("/plan")
     fun createNewKeHoach(@Body plans: Plans): Single<KeHoachResponse>
 
+    @DELETE("/plan/{id}")
+    fun deletePlan(@Path("id") id: String): Single<KeHoachResponse>
+
 
     companion object Factory {
         fun create(): ApiService {

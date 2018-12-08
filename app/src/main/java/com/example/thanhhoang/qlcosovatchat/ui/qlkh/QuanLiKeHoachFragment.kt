@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.AdapterView
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
@@ -148,7 +149,15 @@ class QuanLiKeHoachFragment : Fragment() {
         dialogBuilder.setTitle("Xoá kế hoạch")
         dialogBuilder.setMessage("Bạn có chắc muốn xoá yêu cầu [${keHoachList?.get(position)?.tieuDeKeHoach}] này không?")
         dialogBuilder.setPositiveButton("Ok") { dialog, _ ->
-            //todo xoa ke hoach
+            keHoachList?.get(position)?.id?.let { it ->
+                viewModel?.deletePlan(it)
+                        ?.subscribeOn(Schedulers.io())
+                        ?.observeOn(AndroidSchedulers.mainThread())
+                        ?.subscribe({
+                            searchKeHoach(spStateQlkh.selectedItem.toString(), edtSearchQlkh.text.toString())
+                            Toast.makeText(activity, "Xoá thành công", Toast.LENGTH_SHORT).show()
+                        }, {})
+            }
             dialog.dismiss()
         }
         dialogBuilder.setNegativeButton("Huỷ") { dialog, _ ->
