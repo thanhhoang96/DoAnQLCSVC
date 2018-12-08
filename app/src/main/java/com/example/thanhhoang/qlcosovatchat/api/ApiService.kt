@@ -1,5 +1,6 @@
 package com.example.thanhhoang.qlcosovatchat.api
 
+import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.Plans
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaRequest
@@ -71,6 +72,10 @@ interface ApiService {
 
     @GET("/equipment/all-by-equipment-group")
     fun getThietBi(@Query("equipmentGroup") idEquipmentGroup: String): Single<ThietBiResponse>
+
+    @POST("/plan")
+    fun createNewKeHoach(@Body plans: Plans): Single<Void>
+
 
     companion object Factory {
         fun create(): ApiService {

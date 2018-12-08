@@ -1,6 +1,7 @@
 package com.example.thanhhoang.qlcosovatchat.data.source.repository
 
 import com.example.thanhhoang.qlcosovatchat.api.ApiService
+import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.Plans
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaRequest
@@ -43,4 +44,6 @@ class RemoteRepository : RemoteDataSource {
     override fun getNhomThietBi(): Single<NhomThietBiResponse> = apiService.getNhomThietBi()
 
     override fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse> = apiService.getThietBi(idGroupThietBi)
+
+    override fun createNewKeHoach(plans: Plans): Single<Void> = apiService.createNewKeHoach(plans)
 }

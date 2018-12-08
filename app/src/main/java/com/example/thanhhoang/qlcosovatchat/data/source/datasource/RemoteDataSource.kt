@@ -1,5 +1,6 @@
 package com.example.thanhhoang.qlcosovatchat.data.source.datasource
 
+import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.Plans
 import com.example.thanhhoang.qlcosovatchat.data.model.login.UserRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.EquipmentId
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaRequest
@@ -38,4 +39,6 @@ interface RemoteDataSource {
     fun getNhomThietBi(): Single<NhomThietBiResponse>
 
     fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse>
+
+    fun createNewKeHoach(plans: Plans): Single<Void>
 }

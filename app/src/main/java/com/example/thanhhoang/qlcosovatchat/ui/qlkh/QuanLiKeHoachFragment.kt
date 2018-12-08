@@ -109,6 +109,10 @@ class QuanLiKeHoachFragment : Fragment() {
                 (activity as MainActivity).addFragment(R.id.flContainer, keHoachDetail)
             }
         }
+
+        (activity as MainActivity).createKeHoachSuccesListener = {
+            loadData()
+        }
     }
 
     @SuppressLint("CheckResult")

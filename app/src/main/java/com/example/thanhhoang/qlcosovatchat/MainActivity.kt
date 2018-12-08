@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     internal var createYeuCauSuccess: () -> Unit = {}
     internal var dialogChonThietBiDismiss: () -> Unit = {}
+    internal var createKeHoachSuccesListener: () -> Unit = {}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
