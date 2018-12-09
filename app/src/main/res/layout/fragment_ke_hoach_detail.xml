@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e1f5fe"
+    android:background="#e8f5e9"
     android:orientation="vertical">
 
     <TextView
@@ -42,7 +42,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textColor="#ce93d8"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <View
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -111,7 +111,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textColor="@android:color/holo_red_light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -134,13 +134,13 @@
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
             android:textColor="@android:color/holo_blue_light"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <LinearLayout
@@ -155,13 +155,13 @@
             android:layout_weight="2"
             android:gravity="center"
             android:text="@string/ke_hoach_detail_ten_thiet_bi"
-            android:textColor="#ff8a65"
-            android:textSize="16sp"
+            android:textColor="#ff7043"
+            android:textSize="14sp"
             android:textStyle="bold"
             tools:ignore="NestedWeights" />
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1.5dp"
             android:layout_height="match_parent"
             android:background="@color/colorGrayDark" />
 
@@ -171,8 +171,8 @@
             android:layout_weight="1.5"
             android:gravity="center"
             android:text="@string/ke_hoach_detail_nhom_thiet_bi"
-            android:textColor="#ff8a65"
-            android:textSize="16sp"
+            android:textColor="#ff7043"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -185,9 +185,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="2dp"
             android:text="@string/ke_hoach_detail_don_vi_tinh"
-            android:textColor="#ff8a65"
-            android:textSize="16sp"
+            android:textColor="#ff7043"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -200,9 +201,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="2dp"
             android:text="@string/ke_hoach_detail_sl_de_nghi"
-            android:textColor="#ff8a65"
-            android:textSize="16sp"
+            android:textColor="#ff7043"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -215,9 +217,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:padding="2dp"
             android:text="@string/ke_hoach_detail_sl_duyet"
-            android:textColor="#ff8a65"
-            android:textSize="16sp"
+            android:textColor="#ff7043"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -231,8 +234,8 @@
             android:layout_weight="1.5"
             android:gravity="center"
             android:text="@string/ke_hoach_detail_don_gia"
-            android:textColor="#ff8a65"
-            android:textSize="16sp"
+            android:textColor="#ff7043"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -254,17 +257,17 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
+            android:layout_height="1.5dp"
             android:layout_marginBottom="5dp"
             android:background="@color/colorGrayDark" />
 
         <Button
             android:id="@+id/btnTroVeKhDetail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="5dp"
-            android:background="#64b5f6"
+            android:background="@drawable/bg_btn_login"
             android:text="@string/label_tro_ve_yeu_cau_detail"
             android:textAllCaps="false"
             android:textSize="16sp" />

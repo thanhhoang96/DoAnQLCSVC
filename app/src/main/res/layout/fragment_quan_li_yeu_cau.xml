@@ -70,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:paddingBottom="10dp"
+        android:paddingBottom="5dp"
         android:text="@string/label_danh_sach_yeu_cau"
         android:textColor="#5c6bc0"
         android:textSize="25sp"
