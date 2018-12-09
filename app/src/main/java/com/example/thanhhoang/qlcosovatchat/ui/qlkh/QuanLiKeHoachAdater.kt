@@ -58,7 +58,7 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
                 when {
                     tvTrangThaiQlKh.text == "Đã duyệt" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
-                        tvXoaQlkh.visibility = View.GONE
+                        tvXoaQlkh.visibility = View.INVISIBLE
                     }
                     tvTrangThaiQlKh.text == "Đã xác nhận" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, android.R.color.holo_blue_dark))
@@ -66,7 +66,7 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
                     }
                     tvTrangThaiQlKh.text == "Chưa duyệt" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_light))
-                        tvXoaQlkh.visibility = View.VISIBLE
+                        tvXoaQlkh.visibility = View.INVISIBLE
                     }
                 }
             }

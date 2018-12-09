@@ -66,18 +66,27 @@ class TaoKeHoachFragment : Fragment() {
             keHoach?.let { updateData(it) }
         }
 
-
         initData()
         handleListener()
         handleInterfaceListener()
     }
 
+    @SuppressLint("CheckResult")
     private fun updateData(keHoach: KeHoach) {
         tvTitleKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_title)
         edtTenKeHoachTaoMoi.setText(keHoach.tieuDeKeHoach)
         btnTaoGuiKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_button)
+        viewModel?.getKeHoachDetail(keHoach.id)
+                ?.subscribeOn(Schedulers.io())
+                ?.doFinally { dialog?.dismiss() }
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({ keHoachResponse ->
+                    listKeHoach.clear()
+                    keHoachResponse.data.plan.itemKhList.forEach {
+                        it.equipment.donGia?.toLong()?.let { it1 -> ThietBi(it.equipment.equipmentId, it.equipment.name, it.equipment.equipmentGroup, it.equipment.measureUnit, it1, it.soLuongDeNghi) }?.let { it2 -> listKeHoach.add(it2) }
+                    }
+                }, {})
     }
-
 
     @SuppressLint("CheckResult")
     private fun initData() {
@@ -118,20 +127,33 @@ class TaoKeHoachFragment : Fragment() {
         btnChonThietBiTaoMoiKh.setOnClickListener { showDialogChonThietBi() }
 
         btnTaoGuiKeHoach.setOnClickListener { _ ->
-            if (isSuaChua) {
-                Toast.makeText(activity, "sua chua", Toast.LENGTH_SHORT).show()
-            } else {
-                if (listKeHoach.size == 0 || edtTenKeHoachTaoMoi.text.toString().isEmpty())
-                    Toast.makeText(activity, "Vui lòng nhập đầy đủ các trường", Toast.LENGTH_SHORT).show()
-                else {
-                    dialog?.show()
+            if (listKeHoach.size == 0 || edtTenKeHoachTaoMoi.text.toString().isEmpty())
+                Toast.makeText(activity, "Vui lòng nhập đầy đủ các trường", Toast.LENGTH_SHORT).show()
+            else {
+                dialog?.show()
 
-                    val listPlanItem: MutableList<EquipmentItem> = mutableListOf()
-                    listKeHoach.forEach {
-                        it.soLuong?.let { it1 -> EquipmentItem(it.idThietBi, it1) }?.let { it2 -> listPlanItem.add(it2) }
-                    }
-                    val plan = Plans(edtTenKeHoachTaoMoi.text.toString(), edtGhiChuTaoMoiKh.text.toString(), listTypePlan[positionLoaiPlan].id, listPlanItem)
+                val listPlanItem: MutableList<EquipmentItem> = mutableListOf()
+                listKeHoach.forEach {
+                    it.soLuong?.let { it1 -> EquipmentItem(it.idThietBi, it1) }?.let { it2 -> listPlanItem.add(it2) }
+                }
+                val plan = Plans(edtTenKeHoachTaoMoi.text.toString(), edtGhiChuTaoMoiKh.text.toString(), listTypePlan[positionLoaiPlan].id, listPlanItem)
 
+                if (isSuaChua) {
+                    Handler().postDelayed({
+                        keHoach?.id?.let { it ->
+                            viewModel?.repairKeHoach(it, plan)
+                                    ?.subscribeOn(Schedulers.io())
+                                    ?.doFinally { dialog?.dismiss() }
+                                    ?.observeOn(AndroidSchedulers.mainThread())
+                                    ?.subscribe({
+                                        (activity as MainActivity).apply {
+                                            createKeHoachSuccesListener()
+                                            popBackStackFragment()
+                                        }
+                                    }, {})
+                        }
+                    }, 2000)
+                } else {
                     Handler().postDelayed({
                         viewModel?.createNewKeHoach(plan)
                                 ?.subscribeOn(Schedulers.io())

@@ -118,7 +118,7 @@
             android:text="@string/label_xoa_qlkh"
             android:textColor="@android:color/white"
             android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/tvSuaQlkh"

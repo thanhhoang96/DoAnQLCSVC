@@ -45,7 +45,9 @@ class RemoteRepository : RemoteDataSource {
 
     override fun getThietBi(idGroupThietBi: String): Single<ThietBiResponse> = apiService.getThietBi(idGroupThietBi)
 
-    override fun createNewKeHoach(plans: Plans): Single<KeHoachResponse> = apiService.createNewKeHoach(plans)
+    override fun createNewKeHoach(plan: Plans): Single<KeHoachResponse> = apiService.createNewKeHoach(plan)
 
     override fun deletePlan(id: String): Single<KeHoachResponse> = apiService.deletePlan(id)
+
+    override fun repairKeHoach(planId: String, plan: Plans): Single<KeHoachResponse> = apiService.repairKeHoach(planId, plan)
 }
