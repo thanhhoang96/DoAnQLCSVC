@@ -132,7 +132,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <LinearLayout
@@ -153,7 +153,7 @@
             android:textStyle="bold" />
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1.5dp"
             android:layout_height="match_parent"
             android:background="@color/colorGrayDark" />
 
@@ -170,7 +170,7 @@
             android:textStyle="bold" />
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1.5dp"
             android:layout_height="match_parent"
             android:background="@color/colorGrayDark" />
 
@@ -203,11 +203,11 @@
             android:padding="3dp"
             android:text="@string/label_chon_qlyc_sc"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1.5dp"
             android:layout_height="match_parent"
             android:background="@color/colorGrayDark" />
 
@@ -220,11 +220,11 @@
             android:padding="3dp"
             android:text="@string/label_thiet_bi_qlyc_tmsc"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1.5dp"
             android:layout_height="match_parent"
             android:background="@color/colorGrayDark" />
 
@@ -237,11 +237,11 @@
             android:padding="3dp"
             android:text="@string/label_ma_dinh_danh_qlyc_tmsc"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1.5dp"
             android:layout_height="match_parent"
             android:background="@color/colorGrayDark" />
 
@@ -254,11 +254,11 @@
             android:padding="3dp"
             android:text="@string/label_nhom_thiet_bi_qlyc_tmsc"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
-            android:layout_width="1dp"
+            android:layout_width="1.5dp"
             android:layout_height="match_parent"
             android:background="@color/colorGrayDark" />
 
@@ -271,29 +271,29 @@
             android:padding="3dp"
             android:text="@string/label_trang_thai_qlyc_tmsc"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewTaoMoiYCMS"
         android:layout_width="match_parent"
-        android:layout_height="150dp" />
+        android:layout_height="165dp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewTaoMoiYCSC"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="165dp"
         android:visibility="gone" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <LinearLayout
