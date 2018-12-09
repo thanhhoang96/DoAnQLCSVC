@@ -75,7 +75,6 @@ class TaoKeHoachFragment : Fragment() {
     private fun updateData(keHoach: KeHoach) {
         tvTitleKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_title)
         edtTenKeHoachTaoMoi.setText(keHoach.tieuDeKeHoach)
-        spLoaiKeHoachTaoMoiKh.prompt = keHoach.loaiKeHoach.toString()
         btnTaoGuiKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_button)
     }
 
@@ -177,6 +176,16 @@ class TaoKeHoachFragment : Fragment() {
         val adapter1 = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_spinner_item, listLoaiKeHoach)
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spLoaiKeHoachTaoMoiKh?.adapter = adapter1
+
+        if (isSuaChua) {
+            for (i in 0..listLoaiKeHoach.size) {
+                if (listLoaiKeHoach[i] == keHoach?.loaiKeHoach?.name) {
+                    spLoaiKeHoachTaoMoiKh.setSelection(i)
+                    break
+                }
+
+            }
+        }
     }
 
     // show dialog choose equipment

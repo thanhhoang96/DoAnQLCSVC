@@ -150,7 +150,7 @@
             android:padding="3dp"
             android:text="@string/tao_moi_ke_hoach_ten_thiet_bi"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -167,7 +167,7 @@
             android:padding="3dp"
             android:text="@string/tao_moi_ke_hoach_nhom_thiet_bi"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -184,7 +184,7 @@
             android:padding="3dp"
             android:text="@string/tao_moi_ke_hoach_don_vi_tinh"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -201,7 +201,7 @@
             android:padding="3dp"
             android:text="@string/tao_moi_ke_hoach_sl_de_nghi"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -218,7 +218,7 @@
             android:padding="3dp"
             android:text="@string/tao_moi_ke_hoach_don_gia"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -235,7 +235,7 @@
             android:padding="3dp"
             android:text="@string/tao_moi_ke_hoach_thanh_tien"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -252,7 +252,7 @@
             android:padding="3dp"
             android:text="@string/tao_moi_ke_hoach_action"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
 
