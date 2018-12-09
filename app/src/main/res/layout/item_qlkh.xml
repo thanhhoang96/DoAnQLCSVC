@@ -103,9 +103,28 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/tvActionQlkh"
+        android:id="@+id/tvSuaQlkh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/bg_btn_login"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/label_sua_qlkh"
+        android:textColor="@android:color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:id="@+id/tvXoaQlkh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSuaQlkh"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_margin="5dp"

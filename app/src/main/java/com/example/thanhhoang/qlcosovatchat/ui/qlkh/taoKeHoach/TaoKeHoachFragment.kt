@@ -17,6 +17,7 @@ import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.EquipmentItem
+import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.Plans
 import com.example.thanhhoang.qlcosovatchat.data.model.loaikehoach.ItemLoaiKeHoach
 import com.example.thanhhoang.qlcosovatchat.data.model.nhomthietbi.NhomThietBi
@@ -34,6 +35,8 @@ class TaoKeHoachFragment : Fragment() {
     private var dialog: Dialog? = null
     private var viewModel: TaoKeHoachViewModel? = null
     private var taoKeHoachAdapter: TaoKeHoachAdapter? = null
+    private var keHoach: KeHoach? = null
+    private var isSuaChua = false
 
     private var listTypePlan: MutableList<ItemLoaiKeHoach> = mutableListOf()
     private var listKeHoach: MutableList<ThietBi> = mutableListOf()
@@ -57,10 +60,25 @@ class TaoKeHoachFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (arguments != null) {
+            isSuaChua = true
+            keHoach = arguments?.getSerializable("keHoachSua") as KeHoach?
+            keHoach?.let { updateData(it) }
+        }
+
+
         initData()
         handleListener()
         handleInterfaceListener()
     }
+
+    private fun updateData(keHoach: KeHoach) {
+        tvTitleKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_title)
+        edtTenKeHoachTaoMoi.setText(keHoach.tieuDeKeHoach)
+        spLoaiKeHoachTaoMoiKh.prompt = keHoach.loaiKeHoach.toString()
+        btnTaoGuiKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_button)
+    }
+
 
     @SuppressLint("CheckResult")
     private fun initData() {
@@ -101,29 +119,33 @@ class TaoKeHoachFragment : Fragment() {
         btnChonThietBiTaoMoiKh.setOnClickListener { showDialogChonThietBi() }
 
         btnTaoGuiKeHoach.setOnClickListener { _ ->
-            if (listKeHoach.size == 0 || edtTenKeHoachTaoMoi.text.toString().isEmpty())
-                Toast.makeText(activity, "Vui lòng nhập đầy đủ các trường", Toast.LENGTH_SHORT).show()
-            else {
-                dialog?.show()
+            if (isSuaChua) {
+                Toast.makeText(activity, "sua chua", Toast.LENGTH_SHORT).show()
+            } else {
+                if (listKeHoach.size == 0 || edtTenKeHoachTaoMoi.text.toString().isEmpty())
+                    Toast.makeText(activity, "Vui lòng nhập đầy đủ các trường", Toast.LENGTH_SHORT).show()
+                else {
+                    dialog?.show()
 
-                val listPlanItem: MutableList<EquipmentItem> = mutableListOf()
-                listKeHoach.forEach {
-                    it.soLuong?.let { it1 -> EquipmentItem(it.idThietBi, it1) }?.let { it2 -> listPlanItem.add(it2) }
+                    val listPlanItem: MutableList<EquipmentItem> = mutableListOf()
+                    listKeHoach.forEach {
+                        it.soLuong?.let { it1 -> EquipmentItem(it.idThietBi, it1) }?.let { it2 -> listPlanItem.add(it2) }
+                    }
+                    val plan = Plans(edtTenKeHoachTaoMoi.text.toString(), edtGhiChuTaoMoiKh.text.toString(), listTypePlan[positionLoaiPlan].id, listPlanItem)
+
+                    Handler().postDelayed({
+                        viewModel?.createNewKeHoach(plan)
+                                ?.subscribeOn(Schedulers.io())
+                                ?.doFinally { dialog?.dismiss() }
+                                ?.observeOn(AndroidSchedulers.mainThread())
+                                ?.subscribe({
+                                    (activity as MainActivity).apply {
+                                        createKeHoachSuccesListener()
+                                        popBackStackFragment()
+                                    }
+                                }, {})
+                    }, 2000)
                 }
-                val plan = Plans(edtTenKeHoachTaoMoi.text.toString(), edtGhiChuTaoMoiKh.text.toString(), listTypePlan[positionLoaiPlan].id, listPlanItem)
-
-                Handler().postDelayed({
-                    viewModel?.createNewKeHoach(plan)
-                            ?.subscribeOn(Schedulers.io())
-                            ?.doFinally { dialog?.dismiss() }
-                            ?.observeOn(AndroidSchedulers.mainThread())
-                            ?.subscribe({
-                                (activity as MainActivity).apply {
-                                    createKeHoachSuccesListener()
-                                    popBackStackFragment()
-                                }
-                            }, {})
-                }, 2000)
             }
         }
 

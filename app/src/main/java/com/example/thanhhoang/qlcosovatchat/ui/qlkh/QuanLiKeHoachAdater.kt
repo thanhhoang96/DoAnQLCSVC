@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.item_qlkh.view.*
 class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : RecyclerView.Adapter<QuanLiKeHoachAdapter.QuanLiKeHoachVH>() {
 
     internal var sentPositionXoaItemQlKh: (Int) -> Unit = {}
+    internal var sentPositionSuaItemQlKh: (Int) -> Unit = {}
     internal var sentPositionItemKhDtail: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): QuanLiKeHoachVH {
@@ -29,8 +30,12 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
 
     inner class QuanLiKeHoachVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
-            itemView.tvActionQlkh.setOnClickListener {
+            itemView.tvXoaQlkh.setOnClickListener {
                 sentPositionXoaItemQlKh(adapterPosition)
+            }
+
+            itemView.tvSuaQlkh.setOnClickListener {
+                sentPositionSuaItemQlKh(adapterPosition)
             }
 
             itemView.tvTenKhQlkh.setOnClickListener {
@@ -53,15 +58,15 @@ class QuanLiKeHoachAdapter(private var keHoachList: MutableList<KeHoach>) : Recy
                 when {
                     tvTrangThaiQlKh.text == "Đã duyệt" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, R.color.colorGreenMedium))
-                        tvActionQlkh.visibility = View.GONE
+                        tvXoaQlkh.visibility = View.GONE
                     }
                     tvTrangThaiQlKh.text == "Đã xác nhận" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, android.R.color.holo_blue_dark))
-                        tvActionQlkh.visibility = View.VISIBLE
+                        tvXoaQlkh.visibility = View.VISIBLE
                     }
                     tvTrangThaiQlKh.text == "Chưa duyệt" -> {
                         tvTrangThaiQlKh.setTextColor(ContextCompat.getColor(context, android.R.color.holo_red_light))
-                        tvActionQlkh.visibility = View.VISIBLE
+                        tvXoaQlkh.visibility = View.VISIBLE
                     }
                 }
             }

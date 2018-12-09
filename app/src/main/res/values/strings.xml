@@ -121,6 +121,10 @@
     <string name="tmkh_chon_thiet_bi_label_chon_thiet_bi">Chọn thiết bị</string>
     <string name="tmkh_chon_thiet_bi_label_thiet_bi">Thiết bị</string>
     <string name="tmkh_chon_thiet_bi_label_nhom_thiet_bi">Nhóm thiết bị</string>
+    <string name="label_sua_qlkh">Sửa</string>
+    <string name="sua_chua_ke_hoach_title">Sửa chữa kế hoạch</string>
+    <string name="sua_chua_ke_hoach_button">Sửa chữa</string>
+
 
     <!--State qlts-->
     <string-array name="state_array">

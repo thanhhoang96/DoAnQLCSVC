@@ -109,6 +109,14 @@ class QuanLiKeHoachFragment : Fragment() {
                 keHoachDetail.arguments = bundle
                 (activity as MainActivity).addFragment(R.id.flContainer, keHoachDetail)
             }
+
+            sentPositionSuaItemQlKh = {
+                val bundle = Bundle()
+                bundle.putSerializable("keHoachSua", keHoachList?.get(it))
+                val suaChuaKeHoach = TaoKeHoachFragment()
+                suaChuaKeHoach.arguments = bundle
+                (activity as MainActivity).addFragment(R.id.flContainer, suaChuaKeHoach)
+            }
         }
 
         (activity as MainActivity).createKeHoachSuccesListener = {
