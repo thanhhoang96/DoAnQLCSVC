@@ -120,7 +120,7 @@ class QuanLiKeHoachFragment : Fragment() {
         }
 
         (activity as MainActivity).createKeHoachSuccesListener = {
-            loadData()
+            searchKeHoach(spStateQlkh.selectedItem.toString(), edtSearchQlkh.text.toString())
         }
     }
 
@@ -147,7 +147,7 @@ class QuanLiKeHoachFragment : Fragment() {
             addAll(responseData.data.keHoachList)
         }
         keHoachAdapter?.notifyDataSetChanged()
-        recyclerViewQlkh.scrollToPosition(0)
+        recyclerViewQlkh?.scrollToPosition(0)
 
         tvKeHoachNotFound.visibility = if (keHoachList?.size == 0) View.VISIBLE else View.GONE
     }

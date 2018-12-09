@@ -68,7 +68,7 @@ class KeHoachDetailFragment : Fragment() {
         btnTroVeKhDetail.setOnClickListener {
             (activity as MainActivity).apply {
                 popBackStackFragment()
-                createYeuCauSuccess()
+                createKeHoachSuccesListener()
             }
         }
     }

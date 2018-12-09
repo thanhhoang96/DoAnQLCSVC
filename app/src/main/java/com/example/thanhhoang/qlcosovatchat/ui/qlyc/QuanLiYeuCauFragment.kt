@@ -137,7 +137,7 @@ class QuanLiYeuCauFragment : Fragment() {
         }
 
         (activity as MainActivity).createYeuCauSuccess = {
-            loadData()
+            searchYeuCau(spStateQlyc.selectedItem.toString(), edtSearchQlyc.text.toString())
         }
     }
 
@@ -148,7 +148,7 @@ class QuanLiYeuCauFragment : Fragment() {
         }
 
         yeuCauAdapter?.notifyDataSetChanged()
-        recyclerViewListQlyc.scrollToPosition(0)
+        recyclerViewListQlyc?.scrollToPosition(0)
 
         tvYeuCauNotFound.visibility = if (yeuCauList?.size == 0) View.VISIBLE else View.VISIBLE
     }
