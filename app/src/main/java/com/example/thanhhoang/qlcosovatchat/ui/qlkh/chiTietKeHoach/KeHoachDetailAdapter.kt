@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.ItemKhDetail
+import com.example.thanhhoang.qlcosovatchat.util.FormatUtils
 import kotlinx.android.synthetic.main.item_kh_detail.view.*
 
 class KeHoachDetailAdapter(private var keHoachDetailList: MutableList<ItemKhDetail>) : RecyclerView.Adapter<KeHoachDetailAdapter.KeHoachDetailVH>() {
@@ -32,7 +33,7 @@ class KeHoachDetailAdapter(private var keHoachDetailList: MutableList<ItemKhDeta
                 tvDonViTinhKhDetail.text = itemDetail.equipment.measureUnit.name
                 tvSoLuongDeNghiKhDetail.text = itemDetail.soLuongDeNghi.toString()
                 tvSoLuongDuyetKhDetail.text = itemDetail.soLuongPheDuyet.toString()
-                tvDonGiaKhDetail.text = itemDetail.equipment.donGia.toString()
+                tvDonGiaKhDetail.text = FormatUtils.formatNumber(itemDetail.equipment.donGia?.toLong() as Long)
             }
         }
     }

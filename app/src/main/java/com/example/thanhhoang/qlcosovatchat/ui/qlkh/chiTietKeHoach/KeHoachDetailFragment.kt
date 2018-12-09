@@ -15,6 +15,7 @@ import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoachDetail
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.FormatUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_ke_hoach_detail.*
@@ -75,7 +76,7 @@ class KeHoachDetailFragment : Fragment() {
     private fun updateData(keHoachDetail: KeHoachDetail) {
         tvTieuDeKeHoachDetail.text = keHoachDetail.title
         tvMoTaKhDetail.text = keHoachDetail.desc
-        tvNgayTaoKhDetail.text = keHoachDetail.ngayTaoKh
+        tvNgayTaoKhDetail.text = FormatUtils.formatDisplayDate(keHoachDetail.ngayTaoKh)
         tvDonViKhDetail.text = keHoachDetail.unit.name
         tvTrangThaiKhDetail.text = if (keHoachDetail.trangThaiKhDetail == 0) "Chưa duyệt" else if (keHoachDetail.trangThaiKhDetail == 0) "Đã xác nhận" else "Đã duyệt"
         tvLoaiYeuCauKhDetail.text = keHoachDetail.type.name

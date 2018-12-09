@@ -71,21 +71,10 @@ class TaoKeHoachFragment : Fragment() {
         handleInterfaceListener()
     }
 
-    @SuppressLint("CheckResult")
     private fun updateData(keHoach: KeHoach) {
         tvTitleKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_title)
         edtTenKeHoachTaoMoi.setText(keHoach.tieuDeKeHoach)
         btnTaoGuiKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_button)
-        viewModel?.getKeHoachDetail(keHoach.id)
-                ?.subscribeOn(Schedulers.io())
-                ?.doFinally { dialog?.dismiss() }
-                ?.observeOn(AndroidSchedulers.mainThread())
-                ?.subscribe({ keHoachResponse ->
-                    listKeHoach.clear()
-                    keHoachResponse.data.plan.itemKhList.forEach {
-                        it.equipment.donGia?.toLong()?.let { it1 -> ThietBi(it.equipment.equipmentId, it.equipment.name, it.equipment.equipmentGroup, it.equipment.measureUnit, it1, it.soLuongDeNghi) }?.let { it2 -> listKeHoach.add(it2) }
-                    }
-                }, {})
     }
 
     @SuppressLint("CheckResult")
@@ -110,6 +99,19 @@ class TaoKeHoachFragment : Fragment() {
             adapter = taoKeHoachAdapter
         }
 
+        keHoach?.id?.let { it ->
+            viewModel?.getKeHoachDetail(it)
+                    ?.subscribeOn(Schedulers.io())
+                    ?.doFinally { dialog?.dismiss() }
+                    ?.observeOn(AndroidSchedulers.mainThread())
+                    ?.subscribe({ keHoachResponse ->
+                        listKeHoach.clear()
+                        keHoachResponse.data.plan.itemKhList.forEach {
+                            it.equipment.donGia?.toLong()?.let { it1 -> ThietBi(it.equipment.equipmentId, it.equipment.name, it.equipment.equipmentGroup, it.equipment.measureUnit, it1, it.soLuongDeNghi) }?.let { it2 -> listKeHoach.add(it2) }
+                        }
+                        taoKeHoachAdapter?.notifyDataSetChanged()
+                    }, {})
+        }
     }
 
     // event
