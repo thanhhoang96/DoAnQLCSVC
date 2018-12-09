@@ -8,7 +8,7 @@ import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.ItemYcDetail
 import kotlinx.android.synthetic.main.item_yc_detail.view.*
 
-class YeuCauDetailAdapter(private var yeuCauDetailList: MutableList<ItemYcDetail>) : RecyclerView.Adapter<YeuCauDetailAdapter.YeuCauDetailVH>() {
+class YeuCauDetailAdapter(private var yeuCauDetailList: MutableList<ItemYcDetail?>) : RecyclerView.Adapter<YeuCauDetailAdapter.YeuCauDetailVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): YeuCauDetailVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_yc_detail, parent, false)
@@ -18,7 +18,7 @@ class YeuCauDetailAdapter(private var yeuCauDetailList: MutableList<ItemYcDetail
     override fun getItemCount(): Int = yeuCauDetailList.size
 
     override fun onBindViewHolder(viewHordel: YeuCauDetailVH, position: Int) {
-        viewHordel.onBind(yeuCauDetailList[position])
+        yeuCauDetailList[position]?.let { viewHordel.onBind(it) }
     }
 
     inner class YeuCauDetailVH(itemView: View) : RecyclerView.ViewHolder(itemView) {

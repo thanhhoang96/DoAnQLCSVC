@@ -15,6 +15,7 @@ import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauDetail
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.FormatUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_yeu_cau_detail.*
@@ -77,7 +78,7 @@ class YeuCauDetailFragment : Fragment() {
     private fun updateData(yeuCauDetail: YeuCauDetail) {
         tvTieuDeYauCauDetail.text = yeuCauDetail.title
         tvMoTaYcDetail.text = yeuCauDetail.desc
-        tvNgayTaoYcDetail.text = yeuCauDetail.ngayTaoYeuCauDetail
+        tvNgayTaoYcDetail.text = FormatUtils.formatDisplayDate(yeuCauDetail.ngayTaoYeuCauDetail)
         tvDonViYcDetail.text = yeuCauDetail.unit.name
         tvTrangThaiYcDetail.text = if (yeuCauDetail.trangThaiYcDetail == 0) "Chưa duyệt" else if (yeuCauDetail.trangThaiYcDetail == 0) "Đã xác nhận" else "Đã duyệt"
         tvLoaiYeuCauYcDetail.text = yeuCauDetail.type.name
