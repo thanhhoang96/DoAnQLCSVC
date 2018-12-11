@@ -20,7 +20,6 @@ import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.ItemKhDetail
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.PlanForYeuCauDetail
-import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCau
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
@@ -41,9 +40,9 @@ class TaoMoiYeuCauFragment : Fragment() {
     private var taiSanIdList: MutableList<String> = mutableListOf()
     private var keHoachNameList: MutableList<String> = mutableListOf()
     private var suaChuaList: MutableList<Infra> = mutableListOf()
-    private var muaSamList: MutableList<YeuCau> = mutableListOf()
     private var keHoachList: MutableList<PlanForYeuCauDetail> = mutableListOf()
     private var dialogPlanList: MutableList<ItemKhDetail> = mutableListOf()
+    private var muaSamList: MutableList<ItemKhDetail> = mutableListOf()
 
     private var isTaoMoiSuaChua = false
 
@@ -60,10 +59,17 @@ class TaoMoiYeuCauFragment : Fragment() {
 
         initView()
         handleListener()
+        handleInterface()
     }
 
     private fun initView() {
         viewModel = TaoMoiYeuCauViewModel(Repository())
+
+        muaSamAdapter = TaoMoiMuaSamAdapter(muaSamList)
+        recyclerViewTaoMoiYCMS?.apply {
+            layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+            adapter = muaSamAdapter
+        }
     }
 
     private fun handleListener() {
@@ -127,6 +133,12 @@ class TaoMoiYeuCauFragment : Fragment() {
                             }, { handleTaoYeuCauFailed() })
                 }
             }
+        }
+    }
+
+    private fun handleInterface() {
+        (activity as MainActivity).sentYeuCauFromDialog = {
+            muaSamAdapter?.notifyDataSetChanged()
         }
     }
 
@@ -219,6 +231,7 @@ class TaoMoiYeuCauFragment : Fragment() {
         }
 
         mDialogView.btnLuuYeuCauMsDetail.setOnClickListener {
+            (activity as MainActivity).createYeuCauSuccess()
             mAlertDialog?.dismiss()
         }
 
@@ -230,11 +243,11 @@ class TaoMoiYeuCauFragment : Fragment() {
     private fun handleListenerFromDialogPlan() {
         dialogPlanAdapter?.apply {
             sentPositionPlanDetailIsCheck = {
-                Toast.makeText(activity, "choose plan", Toast.LENGTH_SHORT).show()
+                muaSamList.add(dialogPlanList[it])
             }
 
             sentPositionPlanDetailNotCheck = {
-                Toast.makeText(activity, "not choose plan", Toast.LENGTH_SHORT).show()
+                muaSamList.remove(dialogPlanList[it])
             }
         }
     }

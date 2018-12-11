@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     private val localRepository = LocalRepository()
 
     internal var createYeuCauSuccess: () -> Unit = {}
+    internal var sentYeuCauFromDialog: () -> Unit = {}
+
     internal var dialogChonThietBiDismiss: () -> Unit = {}
     internal var createKeHoachSuccesListener: () -> Unit = {}
 

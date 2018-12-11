@@ -37,7 +37,7 @@ class DialogPlanAdapter(private var planList: MutableList<ItemKhDetail>) : Recyc
             itemView.run {
                 tvTenThietBiTheoPlanYcms.text = plan.equipment.name
                 tvTenNhomThietBiTheoPlanYcms.text = plan.equipment.equipmentGroup.name
-                tvSoLuongTheoPlanYcms.text = plan.soLuongPheDuyet.toString()
+                tvSoLuongTheoPlanYcms.text = plan.soLuongDeNghi.toString()
                 tvSoLuongConLaiTheoPlanYcms.text = plan.soLuongConLai.toString()
                 tvSoLuongDangYeuCauTheoPlanYcms.text = plan.soLuongDangYeuCau.toString()
             }
