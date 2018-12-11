@@ -35,7 +35,7 @@
     <string name="label_theo_ke_hoach">Theo kế hoạch</string>
     <string name="label_thiet_bi">Thiết bị</string>
     <string name="label_nhom_thiet_bi">Nhóm thiết bị</string>
-    <string name="label_so_luong">Số lượng</string>
+    <string name="label_so_luong_yc">Sl yêu cầu</string>
     <string name="label_giai_trinh">Giải trình</string>
     <string name="label_tao_va_gui_yeu_cau">Tạo và gửi yêu cầu</string>
     <string name="label_reset">Reset</string>
@@ -124,6 +124,10 @@
     <string name="label_sua_qlkh">Sửa</string>
     <string name="sua_chua_ke_hoach_title">Sửa chữa kế hoạch</string>
     <string name="sua_chua_ke_hoach_button">Sửa chữa</string>
+    <string name="label_action_tmms">Action</string>
+    <string name="label_delete_tmms">Delete</string>
+    <string name="label_tao_moi_yeu_cau_tu_ke_hoach">Tạo mới yêu cầu từ kế hoạch</string>
+    <string name="label_ke_hoach_ycms">Kế hoạch</string>
 
 
     <!--State qlts-->

@@ -28,6 +28,10 @@ interface RemoteDataSource {
 
     fun deleteYeuCau(id: String): Single<YeuCauResponse>
 
+    fun getPlanTypeForYeuCauMuaSam(): Single<PlanForYeuCauResponse>
+
+    fun getDetailPlanForYcms(id: String): Single<YeuCauPlanDetailResponse>
+
     fun getAllKeHoach(): Single<KeHoachResponse>
 
     fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse>

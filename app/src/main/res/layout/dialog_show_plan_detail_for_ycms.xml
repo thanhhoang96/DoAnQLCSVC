@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#43a047"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="@string/label_tao_moi_yeu_cau_tu_ke_hoach"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/tvKeHoachForYc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="@string/label_ke_hoach_ycms"
+            android:textColor="#c2185b"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spKeHoachDetaiForYc"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toEndOf="@+id/tvKeHoachForYc"
+            android:layout_toRightOf="@+id/tvKeHoachForYc"
+            android:background="@drawable/bg_search_qlts"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:hint="@string/tao_moi_ke_hoach_chon_loai_ke_hoach"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingEnd="20dp"
+            android:paddingRight="20dp"
+            tools:ignore="RtlSymmetry" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/ic_drop_down"
+            android:contentDescription="@null" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/colorGrayDark" />
+
+    <LinearLayout
+        android:id="@+id/llAllTruongTaoMoiSuaChua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:weightSum="7">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="@string/tao_moi_ke_hoach_ten_thiet_bi"
+            android:textColor="#827717"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayDark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="@string/tao_moi_ke_hoach_nhom_thiet_bi"
+            android:textColor="#827717"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayDark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="Sl theo kế hoạch"
+            android:textColor="#827717"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayDark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="Sl còn lại"
+            android:textColor="#827717"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorGrayDark" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="3dp"
+            android:text="Sl đang yêu cầu"
+            android:textColor="#827717"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/colorGrayDark" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewYeuCauTmDetail"
+        android:layout_width="match_parent"
+        android:layout_height="200dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/colorGrayDark" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingEnd="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="10dp"
+        tools:ignore="RtlSymmetry">
+
+        <Button
+            android:id="@+id/btnLuuYeuCauMsDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:text="@string/tmkh_chon_thiet_bi_luu"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/btnHuyYeuCauMsDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toStartOf="@id/btnLuuYeuCauMsDetail"
+            android:layout_toLeftOf="@id/btnLuuYeuCauMsDetail"
+            android:text="@string/tmkh_chon_thiet_bi_huy"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+</LinearLayout>

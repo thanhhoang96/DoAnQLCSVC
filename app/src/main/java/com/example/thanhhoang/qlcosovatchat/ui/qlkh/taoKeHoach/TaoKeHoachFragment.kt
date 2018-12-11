@@ -246,7 +246,7 @@ class TaoKeHoachFragment : Fragment() {
                 }, {})
 
         // select group equipment
-        mDialogView.spNhomThietBi.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        mDialogView.spNhomThietBi?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
@@ -276,7 +276,7 @@ class TaoKeHoachFragment : Fragment() {
         }
 
         // select equipment
-        mDialogView.spThietBi.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        mDialogView.spThietBi?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }

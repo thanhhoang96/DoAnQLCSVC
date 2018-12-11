@@ -1,19 +1,25 @@
 package com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi
 
+import android.annotation.SuppressLint
 import android.app.Dialog
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
+import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.ItemKhDetail
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
+import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.PlanForYeuCauDetail
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCau
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
@@ -21,16 +27,23 @@ import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.dialog_show_plan_detail_for_ycms.view.*
 import kotlinx.android.synthetic.main.fragment_tao_moi_yc.*
 
 class TaoMoiYeuCauFragment : Fragment() {
     private var dialog: Dialog? = null
+
     private var viewModel: TaoMoiYeuCauViewModel? = null
-    private var suaChuaList: MutableList<Infra>? = null
-    private var muaSamList: MutableList<YeuCau>? = null
     private var suaChuaAdapter: TaoMoiSuaChuaAdapter? = null
     private var muaSamAdapter: TaoMoiMuaSamAdapter? = null
-    private var taiSanIdList: MutableList<String>? = null
+    private var dialogPlanAdapter: DialogPlanAdapter? = null
+
+    private var taiSanIdList: MutableList<String> = mutableListOf()
+    private var keHoachNameList: MutableList<String> = mutableListOf()
+    private var suaChuaList: MutableList<Infra> = mutableListOf()
+    private var muaSamList: MutableList<YeuCau> = mutableListOf()
+    private var keHoachList: MutableList<PlanForYeuCauDetail> = mutableListOf()
+    private var dialogPlanList: MutableList<ItemKhDetail> = mutableListOf()
 
     private var isTaoMoiSuaChua = false
 
@@ -50,9 +63,6 @@ class TaoMoiYeuCauFragment : Fragment() {
     }
 
     private fun initView() {
-        suaChuaList = arrayListOf()
-        muaSamList = arrayListOf()
-        taiSanIdList = arrayListOf()
         viewModel = TaoMoiYeuCauViewModel(Repository())
     }
 
@@ -60,6 +70,12 @@ class TaoMoiYeuCauFragment : Fragment() {
         rgYeuCau.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId == rbMuaSam.id) {
                 isTaoMoiSuaChua = false
+                llThemThietBiMuaSam.visibility = View.VISIBLE
+                llAllTruongTaoMoiMuaSam.visibility = View.VISIBLE
+                recyclerViewTaoMoiYCMS.visibility = View.VISIBLE
+                llAllTruongTaoMoiSuaChua.visibility = View.GONE
+                recyclerViewTaoMoiYCSC.visibility = View.GONE
+
             } else {
                 isTaoMoiSuaChua = true
                 llThemThietBiMuaSam.visibility = View.GONE
@@ -69,6 +85,10 @@ class TaoMoiYeuCauFragment : Fragment() {
                 recyclerViewTaoMoiYCSC.visibility = View.VISIBLE
                 loadDataSuaChua()
             }
+        }
+
+        btnTheoKeHoachAddYc.setOnClickListener {
+            showDialogPlanDetail()
         }
 
         btHuyYc.setOnClickListener {
@@ -85,7 +105,7 @@ class TaoMoiYeuCauFragment : Fragment() {
             if (edtTieuDeTaoMoiYc.text.isNullOrEmpty()) {
                 Toast.makeText(activity, "Mời bạn nhập tiêu đề trước khi tạo yêu cầu", Toast.LENGTH_SHORT).show()
             } else {
-                if (taiSanIdList?.size == 0) {
+                if (taiSanIdList.size == 0) {
                     Toast.makeText(activity, "Bạn không thể tạo yêu cầu sửa chữa", Toast.LENGTH_SHORT).show()
                 } else {
                     val yeuCauSuaChuaRequest = YeuCauSuaChuaRequest(if (edtGiaiTrinhYc.text.isNullOrEmpty()) null else edtGiaiTrinhYc.text.toString(),
@@ -122,8 +142,8 @@ class TaoMoiYeuCauFragment : Fragment() {
                     ?.doFinally { dialog?.dismiss() }
                     ?.observeOn(AndroidSchedulers.mainThread())
                     ?.subscribe({
-                        suaChuaList?.clear()
-                        suaChuaList?.addAll(it.data.taiSanHuHongList)
+                        suaChuaList.clear()
+                        suaChuaList.addAll(it.data.taiSanHuHongList)
                         bindDataOnRecyclerView(suaChuaList)
                     }, {})
         }, 2000)
@@ -142,11 +162,79 @@ class TaoMoiYeuCauFragment : Fragment() {
     private fun handleListenerFromSuaChuaAdapter() {
         suaChuaAdapter?.apply {
             sentPositionTaiSanHuHongIsCheck = {
-                suaChuaList?.get(it)?.id?.let { it1 -> taiSanIdList?.add(it1) }
+                taiSanIdList.add(suaChuaList[it].id)
             }
 
             sentPositionTaiSanHuHongNotCheck = {
-                suaChuaList?.get(it)?.id?.let { it1 -> taiSanIdList?.remove(it1) }
+                taiSanIdList.remove(suaChuaList[it].id)
+            }
+        }
+    }
+
+    @SuppressLint("CheckResult", "InflateParams")
+    private fun showDialogPlanDetail() {
+        val mDialogView = LayoutInflater.from(context).inflate(R.layout.dialog_show_plan_detail_for_ycms, null)
+
+        val mBuilder = context?.let {
+            AlertDialog.Builder(it)
+                    .setView(mDialogView)
+        }
+        val mAlertDialog = mBuilder?.show()
+
+        viewModel?.getPlanTypeForYeuCauMuaSam()
+                ?.subscribeOn(Schedulers.io())
+                ?.observeOn(AndroidSchedulers.mainThread())
+                ?.subscribe({ response ->
+                    keHoachList.clear()
+                    keHoachNameList.clear()
+                    response.data.plans.forEach {
+                        keHoachList.add(it)
+                        keHoachNameList.add(it.name)
+                    }
+                    val adapterPlanForYc = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_spinner_item, keHoachNameList)
+                    adapterPlanForYc.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    mDialogView.spKeHoachDetaiForYc?.adapter = adapterPlanForYc
+                }, {})
+
+        mDialogView.spKeHoachDetaiForYc?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                viewModel?.getDetailPlanForYcms(keHoachList[position].planId)
+                        ?.subscribeOn(Schedulers.io())
+                        ?.observeOn(AndroidSchedulers.mainThread())
+                        ?.subscribe({
+                            dialogPlanList.clear()
+                            dialogPlanList.addAll(it.data.listPlanDetailForYc)
+
+                            dialogPlanAdapter = DialogPlanAdapter(dialogPlanList)
+                            mDialogView.recyclerViewYeuCauTmDetail?.apply {
+                                layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
+                                adapter = dialogPlanAdapter
+                            }
+
+                            handleListenerFromDialogPlan()
+                        }, {})
+            }
+        }
+
+        mDialogView.btnLuuYeuCauMsDetail.setOnClickListener {
+            mAlertDialog?.dismiss()
+        }
+
+        mDialogView.btnHuyYeuCauMsDetail.setOnClickListener {
+            mAlertDialog?.dismiss()
+        }
+    }
+
+    private fun handleListenerFromDialogPlan() {
+        dialogPlanAdapter?.apply {
+            sentPositionPlanDetailIsCheck = {
+                Toast.makeText(activity, "choose plan", Toast.LENGTH_SHORT).show()
+            }
+
+            sentPositionPlanDetailNotCheck = {
+                Toast.makeText(activity, "not choose plan", Toast.LENGTH_SHORT).show()
             }
         }
     }

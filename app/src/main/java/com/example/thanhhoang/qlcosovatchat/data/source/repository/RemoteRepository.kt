@@ -33,6 +33,10 @@ class RemoteRepository : RemoteDataSource {
 
     override fun deleteYeuCau(id: String): Single<YeuCauResponse> = apiService.deleteYeuCau(id)
 
+    override fun getPlanTypeForYeuCauMuaSam(): Single<PlanForYeuCauResponse> = apiService.getPlanTypeForYeuCauMuaSam()
+
+    override fun getDetailPlanForYcms(id: String): Single<YeuCauPlanDetailResponse> = apiService.getDetailPlanForYcms(id)
+
     override fun getAllKeHoach(): Single<KeHoachResponse> = apiService.getAllKeHoach()
 
     override fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse> = apiService.searchKeHoach(trangThai, tenKeHoach)

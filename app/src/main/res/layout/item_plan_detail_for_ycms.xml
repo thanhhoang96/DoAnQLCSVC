@@ -7,68 +7,73 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="6">
+        android:gravity="center"
+        android:padding="5dp"
+        android:weightSum="8">
 
-        <TextView
-            android:id="@+id/tvTenThietBiTmms"
+        <CheckBox
+            android:id="@+id/cbTheoPlanYcms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvTenThietBiTheoPlanYcms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="center"
-            android:paddingStart="2dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="2dp"
-            android:paddingBottom="5dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:textColor="#880e4f"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvNhomThietBiTmms"
+            android:id="@+id/tvTenNhomThietBiTheoPlanYcms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_weight="2"
             android:gravity="center"
-            android:paddingStart="2dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="2dp"
-            android:paddingBottom="5dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:textColor="#880e4f"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvSoLuongYcTmms"
+            android:id="@+id/tvSoLuongTheoPlanYcms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
-            android:paddingStart="2dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="2dp"
-            android:paddingBottom="5dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
             android:textColor="#880e4f"
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/tvDeleteTmms"
+            android:id="@+id/tvSoLuongConLaiTheoPlanYcms"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
-            android:paddingStart="2dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="2dp"
-            android:paddingBottom="5dp"
-            android:text="@string/label_delete_tmms"
-            android:textColor="@color/colorBlueMedium"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textColor="#880e4f"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvSoLuongDangYeuCauTheoPlanYcms"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:textColor="#880e4f"
+            android:textSize="14sp" />
     </LinearLayout>
 
-    <view
+    <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="10dp"

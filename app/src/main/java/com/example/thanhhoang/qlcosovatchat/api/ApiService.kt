@@ -52,6 +52,12 @@ interface ApiService {
     @DELETE("/proposal/{id}")
     fun deleteYeuCau(@Path("id") id: String): Single<YeuCauResponse>
 
+    @GET("/plan/aprroved/2")
+    fun getPlanTypeForYeuCauMuaSam(): Single<PlanForYeuCauResponse>
+
+    @GET("/plan/filter/detail/{id}")
+    fun getDetailPlanForYcms(@Path("id") id: String): Single<YeuCauPlanDetailResponse>
+
     /*
     * api quan li ke hoach
     * */
