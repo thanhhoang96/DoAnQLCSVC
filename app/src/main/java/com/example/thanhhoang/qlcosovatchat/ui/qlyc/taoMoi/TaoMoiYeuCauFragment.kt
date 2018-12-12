@@ -121,20 +121,22 @@ class TaoMoiYeuCauFragment : Fragment() {
                         val yeuCauSuaChuaRequest = YeuCauSuaChuaRequest(if (edtGiaiTrinhYc.text.isNullOrEmpty()) null else edtGiaiTrinhYc.text.toString(),
                                 edtTieuDeTaoMoiYc.text.toString(), taiSanIdList)
                         dialog?.show()
-                        viewModel?.createYeuCauSuaChua(yeuCauSuaChuaRequest)
-                                ?.subscribeOn(Schedulers.io())
-                                ?.doFinally { dialog?.dismiss() }
-                                ?.observeOn(AndroidSchedulers.mainThread())
-                                ?.subscribe({
-                                    if (it != null) {
-                                        Toast.makeText(activity, "Tạo yêu cầu sửa chữa thành công", Toast.LENGTH_SHORT).show()
-                                        (activity as MainActivity).apply {
-                                            popBackStackFragment()
-                                            createYeuCauSuccess()
-                                        }
 
-                                    }
-                                }, { handleTaoYeuCauFailed() })
+                        Handler().postDelayed({
+                            viewModel?.createYeuCauSuaChua(yeuCauSuaChuaRequest)
+                                    ?.subscribeOn(Schedulers.io())
+                                    ?.doFinally { dialog?.dismiss() }
+                                    ?.observeOn(AndroidSchedulers.mainThread())
+                                    ?.subscribe({
+                                        if (it != null) {
+                                            Toast.makeText(activity, "Tạo yêu cầu sửa chữa thành công", Toast.LENGTH_SHORT).show()
+                                            (activity as MainActivity).apply {
+                                                popBackStackFragment()
+                                                createYeuCauSuccess()
+                                            }
+                                        }
+                                    }, { handleTaoYeuCauFailed() })
+                        }, 1500)
                     }
                 } else {
                     if (edtGiaiTrinhYc.text.isNullOrEmpty()) {
@@ -149,13 +151,22 @@ class TaoMoiYeuCauFragment : Fragment() {
                                 listData.add(ItemProposalRequest(it.equipment.equipmentId, keHoachList[positionPlanSelect].planId, it.soLuongConLai))
                             }
                             val yeuCauMuaSamRequest = YeuCauMuaSamRequest(edtTieuDeTaoMoiYc.text.toString(), edtGiaiTrinhYc.text.toString(), listData)
-                            viewModel?.createYeuCauMuaSam(yeuCauMuaSamRequest)
-                                    ?.subscribeOn(Schedulers.io())
-                                    ?.doFinally { dialog?.dismiss() }
-                                    ?.observeOn(AndroidSchedulers.mainThread())
-                                    ?.subscribe({
-                                        Toast.makeText(activity, "done", Toast.LENGTH_SHORT).show()
-                                    }, { Toast.makeText(activity, "failed", Toast.LENGTH_SHORT).show() })
+
+                            Handler().postDelayed({
+                                viewModel?.createYeuCauMuaSam(yeuCauMuaSamRequest)
+                                        ?.subscribeOn(Schedulers.io())
+                                        ?.doFinally { dialog?.dismiss() }
+                                        ?.observeOn(AndroidSchedulers.mainThread())
+                                        ?.subscribe({
+                                            if (it != null) {
+                                                Toast.makeText(activity, "Tạo yêu cầu mua sắm thành công", Toast.LENGTH_SHORT).show()
+                                                (activity as MainActivity).apply {
+                                                    popBackStackFragment()
+                                                    createYeuCauSuccess()
+                                                }
+                                            }
+                                        }, { Toast.makeText(activity, "failed", Toast.LENGTH_SHORT).show() })
+                            }, 1500)
                         }
                     }
                 }
@@ -165,6 +176,11 @@ class TaoMoiYeuCauFragment : Fragment() {
 
     private fun handleInterface() {
         (activity as MainActivity).sentYeuCauFromDialog = {
+            muaSamAdapter?.notifyDataSetChanged()
+        }
+
+        muaSamAdapter?.sentPositionXoaItemYcms = {
+            muaSamList.removeAt(it)
             muaSamAdapter?.notifyDataSetChanged()
         }
     }
@@ -207,11 +223,6 @@ class TaoMoiYeuCauFragment : Fragment() {
             sentPositionTaiSanHuHongNotCheck = {
                 taiSanIdList.remove(suaChuaList[it].id)
             }
-        }
-
-        muaSamAdapter?.sentPositionXoaItemYcms = {
-            muaSamList.removeAt(it)
-            muaSamAdapter?.notifyDataSetChanged()
         }
     }
 
