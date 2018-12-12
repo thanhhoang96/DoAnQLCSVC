@@ -148,7 +148,7 @@ class TaoMoiYeuCauFragment : Fragment() {
                             dialog?.show()
                             val listData: MutableList<ItemProposalRequest> = mutableListOf()
                             muaSamList.forEach {
-                                listData.add(ItemProposalRequest(it.equipment.equipmentId, keHoachList[positionPlanSelect].planId, it.soLuongConLai))
+                                listData.add(ItemProposalRequest(it.detailPlanId, keHoachList[positionPlanSelect].planId, it.soLuongConLai))
                             }
                             val yeuCauMuaSamRequest = YeuCauMuaSamRequest(edtTieuDeTaoMoiYc.text.toString(), edtGiaiTrinhYc.text.toString(), listData)
 

@@ -29,8 +29,8 @@ class YeuCauMsDetailAdapter(private var yeuCauMsDetailList: MutableList<ItemYcDe
                 tvTenThietBiYcMsDetail.text = itemDetail.planItem?.equipment?.name
                 tvTenNhomThietBiYcMsDetail.text = itemDetail.planItem?.equipment?.equipmentGroup?.name
                 tvDonViTinhYcMsDetail.text = itemDetail.planItem?.equipment?.measureUnit?.name
-                tvSoLuongDeNghiYcMsDetail.text = itemDetail.planItem?.soLuongYeuCau.toString()
-                tvSoLuongDuyetYcMsDetail.text = itemDetail.planItem?.soLuongDuyet.toString()
+                tvSoLuongDeNghiYcMsDetail.text = itemDetail.soLuongYeuCau.toString()
+                tvSoLuongDuyetYcMsDetail.text = itemDetail.soLuongDuyet.toString()
             }
         }
     }

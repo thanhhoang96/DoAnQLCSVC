@@ -5,6 +5,8 @@ import com.example.thanhhoang.qlcosovatchat.data.model.taisan.GroupEquipment
 import com.google.gson.annotations.SerializedName
 
 data class ItemYcDetail(
+        @SerializedName("quantity") var soLuongYeuCau: Int,
+        @SerializedName("approvedQuantity") var soLuongDuyet: Int,
         @SerializedName("identifierNo") var maDinhDanh: String,
         @SerializedName("planItem") var planItem: PlanItem?,
         var equipment: Equipment?,
