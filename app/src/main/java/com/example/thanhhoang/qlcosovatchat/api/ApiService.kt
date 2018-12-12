@@ -58,6 +58,9 @@ interface ApiService {
     @GET("/plan/filter/detail/{id}")
     fun getDetailPlanForYcms(@Path("id") id: String): Single<YeuCauPlanDetailResponse>
 
+    @POST("/proposal/according-plan")
+    fun createYeuCauMuaSam(@Body yeuCauMuaSamRequest: YeuCauMuaSamRequest): Single<YeuCauResponse>
+
     /*
     * api quan li ke hoach
     * */

@@ -19,8 +19,10 @@ import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.ItemKhDetail
 import com.example.thanhhoang.qlcosovatchat.data.model.taisan.Infra
+import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.ItemProposalRequest
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.PlanForYeuCauDetail
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaRequest
+import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauMuaSamRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
@@ -45,6 +47,7 @@ class TaoMoiYeuCauFragment : Fragment() {
     private var muaSamList: MutableList<ItemKhDetail> = mutableListOf()
 
     private var isTaoMoiSuaChua = false
+    private var positionPlanSelect = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         (activity as MainActivity).window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
@@ -76,18 +79,18 @@ class TaoMoiYeuCauFragment : Fragment() {
         rgYeuCau.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId == rbMuaSam.id) {
                 isTaoMoiSuaChua = false
-                llThemThietBiMuaSam.visibility = View.VISIBLE
+                llThemThietBiMuaSamYc.visibility = View.VISIBLE
                 llAllTruongTaoMoiMuaSam.visibility = View.VISIBLE
                 recyclerViewTaoMoiYCMS.visibility = View.VISIBLE
-                llAllTruongTaoMoiSuaChua.visibility = View.GONE
+                llAllTruongTaoMoiSuaChuaYc.visibility = View.GONE
                 recyclerViewTaoMoiYCSC.visibility = View.GONE
 
             } else {
                 isTaoMoiSuaChua = true
-                llThemThietBiMuaSam.visibility = View.GONE
+                llThemThietBiMuaSamYc.visibility = View.GONE
                 llAllTruongTaoMoiMuaSam.visibility = View.GONE
                 recyclerViewTaoMoiYCMS.visibility = View.GONE
-                llAllTruongTaoMoiSuaChua.visibility = View.VISIBLE
+                llAllTruongTaoMoiSuaChuaYc.visibility = View.VISIBLE
                 recyclerViewTaoMoiYCSC.visibility = View.VISIBLE
                 loadDataSuaChua()
             }
@@ -111,26 +114,50 @@ class TaoMoiYeuCauFragment : Fragment() {
             if (edtTieuDeTaoMoiYc.text.isNullOrEmpty()) {
                 Toast.makeText(activity, "Mời bạn nhập tiêu đề trước khi tạo yêu cầu", Toast.LENGTH_SHORT).show()
             } else {
-                if (taiSanIdList.size == 0) {
-                    Toast.makeText(activity, "Bạn không thể tạo yêu cầu sửa chữa", Toast.LENGTH_SHORT).show()
-                } else {
-                    val yeuCauSuaChuaRequest = YeuCauSuaChuaRequest(if (edtGiaiTrinhYc.text.isNullOrEmpty()) null else edtGiaiTrinhYc.text.toString(),
-                            edtTieuDeTaoMoiYc.text.toString(), taiSanIdList)
-                    dialog?.show()
-                    viewModel?.createYeuCauSuaChua(yeuCauSuaChuaRequest)
-                            ?.subscribeOn(Schedulers.io())
-                            ?.doFinally { dialog?.dismiss() }
-                            ?.observeOn(AndroidSchedulers.mainThread())
-                            ?.subscribe({
-                                if (it != null) {
-                                    Toast.makeText(activity, "Tạo yêu cầu sửa chữa thành công", Toast.LENGTH_SHORT).show()
-                                    (activity as MainActivity).apply {
-                                        popBackStackFragment()
-                                        createYeuCauSuccess()
-                                    }
+                if (isTaoMoiSuaChua) {
+                    if (taiSanIdList.size == 0) {
+                        Toast.makeText(activity, "Bạn không thể tạo yêu cầu sửa chữa", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val yeuCauSuaChuaRequest = YeuCauSuaChuaRequest(if (edtGiaiTrinhYc.text.isNullOrEmpty()) null else edtGiaiTrinhYc.text.toString(),
+                                edtTieuDeTaoMoiYc.text.toString(), taiSanIdList)
+                        dialog?.show()
+                        viewModel?.createYeuCauSuaChua(yeuCauSuaChuaRequest)
+                                ?.subscribeOn(Schedulers.io())
+                                ?.doFinally { dialog?.dismiss() }
+                                ?.observeOn(AndroidSchedulers.mainThread())
+                                ?.subscribe({
+                                    if (it != null) {
+                                        Toast.makeText(activity, "Tạo yêu cầu sửa chữa thành công", Toast.LENGTH_SHORT).show()
+                                        (activity as MainActivity).apply {
+                                            popBackStackFragment()
+                                            createYeuCauSuccess()
+                                        }
 
-                                }
-                            }, { handleTaoYeuCauFailed() })
+                                    }
+                                }, { handleTaoYeuCauFailed() })
+                    }
+                } else {
+                    if (edtGiaiTrinhYc.text.isNullOrEmpty()) {
+                        Toast.makeText(activity, "Mời bạn nhập thông tin giải trình trước khi tạo yêu cầu", Toast.LENGTH_SHORT).show()
+                    } else {
+                        if (muaSamList.size == 0) {
+                            Toast.makeText(activity, "Bạn không thể tạo yêu cầu mua sắm", Toast.LENGTH_SHORT).show()
+                        } else {
+                            dialog?.show()
+                            val listData: MutableList<ItemProposalRequest> = mutableListOf()
+                            muaSamList.forEach {
+                                listData.add(ItemProposalRequest(it.equipment.equipmentId, keHoachList[positionPlanSelect].planId, it.soLuongConLai))
+                            }
+                            val yeuCauMuaSamRequest = YeuCauMuaSamRequest(edtTieuDeTaoMoiYc.text.toString(), edtGiaiTrinhYc.text.toString(), listData)
+                            viewModel?.createYeuCauMuaSam(yeuCauMuaSamRequest)
+                                    ?.subscribeOn(Schedulers.io())
+                                    ?.doFinally { dialog?.dismiss() }
+                                    ?.observeOn(AndroidSchedulers.mainThread())
+                                    ?.subscribe({
+                                        Toast.makeText(activity, "done", Toast.LENGTH_SHORT).show()
+                                    }, { Toast.makeText(activity, "failed", Toast.LENGTH_SHORT).show() })
+                        }
+                    }
                 }
             }
         }
@@ -181,6 +208,11 @@ class TaoMoiYeuCauFragment : Fragment() {
                 taiSanIdList.remove(suaChuaList[it].id)
             }
         }
+
+        muaSamAdapter?.sentPositionXoaItemYcms = {
+            muaSamList.removeAt(it)
+            muaSamAdapter?.notifyDataSetChanged()
+        }
     }
 
     @SuppressLint("CheckResult", "InflateParams")
@@ -212,6 +244,7 @@ class TaoMoiYeuCauFragment : Fragment() {
             override fun onNothingSelected(parent: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                positionPlanSelect = position
                 viewModel?.getDetailPlanForYcms(keHoachList[position].planId)
                         ?.subscribeOn(Schedulers.io())
                         ?.observeOn(AndroidSchedulers.mainThread())
@@ -231,7 +264,7 @@ class TaoMoiYeuCauFragment : Fragment() {
         }
 
         mDialogView.btnLuuYeuCauMsDetail.setOnClickListener {
-            (activity as MainActivity).createYeuCauSuccess()
+            (activity as MainActivity).sentYeuCauFromDialog()
             mAlertDialog?.dismiss()
         }
 

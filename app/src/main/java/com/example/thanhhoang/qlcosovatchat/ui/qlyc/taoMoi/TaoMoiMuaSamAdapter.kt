@@ -33,7 +33,7 @@ class TaoMoiMuaSamAdapter(private var yeuCauMuaSamList: MutableList<ItemKhDetail
         fun onBind(plan: ItemKhDetail) {
             itemView.run {
                 tvTenThietBiTmms.text = plan.equipment.name
-                tvMaDinhDanhSc.text = plan.equipment.equipmentGroup.name
+                tvNhomThietBiTmms.text = plan.equipment.equipmentGroup.name
                 tvSoLuongYcTmms.text = plan.soLuongConLai.toString()
             }
         }

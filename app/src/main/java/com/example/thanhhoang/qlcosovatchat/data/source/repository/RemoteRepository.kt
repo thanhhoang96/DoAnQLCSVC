@@ -37,6 +37,8 @@ class RemoteRepository : RemoteDataSource {
 
     override fun getDetailPlanForYcms(id: String): Single<YeuCauPlanDetailResponse> = apiService.getDetailPlanForYcms(id)
 
+    override fun createYeuCauMuaSam(yeuCauMuaSamRequest: YeuCauMuaSamRequest): Single<YeuCauResponse> = apiService.createYeuCauMuaSam(yeuCauMuaSamRequest)
+
     override fun getAllKeHoach(): Single<KeHoachResponse> = apiService.getAllKeHoach()
 
     override fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse> = apiService.searchKeHoach(trangThai, tenKeHoach)

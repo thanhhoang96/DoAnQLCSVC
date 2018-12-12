@@ -32,6 +32,8 @@ interface RemoteDataSource {
 
     fun getDetailPlanForYcms(id: String): Single<YeuCauPlanDetailResponse>
 
+    fun createYeuCauMuaSam(yeuCauMuaSamRequest: YeuCauMuaSamRequest): Single<YeuCauResponse>
+
     fun getAllKeHoach(): Single<KeHoachResponse>
 
     fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse>
