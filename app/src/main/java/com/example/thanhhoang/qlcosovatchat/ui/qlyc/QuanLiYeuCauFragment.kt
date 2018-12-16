@@ -22,6 +22,7 @@ import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.addFragment
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.chiTietYeuCau.YeuCauDetailFragment
+import com.example.thanhhoang.qlcosovatchat.ui.qlyc.suaChuaYeuCau.SuaChuaYeuCauFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi.TaoMoiYeuCauFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -32,7 +33,7 @@ import kotlinx.android.synthetic.main.fragment_quan_li_yeu_cau.*
 class QuanLiYeuCauFragment : Fragment() {
     private var dialog: Dialog? = null
     private var viewModel: QuanLiYeuCauViewModel? = null
-    private var yeuCauList: MutableList<YeuCau>? = null
+    private var yeuCauList: MutableList<YeuCau> = mutableListOf()
     private var yeuCauAdapter: QuanLiYeuCauAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -53,8 +54,7 @@ class QuanLiYeuCauFragment : Fragment() {
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 
-        yeuCauList = arrayListOf()
-        yeuCauAdapter = yeuCauList?.let { QuanLiYeuCauAdapter(it) }
+        yeuCauAdapter = QuanLiYeuCauAdapter(yeuCauList)
         recyclerViewListQlyc.apply {
             layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
             adapter = yeuCauAdapter
@@ -117,7 +117,11 @@ class QuanLiYeuCauFragment : Fragment() {
     private fun handleListenerFromInterface() {
         yeuCauAdapter?.apply {
             sentPositionItemSuaYeuCau = {
-
+                val bundle = Bundle()
+                bundle.putString("yeuCauSuaChuaId", yeuCauList[it].idYC)
+                val suaChuaYeuCauFragment = SuaChuaYeuCauFragment()
+                suaChuaYeuCauFragment.arguments = bundle
+                (activity as MainActivity).addFragment(R.id.flContainer, suaChuaYeuCauFragment)
             }
 
             sentPositionItemXoaYeuCau = {
@@ -127,8 +131,8 @@ class QuanLiYeuCauFragment : Fragment() {
             sentPositionGetYeuCauDetail = {
                 val bundle = Bundle()
                 bundle.apply {
-                    putString("yeuCauID", yeuCauList?.get(it)?.idYC)
-                    putBoolean("ycType", yeuCauList?.get(it)?.type?.name == "Yêu cầu mua sắm")
+                    putString("yeuCauID", yeuCauList[it].idYC)
+                    putBoolean("ycType", yeuCauList[it].type.name == "Yêu cầu mua sắm")
                 }
                 val yeuCauDetailFragment = YeuCauDetailFragment()
                 yeuCauDetailFragment.arguments = bundle
@@ -142,7 +146,7 @@ class QuanLiYeuCauFragment : Fragment() {
     }
 
     private fun updateList(responseData: YeuCauResponse) {
-        yeuCauList?.apply {
+        yeuCauList.apply {
             clear()
             addAll(responseData.data.yeuCauList)
         }
@@ -150,15 +154,15 @@ class QuanLiYeuCauFragment : Fragment() {
         yeuCauAdapter?.notifyDataSetChanged()
         recyclerViewListQlyc?.scrollToPosition(0)
 
-        tvYeuCauNotFound.visibility = if (yeuCauList?.size == 0) View.VISIBLE else View.VISIBLE
+        tvYeuCauNotFound.visibility = if (yeuCauList.size == 0) View.VISIBLE else View.VISIBLE
     }
 
     private fun showDialogXoaYc(position: Int) {
         val dialogBuilder = AlertDialog.Builder(activity as MainActivity)
         dialogBuilder.setTitle("Xoá yêu cầu")
-        dialogBuilder.setMessage("Bạn có chắc muốn xoá yêu cầu [${yeuCauList?.get(position)?.tieuDeYC}] này không?")
+        dialogBuilder.setMessage("Bạn có chắc muốn xoá yêu cầu [${yeuCauList[position].tieuDeYC}] này không?")
         dialogBuilder.setPositiveButton("Ok") { dialog, _ ->
-            yeuCauList?.get(position)?.idYC?.let { it ->
+            yeuCauList[position].idYC.let { it ->
                 viewModel?.deleteYeuCau(it)
                         ?.subscribeOn(Schedulers.io())
                         ?.observeOn(AndroidSchedulers.mainThread())

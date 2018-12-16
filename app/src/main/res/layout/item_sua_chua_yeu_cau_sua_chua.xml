@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="8">
+
+        <CheckBox
+            android:id="@+id/cbChonSuaChuaYeuCauSc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textColor="#880e4f"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvThietBiSuaChuaYeuCauSc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textColor="#880e4f"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvMaDinhDanhSuaChuaYeuCauSc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textColor="#880e4f"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvNhomThietBiSuaChuaYeuCauSc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textColor="#880e4f"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvStatusSuaChuaYeuCauSc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="2dp"
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@color/colorGrayDark" />
+</LinearLayout>

@@ -150,7 +150,7 @@
             android:padding="3dp"
             android:text="@string/label_thiet_bi"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -167,7 +167,7 @@
             android:padding="3dp"
             android:text="@string/label_nhom_thiet_bi"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -184,7 +184,7 @@
             android:padding="3dp"
             android:text="@string/label_so_luong_yc"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
         <View
@@ -201,7 +201,7 @@
             android:padding="3dp"
             android:text="@string/label_action_tmms"
             android:textColor="#827717"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
 
