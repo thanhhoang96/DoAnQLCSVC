@@ -12,26 +12,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f9a82dd-5f7a-41e3-8638-21dbcc1bfa75" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauMsAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauScAdapter.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sua_chua_yeu_cau.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_mua_sam.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_sua_chua.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemSuaChuaRequest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/SuaChuaYeuCauRequest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/QuanLiYeuCauFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/QuanLiYeuCauFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tao_moi_yc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_tao_moi_yc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/api/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/api/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemYcDetail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemYcDetail.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/datasource/RemoteDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/datasource/RemoteDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/RemoteRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/RemoteRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/Repository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlkh/taoKeHoach/TaoKeHoachFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlkh/taoKeHoach/TaoKeHoachFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauMsAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauMsAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauScAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauScAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_mua_sam.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_mua_sam.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_sua_chua.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_sua_chua.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -57,23 +53,62 @@
       <file leaf-file-name="SuaChuaYeuCauFragment.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="101" column="45" lean-forward="true" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
-              <folding>
-                <element signature="e#68#867#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fragment_sua_chua_yeu_cau.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_sua_chua_yeu_cau.xml">
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
+      <file leaf-file-name="ApiService.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/api/ApiService.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="356" column="50" selection-start-line="356" selection-start-column="29" selection-end-line="356" selection-end-column="50" />
+            <state relative-caret-position="339">
+              <caret line="67" column="27" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YeuCauDetailAdapter.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/chiTietYeuCau/YeuCauDetailAdapter.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RemoteDataSource.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/datasource/RemoteDataSource.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="38" column="107" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="107" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RemoteRepository.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/RemoteRepository.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="43" column="174" selection-start-line="43" selection-start-column="174" selection-end-line="43" selection-end-column="174" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YeuCauMsDetailAdapter.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/chiTietYeuCau/YeuCauMsDetailAdapter.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Repository.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/Repository.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
@@ -81,20 +116,8 @@
       <file leaf-file-name="SuaChuaYeuCauViewModel.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauViewModel.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-              <folding>
-                <element signature="e#68#173#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YeuCauDetailViewModel.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/chiTietYeuCau/YeuCauDetailViewModel.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="7" column="98" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="98" />
+            <state relative-caret-position="135">
+              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
             </state>
           </provider>
         </entry>
@@ -102,53 +125,17 @@
       <file leaf-file-name="QuanLiYeuCauFragment.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/QuanLiYeuCauFragment.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="15">
               <caret line="55" selection-start-line="55" selection-end-line="55" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YeuCauResponse.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/YeuCauResponse.kt">
+      <file leaf-file-name="ItemSuaChuaRequest.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemSuaChuaRequest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="42" selection-start-line="4" selection-start-column="42" selection-end-line="4" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YeuCauData.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauData.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="81" selection-start-line="4" selection-start-column="81" selection-end-line="4" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YeuCau.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCau.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YeuCauDetailData.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauDetailData.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="YeuCauDetail.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauDetail.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+            <state relative-caret-position="120">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -158,8 +145,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -2308,25 +2295,28 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_qlyc_tmms.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/YeuCauMuaSamRequest.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemProposalRequest.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/api/ApiService.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/datasource/RemoteDataSource.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/RemoteRepository.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/Repository.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/taoMoi/TaoMoiYeuCauViewModel.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/taoMoi/TaoMoiMuaSamAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemYcDetail.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/chiTietYeuCau/YeuCauMsDetailAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/kehoach/ItemKhDetail.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/taoMoi/TaoMoiYeuCauFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_tao_moi_yc.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_sua_chua_yeu_cau.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/QuanLiYeuCauFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauMsAdapter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_sua_chua.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlkh/taoKeHoach/TaoKeHoachFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_mua_sam.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauScAdapter.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_sua_chua.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemYcDetail.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/SuaChuaYeuCauRequest.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemSuaChuaRequest.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/api/ApiService.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/datasource/RemoteDataSource.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/RemoteRepository.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/Repository.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauViewModel.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/QuanLiYeuCauFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauFragment.kt" />
       </list>
     </option>
@@ -2341,9 +2331,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2427,7 +2414,7 @@
               <item name="qlcosovatchat" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
-              <item name="kehoach" type="462c0819:PsiDirectoryNode" />
+              <item name="yeucau" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DoAnQLCSVC" type="b2602c69:ProjectViewProjectNode" />
@@ -2450,6 +2437,30 @@
               <item name="qlcosovatchat" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="source" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DoAnQLCSVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DoAnQLCSVC" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="qlcosovatchat" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="datasource" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DoAnQLCSVC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DoAnQLCSVC" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="qlcosovatchat" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="source" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DoAnQLCSVC" type="b2602c69:ProjectViewProjectNode" />
@@ -2564,6 +2575,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2740,85 +2754,37 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/kehoach/KeHoachDetail.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauPlanDetailData.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/YeuCauPlanDetailResponse.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_show_plan_detail_for_ycms.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="157" column="39" lean-forward="true" selection-start-line="157" selection-start-column="39" selection-end-line="157" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/MainActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-729">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/taoMoi/DialogPlanAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="15" column="82" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
-          <folding>
-            <element signature="e#61#389#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_plan_detail_for_ycms.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="43" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_qlyc_tmms.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_qlyc_tmms.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauSuaChuaRequest.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/YeuCauMuaSamRequest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
@@ -2833,34 +2799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="25" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/datasource/RemoteDataSource.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="34" column="91" selection-start-line="34" selection-start-column="91" selection-end-line="34" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/RemoteRepository.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/Repository.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/api/ApiService.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="61" column="26" selection-start-line="61" selection-start-column="8" selection-end-line="61" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -2879,30 +2817,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_yeu_cau_detail.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3660">
           <caret line="244" column="13" selection-start-line="244" selection-start-column="13" selection-end-line="244" selection-end-column="13" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/kehoach/ItemKhDetail.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/taoMoi/TaoMoiYeuCauFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1769">
-          <caret line="148" column="40" selection-start-line="148" selection-start-column="40" selection-end-line="148" selection-end-column="40" />
-          <folding>
-            <element signature="e#61#1600#0" expanded="true" />
-          </folding>
-        </state>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlkh/QuanLiKeHoachAdater.kt">
@@ -2919,17 +2840,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlkh/taoKeHoach/TaoKeHoachFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1376">
-          <caret line="179" column="35" selection-start-line="179" selection-start-column="35" selection-end-line="179" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tao_moi_kh.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="151" column="25" lean-forward="true" selection-start-line="151" selection-start-column="25" selection-end-line="151" selection-end-column="25" />
@@ -2938,42 +2849,45 @@
           </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tao_moi_yc.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_tao_moi_yc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="532">
           <caret line="380" selection-start-line="380" selection-end-line="380" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_yc_detail.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_yc_detail.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="38" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="38" />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_yc_ms_detail.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="21" column="38" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="38" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_tao_moi_ke_hoach.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_tao_moi_ke_hoach.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state />
+      </provider>
+      <provider editor-type-id="android-designer2">
         <state />
       </provider>
     </entry>
@@ -2984,51 +2898,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/chiTietYeuCau/YeuCauMsDetailAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" selection-start-line="10" selection-end-line="36" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/PlanItem.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemYcDetail.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/chiTietYeuCau/YeuCauDetailAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="35" column="1" lean-forward="true" selection-start-line="10" selection-end-line="35" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauMsAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_mua_sam.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/taoMoi/TaoMoiSuaChuaAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -3036,51 +2905,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_sua_chua.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="56" column="52" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauScAdapter.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="e#68#400#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/QuanLiYeuCauAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="14" column="31" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/YeuCauDetailResponse.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="50" lean-forward="true" selection-start-line="4" selection-start-column="50" selection-end-line="4" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauDetailData.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="47" selection-start-line="2" selection-start-column="47" selection-end-line="2" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauDetail.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -3112,40 +2940,214 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauViewModel.kt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauMsAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+        <state relative-caret-position="201">
+          <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_mua_sam.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="10" column="35" lean-forward="true" selection-start-line="9" selection-start-column="7" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/taoMoi/TaoMoiYeuCauFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="272" column="30" lean-forward="true" selection-start-line="272" selection-start-column="30" selection-end-line="272" selection-end-column="30" />
           <folding>
-            <element signature="e#68#173#0" expanded="true" />
+            <element signature="e#61#1600#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauScAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+          <folding>
+            <element signature="e#68#400#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/item_sua_chua_yeu_cau_sua_chua.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/YeuCauMuaSamRequest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="56" selection-start-line="5" selection-start-column="8" selection-end-line="7" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/PlanItem.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/kehoach/ItemKhDetail.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauPlanDetailData.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="6" column="79" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/YeuCauPlanDetailResponse.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="54" lean-forward="true" selection-start-line="4" selection-start-column="54" selection-end-line="4" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/YeuCauDetailResponse.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="53" lean-forward="true" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauDetailData.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="50" selection-start-line="2" selection-start-column="50" selection-end-line="2" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/YeuCauDetail.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemYcDetail.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_sua_chua_yeu_cau.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="330" column="54" selection-start-line="330" selection-start-column="29" selection-end-line="330" selection-end-column="54" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/response/SuaChuaYeuCauRequest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlkh/taoKeHoach/TaoKeHoachFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="242" column="33" selection-start-line="242" selection-start-column="33" selection-end-line="242" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/MainActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/QuanLiYeuCauFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="15">
           <caret line="55" selection-start-line="55" selection-end-line="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_sua_chua_yeu_cau.xml">
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/chiTietYeuCau/YeuCauDetailAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="356" column="50" selection-start-line="356" selection-start-column="29" selection-end-line="356" selection-end-column="50" />
+        <state relative-caret-position="315">
+          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/chiTietYeuCau/YeuCauMsDetailAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/model/yeucau/ItemSuaChuaRequest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/api/ApiService.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="67" column="27" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/datasource/RemoteDataSource.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="38" column="107" lean-forward="true" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="107" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/RemoteRepository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="43" column="174" selection-start-line="43" selection-start-column="174" selection-end-line="43" selection-end-column="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/data/source/repository/Repository.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/thanhhoang/qlcosovatchat/ui/qlyc/suaChuaYeuCau/SuaChuaYeuCauFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="101" column="45" lean-forward="true" selection-start-line="101" selection-start-column="45" selection-end-line="101" selection-end-column="45" />
-          <folding>
-            <element signature="e#68#867#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="126" column="40" selection-start-line="126" selection-start-column="40" selection-end-line="126" selection-end-column="40" />
         </state>
       </provider>
     </entry>

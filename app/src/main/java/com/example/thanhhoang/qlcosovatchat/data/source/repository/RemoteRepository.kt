@@ -39,6 +39,10 @@ class RemoteRepository : RemoteDataSource {
 
     override fun createYeuCauMuaSam(yeuCauMuaSamRequest: YeuCauMuaSamRequest): Single<YeuCauResponse> = apiService.createYeuCauMuaSam(yeuCauMuaSamRequest)
 
+    override fun repairYeuCauMuaSam(yeuCauId: String, muaSamRequest: SuaChuaYeuCauRequest): Single<YeuCauResponse> = apiService.repairYeuCauMuaSam(yeuCauId, muaSamRequest)
+
+    override fun repairYeuCauSuaChua(yeuCauId: String, suaChuaRequest: SuaChuaYeuCauRequest): Single<YeuCauResponse> = apiService.repairYeuCauSuaChua(yeuCauId, suaChuaRequest)
+
     override fun getAllKeHoach(): Single<KeHoachResponse> = apiService.getAllKeHoach()
 
     override fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse> = apiService.searchKeHoach(trangThai, tenKeHoach)

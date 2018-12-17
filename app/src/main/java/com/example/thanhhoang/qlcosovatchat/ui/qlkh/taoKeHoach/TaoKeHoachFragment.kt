@@ -207,7 +207,6 @@ class TaoKeHoachFragment : Fragment() {
                     spLoaiKeHoachTaoMoiKh.setSelection(i)
                     break
                 }
-
             }
         }
     }
@@ -270,7 +269,6 @@ class TaoKeHoachFragment : Fragment() {
                             val adapterThietBi = ArrayAdapter<String>(activity as MainActivity, android.R.layout.simple_spinner_item, listThietBi)
                             adapterThietBi.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                             mDialogView.spThietBi?.adapter = adapterThietBi
-
                         }, {})
             }
         }

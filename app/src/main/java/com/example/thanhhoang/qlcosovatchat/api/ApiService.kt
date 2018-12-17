@@ -61,6 +61,12 @@ interface ApiService {
     @POST("/proposal/according-plan")
     fun createYeuCauMuaSam(@Body yeuCauMuaSamRequest: YeuCauMuaSamRequest): Single<YeuCauResponse>
 
+    @PATCH("/proposal/according-plan/{id}")
+    fun repairYeuCauMuaSam(@Path("id") yeuCauId: String, @Body muaSamRequest: SuaChuaYeuCauRequest): Single<YeuCauResponse>
+
+    @PATCH("/proposal/prepair/{id}")
+    fun repairYeuCauSuaChua(@Path("id") yeuCauId: String, @Body suaChuaRequest: SuaChuaYeuCauRequest): Single<YeuCauResponse>
+
     /*
     * api quan li ke hoach
     * */

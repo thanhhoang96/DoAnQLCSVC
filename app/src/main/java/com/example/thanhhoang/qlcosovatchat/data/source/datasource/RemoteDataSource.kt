@@ -34,6 +34,10 @@ interface RemoteDataSource {
 
     fun createYeuCauMuaSam(yeuCauMuaSamRequest: YeuCauMuaSamRequest): Single<YeuCauResponse>
 
+    fun repairYeuCauMuaSam(yeuCauId: String, muaSamRequest: SuaChuaYeuCauRequest): Single<YeuCauResponse>
+
+    fun repairYeuCauSuaChua(yeuCauId: String, suaChuaRequest: SuaChuaYeuCauRequest): Single<YeuCauResponse>
+
     fun getAllKeHoach(): Single<KeHoachResponse>
 
     fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse>

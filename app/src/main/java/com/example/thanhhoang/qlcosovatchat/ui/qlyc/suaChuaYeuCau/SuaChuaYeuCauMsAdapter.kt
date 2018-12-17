@@ -35,7 +35,7 @@ class SuaChuaYeuCauMsAdapter(private var yeuCauMsList: MutableList<ItemYcDetail?
         fun onBind(itemDetail: ItemYcDetail) {
             itemView.run {
                 tvThietBiSuaChuaYeuCauMs.text = itemDetail.planItem?.equipment?.name
-                tvTenNhomThietBiYcMsDetail.text = itemDetail.planItem?.equipment?.equipmentGroup?.name
+                tvNhomThietBiSuaChuaYeuCauMs.text = itemDetail.planItem?.equipment?.equipmentGroup?.name
                 tvDonViSuaChuaYeuCauMs.text = itemDetail.planItem?.equipment?.measureUnit?.name
                 tvSlYeuCauSuaChuaYeuCauMs.text = itemDetail.soLuongYeuCau.toString()
                 tvSlDuyetSuaChuaYeuCauMs.text = itemDetail.soLuongDuyet.toString()

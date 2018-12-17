@@ -36,7 +36,6 @@ class SuaChuaYeuCauScAdapter(private var yeuCauSuaChuaList: MutableList<ItemYcDe
 
         fun onBind(itemDetail: ItemYcDetail) {
             itemView.run {
-                cbChonSuaChuaYeuCauSc.isChecked = true
                 tvThietBiSuaChuaYeuCauSc.text = itemDetail.equipment?.name
                 tvMaDinhDanhSuaChuaYeuCauSc.text = itemDetail.maDinhDanh
                 tvNhomThietBiSuaChuaYeuCauSc.text = itemDetail.groupEquipment?.name

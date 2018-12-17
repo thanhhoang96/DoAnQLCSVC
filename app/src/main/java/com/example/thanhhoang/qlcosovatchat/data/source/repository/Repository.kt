@@ -48,6 +48,10 @@ class Repository : LocalDataSource, RemoteDataSource {
 
     override fun createYeuCauMuaSam(yeuCauMuaSamRequest: YeuCauMuaSamRequest): Single<YeuCauResponse> = remoteRepository.createYeuCauMuaSam(yeuCauMuaSamRequest)
 
+    override fun repairYeuCauMuaSam(yeuCauId: String, muaSamRequest: SuaChuaYeuCauRequest): Single<YeuCauResponse> = remoteRepository.repairYeuCauMuaSam(yeuCauId, muaSamRequest)
+
+    override fun repairYeuCauSuaChua(yeuCauId: String, suaChuaRequest: SuaChuaYeuCauRequest): Single<YeuCauResponse> = remoteRepository.repairYeuCauSuaChua(yeuCauId, suaChuaRequest)
+
     override fun getAllKeHoach(): Single<KeHoachResponse> = remoteRepository.getAllKeHoach()
 
     override fun searchKeHoach(trangThai: Int?, tenKeHoach: String?): Single<KeHoachResponse> = remoteRepository.searchKeHoach(trangThai, tenKeHoach)
