@@ -7,11 +7,13 @@ import android.view.ViewGroup
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.ItemYcDetail
 import kotlinx.android.synthetic.main.item_sua_chua_yeu_cau_mua_sam.view.*
-import kotlinx.android.synthetic.main.item_yc_ms_detail.view.*
 
 class SuaChuaYeuCauMsAdapter(private var yeuCauMsList: MutableList<ItemYcDetail?>) : RecyclerView.Adapter<SuaChuaYeuCauMsAdapter.SuaChuaYeuCauMsVH>() {
 
     internal var sentPositionXoaItemYeuCauSuaChuaMsListener: (Int) -> Unit = {}
+    internal var tangSoLuongMsListener: (Int) -> Unit = {}
+    internal var giamSoLuongMsListener: (Int) -> Unit = {}
+
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): SuaChuaYeuCauMsVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_sua_chua_yeu_cau_mua_sam, parent, false)
@@ -27,9 +29,21 @@ class SuaChuaYeuCauMsAdapter(private var yeuCauMsList: MutableList<ItemYcDetail?
 
     inner class SuaChuaYeuCauMsVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
-            itemView.tvActionSuaChuaYeuCauMs.setOnClickListener {
-                sentPositionXoaItemYeuCauSuaChuaMsListener(adapterPosition)
+            itemView.apply {
+                tvActionSuaChuaYeuCauMs.setOnClickListener {
+                    sentPositionXoaItemYeuCauSuaChuaMsListener(adapterPosition)
+                }
+
+                imgUpSoLuong.setOnClickListener {
+                    tangSoLuongMsListener(adapterPosition)
+                }
+
+                imgDownSoLuong.setOnClickListener {
+                    giamSoLuongMsListener(adapterPosition)
+                }
             }
+
+
         }
 
         fun onBind(itemDetail: ItemYcDetail) {

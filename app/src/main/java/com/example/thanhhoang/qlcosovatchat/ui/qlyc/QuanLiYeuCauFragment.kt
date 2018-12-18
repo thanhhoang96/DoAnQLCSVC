@@ -154,7 +154,7 @@ class QuanLiYeuCauFragment : Fragment() {
         yeuCauAdapter?.notifyDataSetChanged()
         recyclerViewListQlyc?.scrollToPosition(0)
 
-        tvYeuCauNotFound.visibility = if (yeuCauList.size == 0) View.VISIBLE else View.VISIBLE
+        tvYeuCauNotFound.visibility = if (yeuCauList.size == 0) View.VISIBLE else View.GONE
     }
 
     private fun showDialogXoaYc(position: Int) {

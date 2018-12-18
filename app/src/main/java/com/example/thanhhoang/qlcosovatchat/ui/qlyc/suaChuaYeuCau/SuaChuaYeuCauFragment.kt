@@ -173,6 +173,22 @@ class SuaChuaYeuCauFragment : Fragment() {
                 muaSamList.remove(thietBiList[it])
                 notifyDataSetChanged()
             }
+
+            tangSoLuongMsListener = {
+                val soLuong = muaSamList[it]?.soLuongYeuCau?.plus(1)
+                if (soLuong != null) {
+                    muaSamList[it]?.soLuongYeuCau = if (soLuong >= muaSamList[it]?.soLuongConLai!!) muaSamList[it]?.soLuongConLai!! else soLuong
+                    muaSamAdapter?.notifyDataSetChanged()
+                }
+            }
+
+            giamSoLuongMsListener = {
+                val soLuong = muaSamList[it]?.soLuongYeuCau?.minus(1)
+                if (soLuong != null) {
+                    muaSamList[it]?.soLuongYeuCau = if (soLuong > 0) soLuong else 0
+                    muaSamAdapter?.notifyDataSetChanged()
+                }
+            }
         }
     }
 }

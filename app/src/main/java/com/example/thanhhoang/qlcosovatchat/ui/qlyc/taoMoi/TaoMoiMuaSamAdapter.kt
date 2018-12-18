@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.ItemKhDetail
 import kotlinx.android.synthetic.main.item_qlyc_tmms.view.*
-import kotlinx.android.synthetic.main.item_qlyc_tmsc.view.*
 
 class TaoMoiMuaSamAdapter(private var yeuCauMuaSamList: MutableList<ItemKhDetail>) : RecyclerView.Adapter<TaoMoiMuaSamAdapter.TaoMoiMuaSamVH>() {
     internal var sentPositionXoaItemYcms: (Int) -> Unit = {}
+    internal var tangSoLuongYcms: (Int) -> Unit = {}
+    internal var giamSoLuongYcms: (Int) -> Unit = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): TaoMoiMuaSamVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_qlyc_tmms, parent, false)
@@ -25,8 +26,18 @@ class TaoMoiMuaSamAdapter(private var yeuCauMuaSamList: MutableList<ItemKhDetail
 
     inner class TaoMoiMuaSamVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         init {
-            itemView.tvDeleteTmms.setOnClickListener {
-                sentPositionXoaItemYcms(adapterPosition)
+            itemView.apply {
+                tvDeleteTmms.setOnClickListener {
+                    sentPositionXoaItemYcms(adapterPosition)
+                }
+
+                imgUpSoLuongTaoMoiMs.setOnClickListener {
+                    tangSoLuongYcms(adapterPosition)
+                }
+
+                imgDownSoLuongTaoMoiMs.setOnClickListener {
+                    giamSoLuongYcms(adapterPosition)
+                }
             }
         }
 

@@ -179,9 +179,24 @@ class TaoMoiYeuCauFragment : Fragment() {
             muaSamAdapter?.notifyDataSetChanged()
         }
 
-        muaSamAdapter?.sentPositionXoaItemYcms = {
-            muaSamList.removeAt(it)
-            muaSamAdapter?.notifyDataSetChanged()
+        muaSamAdapter?.apply {
+            sentPositionXoaItemYcms = {
+                muaSamList.removeAt(it)
+                muaSamAdapter?.notifyDataSetChanged()
+            }
+
+            tangSoLuongYcms = {
+                val soLuong = muaSamList[it].soLuongDeNghi.plus(1)
+                muaSamList[it].soLuongDeNghi = if (soLuong >= muaSamList[it].soLuongConLai) muaSamList[it].soLuongConLai else soLuong
+                muaSamAdapter?.notifyDataSetChanged()
+
+            }
+
+            giamSoLuongYcms = {
+                val soLuong = muaSamList[it].soLuongDeNghi.minus(1)
+                muaSamList[it].soLuongDeNghi = if (soLuong > 0) soLuong else 0
+                muaSamAdapter?.notifyDataSetChanged()
+            }
         }
     }
 
