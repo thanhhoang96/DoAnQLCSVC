@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         val countFragmentBackStack = supportFragmentManager.backStackEntryCount
         if (countFragmentBackStack <= 1) {
             if (supportFragmentManager.findFragmentById(R.id.flContainer) is QuanLiTaiSanFragment)
-                super.onBackPressed()
+                moveTaskToBack(true)
             else
                 replaceFragment(R.id.flContainer, QuanLiTaiSanFragment())
         } else
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     private fun initView() {
         setSupportActionBar(toolbarMain)
         actionBar = supportActionBar
-        setTitleToolbar("Quản lí tài sản")
+        setTitleMenu("Quản lí tài sản")
 
         val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
                 this,
@@ -67,6 +67,10 @@ class MainActivity : AppCompatActivity() {
         drawerToggle.syncState()
     }
 
+    fun setTitleMenu(screenName: String){
+        setTitleToolbar(screenName)
+    }
+
     private fun updateView() {
         tvPerson.text = repository.getFullName()
         addFragment(R.id.flContainer, QuanLiTaiSanFragment())
@@ -74,19 +78,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleListener() {
         tvQuanLiTaiSan.setOnClickListener {
-            setTitleToolbar("Quản lí tài sản")
             drawerLayoutContain.closeDrawer(GravityCompat.START)
             replaceFragment(R.id.flContainer, QuanLiTaiSanFragment())
 
         }
         tvQuanLiYeuCau.setOnClickListener {
-            setTitleToolbar("Quản lí yêu cầu")
             drawerLayoutContain.closeDrawer(GravityCompat.START)
             replaceFragment(R.id.flContainer, QuanLiYeuCauFragment())
 
         }
         tvQuanLikeHoach.setOnClickListener {
-            setTitleToolbar("Quản lí kế hoạch")
             drawerLayoutContain.closeDrawer(GravityCompat.START)
             replaceFragment(R.id.flContainer, QuanLiKeHoachFragment())
         }

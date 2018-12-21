@@ -14,7 +14,6 @@ class SuaChuaYeuCauMsAdapter(private var yeuCauMsList: MutableList<ItemYcDetail?
     internal var tangSoLuongMsListener: (Int) -> Unit = {}
     internal var giamSoLuongMsListener: (Int) -> Unit = {}
 
-
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): SuaChuaYeuCauMsVH {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_sua_chua_yeu_cau_mua_sam, parent, false)
         return SuaChuaYeuCauMsVH(view)

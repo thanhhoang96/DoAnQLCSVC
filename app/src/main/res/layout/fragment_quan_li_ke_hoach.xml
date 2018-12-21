@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/llQlyc"
+    android:id="@+id/llQlkh"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#dcedc8"
@@ -43,13 +44,16 @@
             android:background="@drawable/bg_search_qlts"
             android:drawableStart="@android:drawable/ic_menu_search"
             android:drawableLeft="@android:drawable/ic_menu_search"
-            android:drawablePadding="10dp"
+            android:drawablePadding="5dp"
             android:hint="@string/hint_nhap_tieu_de_yeu_cau"
             android:importantForAutofill="no"
             android:inputType="text"
             android:padding="10dp"
+            android:paddingEnd="45dp"
+            android:paddingRight="45dp"
             android:textColor="@color/colorBlueMedium"
             android:windowSoftInputMode="stateHidden"
+            tools:ignore="RtlSymmetry"
             tools:targetApi="o" />
 
         <ImageView
@@ -85,7 +89,8 @@
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:cardCornerRadius="10dp">
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -109,7 +114,7 @@
                     android:layout_marginEnd="3dp"
                     android:layout_marginRight="3dp"
                     android:layout_marginBottom="5dp"
-                    android:scrollbarSize="2sp"
+                    android:scrollbarSize="3sp"
                     android:scrollbarThumbVertical="@android:color/holo_red_light"
                     android:scrollbars="vertical" />
             </FrameLayout>

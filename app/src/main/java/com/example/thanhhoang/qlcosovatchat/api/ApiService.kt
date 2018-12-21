@@ -13,6 +13,7 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.*
+import java.util.concurrent.TimeUnit
 
 interface ApiService {
     // api login
@@ -112,11 +113,14 @@ interface ApiService {
                 builder.addInterceptor(it)
             }
 
+            builder.connectTimeout(30, TimeUnit.SECONDS)
+            builder.readTimeout(30, TimeUnit.SECONDS)
+
             val retrofit = Retrofit.Builder()
                     .client(builder.build())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("http://192.168.1.15:5070")
+                    .baseUrl("https://quan-ly-csvc.herokuapp.com")
                     .build()
 
             return retrofit.create(ApiService::class.java)

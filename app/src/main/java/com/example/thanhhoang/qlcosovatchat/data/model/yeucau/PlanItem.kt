@@ -6,5 +6,6 @@ import com.google.gson.annotations.SerializedName
 data class PlanItem(
         @SerializedName("quantity") var soLuongYeuCau: Int,
         @SerializedName("approvedQuantity") var soLuongDuyet: Int,
-        var equipment: Equipment
+        var equipment: Equipment,
+        @SerializedName("remainQuantity") var soLuongConLai: Int
 )

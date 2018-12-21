@@ -25,8 +25,10 @@ import com.example.thanhhoang.qlcosovatchat.ui.qlyc.chiTietYeuCau.YeuCauDetailFr
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.suaChuaYeuCau.SuaChuaYeuCauFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi.TaoMoiYeuCauFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
+import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 import kotlinx.android.synthetic.main.fragment_quan_li_yeu_cau.*
 
 @Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
@@ -51,6 +53,8 @@ class QuanLiYeuCauFragment : Fragment() {
     }
 
     private fun initView() {
+        (activity as MainActivity).setTitleMenu("Quản lí yêu cầu")
+
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 
@@ -94,6 +98,10 @@ class QuanLiYeuCauFragment : Fragment() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        llQlyc.setOnClickListener {
+            Helpers.hideSoftKeyboard(activity as MainActivity)
         }
     }
 

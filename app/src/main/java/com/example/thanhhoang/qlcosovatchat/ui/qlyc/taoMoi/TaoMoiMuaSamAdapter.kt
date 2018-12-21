@@ -45,7 +45,7 @@ class TaoMoiMuaSamAdapter(private var yeuCauMuaSamList: MutableList<ItemKhDetail
             itemView.run {
                 tvTenThietBiTmms.text = plan.equipment.name
                 tvNhomThietBiTmms.text = plan.equipment.equipmentGroup.name
-                tvSoLuongYcTmms.text = plan.soLuongConLai.toString()
+                tvSoLuongYcTmms.text = plan.soLuongThayDoi.toString()
             }
         }
     }

@@ -2,6 +2,7 @@ package com.example.thanhhoang.qlcosovatchat.ui.qlyc.suaChuaYeuCau
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
@@ -18,7 +19,9 @@ import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.ItemYcDetail
 import com.example.thanhhoang.qlcosovatchat.data.response.SuaChuaYeuCauRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
+import com.example.thanhhoang.qlcosovatchat.extention.showDialog
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_sua_chua_yeu_cau.*
@@ -55,6 +58,8 @@ class SuaChuaYeuCauFragment : Fragment() {
 
     @SuppressLint("CheckResult")
     private fun initView() {
+        (activity as MainActivity).setTitleMenu("Sửa chữa yêu cầu")
+
         dialog?.show()
         Handler().postDelayed({
             yeuCauId?.let { it ->
@@ -155,6 +160,10 @@ class SuaChuaYeuCauFragment : Fragment() {
                 }
             }
         }
+
+        llSuaChuaYeuCau.setOnClickListener {
+            Helpers.hideSoftKeyboard(activity as MainActivity)
+        }
     }
 
     private fun handleInterface() {
@@ -170,23 +179,27 @@ class SuaChuaYeuCauFragment : Fragment() {
 
         muaSamAdapter?.apply {
             sentPositionXoaItemYeuCauSuaChuaMsListener = {
-                muaSamList.remove(thietBiList[it])
-                notifyDataSetChanged()
+                (activity as MainActivity).showDialog("Bạn có chắc muốn xoá dữ kiệu này không?", "Ok", "Huỷ",
+                        DialogInterface.OnClickListener { _, _ ->
+                            muaSamList.remove(thietBiList[it])
+                            this.notifyDataSetChanged()
+                        })
+
             }
 
             tangSoLuongMsListener = {
-                val soLuong = muaSamList[it]?.soLuongYeuCau?.plus(1)
+                val soLuong = muaSamList[it]?.soLuongYeuCau
                 if (soLuong != null) {
-                    muaSamList[it]?.soLuongYeuCau = if (soLuong >= muaSamList[it]?.soLuongConLai!!) muaSamList[it]?.soLuongConLai!! else soLuong
-                    muaSamAdapter?.notifyDataSetChanged()
+                    muaSamList[it]?.soLuongYeuCau = if (soLuong < muaSamList[it]?.planItem?.soLuongConLai!!) soLuong.plus(1) else muaSamList[it]?.planItem?.soLuongConLai!!
+                    this.notifyDataSetChanged()
                 }
             }
 
             giamSoLuongMsListener = {
-                val soLuong = muaSamList[it]?.soLuongYeuCau?.minus(1)
+                val soLuong = muaSamList[it]?.soLuongYeuCau
                 if (soLuong != null) {
-                    muaSamList[it]?.soLuongYeuCau = if (soLuong > 0) soLuong else 0
-                    muaSamAdapter?.notifyDataSetChanged()
+                    muaSamList[it]?.soLuongYeuCau = if (soLuong > 0) soLuong.minus(1) else 0
+                    this.notifyDataSetChanged()
                 }
             }
         }

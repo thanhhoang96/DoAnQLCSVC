@@ -26,7 +26,7 @@
     <string name="label_xoa">Xóa</string>
 
     <!--Tao moi yeu cau screen-->
-    <string name="label_tao_moi">Tạo mới</string>
+    <string name="label_tao_moi">Tạo mới yêu cầu</string>
     <string name="label_yeu_cau">Yêu cầu</string>
     <string name="label_mua_sam">Yêu cầu mua sắm</string>
     <string name="label_sua_chua">Yêu cầu sửa chữa</string>

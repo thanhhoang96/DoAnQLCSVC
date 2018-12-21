@@ -16,10 +16,10 @@ import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import com.example.thanhhoang.qlcosovatchat.util.FormatUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_ke_hoach_detail.*
-import kotlinx.android.synthetic.main.fragment_yeu_cau_detail.*
 
 class KeHoachDetailFragment : Fragment() {
     private var dialog: Dialog? = null
@@ -41,6 +41,8 @@ class KeHoachDetailFragment : Fragment() {
     }
 
     private fun initData() {
+        (activity as MainActivity).setTitleMenu("Chi tiết kế hoạch")
+
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 
@@ -70,6 +72,10 @@ class KeHoachDetailFragment : Fragment() {
                 popBackStackFragment()
                 createKeHoachSuccesListener()
             }
+        }
+
+        llKeHoachDetail.setOnClickListener {
+            Helpers.hideSoftKeyboard(activity as MainActivity)
         }
     }
 

@@ -2,6 +2,7 @@ package com.example.thanhhoang.qlcosovatchat.ui.qlkh.taoKeHoach
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
@@ -18,6 +19,7 @@ import com.example.thanhhoang.qlcosovatchat.MainActivity
 import com.example.thanhhoang.qlcosovatchat.R
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.EquipmentItem
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoach
+import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.KeHoachDetail
 import com.example.thanhhoang.qlcosovatchat.data.model.kehoach.Plans
 import com.example.thanhhoang.qlcosovatchat.data.model.loaikehoach.ItemLoaiKeHoach
 import com.example.thanhhoang.qlcosovatchat.data.model.nhomthietbi.NhomThietBi
@@ -25,7 +27,9 @@ import com.example.thanhhoang.qlcosovatchat.data.model.thietbi.ThietBi
 import com.example.thanhhoang.qlcosovatchat.data.response.LoaiKeHoachResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
+import com.example.thanhhoang.qlcosovatchat.extention.showDialog
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_chon_thiet_bi_tmkh.view.*
@@ -63,7 +67,6 @@ class TaoKeHoachFragment : Fragment() {
         if (arguments != null) {
             isSuaChua = true
             keHoach = arguments?.getSerializable("keHoachSua") as KeHoach?
-            keHoach?.let { updateData(it) }
         }
 
         initData()
@@ -71,14 +74,10 @@ class TaoKeHoachFragment : Fragment() {
         handleInterfaceListener()
     }
 
-    private fun updateData(keHoach: KeHoach) {
-        tvTitleKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_title)
-        edtTenKeHoachTaoMoi.setText(keHoach.tieuDeKeHoach)
-        btnTaoGuiKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_button)
-    }
-
     @SuppressLint("CheckResult")
     private fun initData() {
+        (activity as MainActivity).setTitleMenu("Tạo mới kế hoạch")
+
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 
@@ -105,6 +104,8 @@ class TaoKeHoachFragment : Fragment() {
                     ?.doFinally { dialog?.dismiss() }
                     ?.observeOn(AndroidSchedulers.mainThread())
                     ?.subscribe({ keHoachResponse ->
+                        updateData(keHoachResponse.data.plan)
+
                         listKeHoach.clear()
                         keHoachResponse.data.plan.itemKhList.forEach {
                             it.equipment.donGia?.toLong()?.let { it1 -> ThietBi(it.equipment.equipmentId, it.equipment.name, it.equipment.equipmentGroup, it.equipment.measureUnit, it1, it.soLuongDeNghi) }?.let { it2 -> listKeHoach.add(it2) }
@@ -112,6 +113,13 @@ class TaoKeHoachFragment : Fragment() {
                         taoKeHoachAdapter?.notifyDataSetChanged()
                     }, {})
         }
+    }
+
+    private fun updateData(keHoach: KeHoachDetail) {
+        tvTitleKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_title)
+        edtTenKeHoachTaoMoi.setText(keHoach.title)
+        btnTaoGuiKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_button)
+        edtGhiChuTaoMoiKh.setText(keHoach.desc)
     }
 
     // event
@@ -150,6 +158,7 @@ class TaoKeHoachFragment : Fragment() {
                                     ?.subscribe({
                                         (activity as MainActivity).apply {
                                             createKeHoachSuccesListener()
+                                            Toast.makeText(activity, "Sửa kế hoạch thành công!", Toast.LENGTH_SHORT).show()
                                             popBackStackFragment()
                                         }
                                     }, {})
@@ -164,11 +173,16 @@ class TaoKeHoachFragment : Fragment() {
                                 ?.subscribe({
                                     (activity as MainActivity).apply {
                                         createKeHoachSuccesListener()
+                                        Toast.makeText(activity, "Tạo mới kế hoạch thành công!", Toast.LENGTH_SHORT).show()
                                         popBackStackFragment()
                                     }
                                 }, {})
                     }, 2000)
                 }
+            }
+
+            llTaoMoiKeHoach.setOnClickListener {
+                Helpers.hideSoftKeyboard(activity as MainActivity)
             }
         }
 
@@ -185,8 +199,11 @@ class TaoKeHoachFragment : Fragment() {
         }
 
         taoKeHoachAdapter?.sentPositionXoaItemTmkh = {
-            listKeHoach.remove(listKeHoach[it])
-            taoKeHoachAdapter?.notifyDataSetChanged()
+            (activity as MainActivity).showDialog("Bạn có chắc muốn xoá dữ kiệu này không?", "Ok", "Huỷ",
+                    DialogInterface.OnClickListener { _, _ ->
+                        listKeHoach.remove(listKeHoach[it])
+                        taoKeHoachAdapter?.notifyDataSetChanged()
+                    })
         }
     }
 

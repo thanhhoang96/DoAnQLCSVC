@@ -21,6 +21,7 @@ import com.example.thanhhoang.qlcosovatchat.data.response.TaiSanResponse
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_change_state_qlts.view.*
@@ -30,7 +31,7 @@ import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 class QuanLiTaiSanFragment : Fragment() {
     private var dialog: Dialog? = null
     private var viewModel: QuanLiTaiSanViewModel? = null
-    private var taiSanList: MutableList<Infra>? = null
+    private var taiSanList: MutableList<Infra> = mutableListOf()
     private var taiSanAdapter: QuanLiTaiSanAdapter? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -51,7 +52,8 @@ class QuanLiTaiSanFragment : Fragment() {
     }
 
     private fun initView() {
-        taiSanList = arrayListOf()
+        (activity as MainActivity).setTitleMenu("Quản lí tài sản")
+
         taiSanAdapter = QuanLiTaiSanAdapter(taiSanList as ArrayList<Infra>)
         recyclerViewQlts.apply {
             layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
@@ -90,6 +92,10 @@ class QuanLiTaiSanFragment : Fragment() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+
+        llQlts.setOnClickListener {
+            Helpers.hideSoftKeyboard(activity as MainActivity)
+        }
     }
 
     private fun handleListenerFromInterface() {
@@ -127,13 +133,13 @@ class QuanLiTaiSanFragment : Fragment() {
         val mAlertDialog = mBuilder?.show()
 
         when {
-            taiSanList?.get(position)?.unitEquipmentStatus == "DSD" -> mDialogView.rbDangSuDungState.isChecked = true
-            taiSanList?.get(position)?.unitEquipmentStatus == "HH" -> mDialogView.rbHuHongState.isChecked = true
+            taiSanList[position].unitEquipmentStatus == "DSD" -> mDialogView.rbDangSuDungState.isChecked = true
+            taiSanList[position].unitEquipmentStatus == "HH" -> mDialogView.rbHuHongState.isChecked = true
         }
 
         // handle Save data when click button Luu
         mDialogView.btnLuu.setOnClickListener {
-            taiSanList?.get(position)?.unitEquipmentStatus =
+            taiSanList[position].unitEquipmentStatus =
                     if (mDialogView.rbHuHongState.isChecked) "HH" else "DSD"
             taiSanAdapter?.notifyDataSetChanged()
             mAlertDialog?.dismiss()
@@ -146,7 +152,7 @@ class QuanLiTaiSanFragment : Fragment() {
 
         // handle dialog dismiss
         mAlertDialog?.setOnDismissListener { _ ->
-            viewModel?.changeStatusTaiSan(EquipmentId(taiSanList?.get(position)?.id.toString()))
+            viewModel?.changeStatusTaiSan(EquipmentId(taiSanList[position].id))
                     ?.subscribeOn(Schedulers.io())
                     ?.observeOn(AndroidSchedulers.mainThread())
                     ?.subscribe({
@@ -156,7 +162,7 @@ class QuanLiTaiSanFragment : Fragment() {
     }
 
     private fun updateList(responseData: TaiSanResponse) {
-        taiSanList?.apply {
+        taiSanList.apply {
             clear()
             addAll(responseData.data.taiSanList)
         }
@@ -164,6 +170,6 @@ class QuanLiTaiSanFragment : Fragment() {
         taiSanAdapter?.notifyDataSetChanged()
         recyclerViewQlts?.scrollToPosition(0)
 
-        tvTaiSanNotFound.visibility = if (taiSanList?.size == 0) View.VISIBLE else View.GONE
+        tvTaiSanNotFound.visibility = if (taiSanList.size == 0) View.VISIBLE else View.GONE
     }
 }

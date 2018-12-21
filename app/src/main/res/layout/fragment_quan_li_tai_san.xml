@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/llQlyc"
+    android:id="@+id/llQlts"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff176"
@@ -48,9 +49,12 @@
             android:importantForAutofill="no"
             android:inputType="text"
             android:padding="10dp"
+            android:paddingEnd="45dp"
+            android:paddingRight="45dp"
             android:textColor="@color/colorBlueMedium"
             android:windowSoftInputMode="stateHidden"
-            tools:targetApi="o" />
+            tools:targetApi="o"
+            tools:ignore="RtlSymmetry" />
 
         <ImageView
             android:id="@+id/imgClearInputQlts"
@@ -81,7 +85,8 @@
         android:layout_height="match_parent"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="10dp">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -105,7 +110,7 @@
                 android:layout_marginEnd="3dp"
                 android:layout_marginRight="3dp"
                 android:layout_marginBottom="5dp"
-                android:scrollbarSize="2sp"
+                android:scrollbarSize="3sp"
                 android:scrollbarThumbVertical="@android:color/holo_red_light"
                 android:scrollbars="vertical" />
         </FrameLayout>

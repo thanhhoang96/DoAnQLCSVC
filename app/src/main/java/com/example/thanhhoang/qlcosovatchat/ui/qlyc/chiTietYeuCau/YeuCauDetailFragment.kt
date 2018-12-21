@@ -16,6 +16,7 @@ import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
 import com.example.thanhhoang.qlcosovatchat.util.FormatUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_yeu_cau_detail.*
@@ -43,6 +44,8 @@ class YeuCauDetailFragment : Fragment() {
     }
 
     private fun initData() {
+        (activity as MainActivity).setTitleMenu("Chi tiết yêu cầu")
+
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 
@@ -72,6 +75,10 @@ class YeuCauDetailFragment : Fragment() {
                 popBackStackFragment()
                 createYeuCauSuccess()
             }
+        }
+
+        llYeuCauDetail.setOnClickListener {
+            Helpers.hideSoftKeyboard(activity as MainActivity)
         }
     }
 

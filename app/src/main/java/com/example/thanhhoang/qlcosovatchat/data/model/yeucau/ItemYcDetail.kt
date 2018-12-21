@@ -8,7 +8,6 @@ data class ItemYcDetail(
         @SerializedName("_id") var itemProposalId: String,
         @SerializedName("quantity") var soLuongYeuCau: Int,
         @SerializedName("approvedQuantity") var soLuongDuyet: Int,
-        @SerializedName("remainQuantity") var soLuongConLai: Int,
         @SerializedName("identifierNo") var maDinhDanh: String,
         @SerializedName("planItem") var planItem: PlanItem?,
         var equipment: Equipment?,

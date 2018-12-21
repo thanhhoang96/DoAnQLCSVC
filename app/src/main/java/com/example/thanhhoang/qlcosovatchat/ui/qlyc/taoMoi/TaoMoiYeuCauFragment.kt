@@ -2,6 +2,7 @@ package com.example.thanhhoang.qlcosovatchat.ui.qlyc.taoMoi
 
 import android.annotation.SuppressLint
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.support.v4.app.Fragment
@@ -25,10 +26,13 @@ import com.example.thanhhoang.qlcosovatchat.data.model.yeucau.YeuCauSuaChuaReque
 import com.example.thanhhoang.qlcosovatchat.data.response.YeuCauMuaSamRequest
 import com.example.thanhhoang.qlcosovatchat.data.source.repository.Repository
 import com.example.thanhhoang.qlcosovatchat.extention.popBackStackFragment
+import com.example.thanhhoang.qlcosovatchat.extention.showDialog
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_show_plan_detail_for_ycms.view.*
+import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 import kotlinx.android.synthetic.main.fragment_tao_moi_yc.*
 
 class TaoMoiYeuCauFragment : Fragment() {
@@ -66,6 +70,8 @@ class TaoMoiYeuCauFragment : Fragment() {
     }
 
     private fun initView() {
+        (activity as MainActivity).setTitleMenu("Tạo mới yêu cầu")
+
         viewModel = TaoMoiYeuCauViewModel(Repository())
 
         muaSamAdapter = TaoMoiMuaSamAdapter(muaSamList)
@@ -172,6 +178,10 @@ class TaoMoiYeuCauFragment : Fragment() {
                 }
             }
         }
+
+        llTaoMoiYeuCau.setOnClickListener {
+            Helpers.hideSoftKeyboard(activity as MainActivity)
+        }
     }
 
     private fun handleInterface() {
@@ -181,21 +191,24 @@ class TaoMoiYeuCauFragment : Fragment() {
 
         muaSamAdapter?.apply {
             sentPositionXoaItemYcms = {
-                muaSamList.removeAt(it)
-                muaSamAdapter?.notifyDataSetChanged()
+                (activity as MainActivity).showDialog("Bạn có chắc muốn xoá dữ kiệu này không?", "Ok", "Huỷ",
+                        DialogInterface.OnClickListener { _, _ ->
+                            muaSamList.removeAt(it)
+                            this.notifyDataSetChanged()
+                        })
+
             }
 
             tangSoLuongYcms = {
-                val soLuong = muaSamList[it].soLuongDeNghi.plus(1)
-                muaSamList[it].soLuongDeNghi = if (soLuong >= muaSamList[it].soLuongConLai) muaSamList[it].soLuongConLai else soLuong
-                muaSamAdapter?.notifyDataSetChanged()
-
+                val soLuong = muaSamList[it].soLuongThayDoi
+                muaSamList[it].soLuongThayDoi = if (soLuong < muaSamList[it].soLuongConLai) soLuong.plus(1) else muaSamList[it].soLuongConLai
+                this.notifyDataSetChanged()
             }
 
             giamSoLuongYcms = {
-                val soLuong = muaSamList[it].soLuongDeNghi.minus(1)
-                muaSamList[it].soLuongDeNghi = if (soLuong > 0) soLuong else 0
-                muaSamAdapter?.notifyDataSetChanged()
+                val soLuong = muaSamList[it].soLuongThayDoi
+                muaSamList[it].soLuongThayDoi = if (soLuong > 0) soLuong.minus(1) else 0
+                this.notifyDataSetChanged()
             }
         }
     }
@@ -275,8 +288,13 @@ class TaoMoiYeuCauFragment : Fragment() {
                         ?.subscribeOn(Schedulers.io())
                         ?.observeOn(AndroidSchedulers.mainThread())
                         ?.subscribe({
-                            dialogPlanList.clear()
-                            dialogPlanList.addAll(it.data.listPlanDetailForYc)
+                            dialogPlanList.apply {
+                                clear()
+                                addAll(it.data.listPlanDetailForYc)
+                                forEach {
+                                    it.soLuongThayDoi = it.soLuongConLai
+                                }
+                            }
 
                             dialogPlanAdapter = DialogPlanAdapter(dialogPlanList)
                             mDialogView.recyclerViewYeuCauTmDetail?.apply {

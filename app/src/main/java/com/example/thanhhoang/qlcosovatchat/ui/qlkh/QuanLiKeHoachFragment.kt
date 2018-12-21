@@ -24,9 +24,11 @@ import com.example.thanhhoang.qlcosovatchat.extention.afterTextChanged
 import com.example.thanhhoang.qlcosovatchat.ui.qlkh.chiTietKeHoach.KeHoachDetailFragment
 import com.example.thanhhoang.qlcosovatchat.ui.qlkh.taoKeHoach.TaoKeHoachFragment
 import com.example.thanhhoang.qlcosovatchat.util.DialogProgressbarUtils
+import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_quan_li_ke_hoach.*
+import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 
 class QuanLiKeHoachFragment : Fragment() {
     private var dialog: Dialog? = null
@@ -49,6 +51,8 @@ class QuanLiKeHoachFragment : Fragment() {
     }
 
     private fun initView() {
+        (activity as MainActivity).setTitleMenu("Quản lí kế hoạch")
+
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
 
@@ -93,6 +97,10 @@ class QuanLiKeHoachFragment : Fragment() {
 
         btnTaoMoiKH.setOnClickListener {
             activity?.addFragment(R.id.flContainer, TaoKeHoachFragment())
+        }
+
+        llQlkh.setOnClickListener {
+            Helpers.hideSoftKeyboard(activity as MainActivity)
         }
     }
 
