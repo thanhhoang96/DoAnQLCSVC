@@ -4,7 +4,7 @@
     android:id="@+id/llYeuCauDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fbe9e7"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
     <TextView
@@ -20,7 +20,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <LinearLayout
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_giai_trinh_detail"
-            android:textColor="#1b5e20"
+            android:textColor="#2e7d32"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <LinearLayout
@@ -60,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_ngay_tao_detail"
+            android:textColor="#c2185b"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -69,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
+            android:textColor="@color/colorGrayDark"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -81,6 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_don_vi_detail"
+            android:textColor="#c2185b"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -90,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
+            android:textColor="@color/colorGrayDark"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -102,6 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_trang_thai_detail"
+            android:textColor="#c2185b"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -111,7 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:layout_marginLeft="5dp"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="#e57373"
             android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -125,6 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_loai_yeu_cau_detail"
+            android:textColor="#c2185b"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -291,7 +297,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <RelativeLayout
@@ -317,8 +323,7 @@
             android:layout_height="40dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_margin="10dp"
             android:background="@drawable/bg_btn_login"
             android:text="@string/label_tro_ve_yeu_cau_detail"
             android:textAllCaps="false"

@@ -4,7 +4,7 @@
     android:id="@+id/llKeHoachDetail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e8f5e9"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
     <TextView
@@ -14,19 +14,19 @@
         android:gravity="center"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:textColor="#5c6bc0"
+        android:textColor="#42a5f5"
         android:textSize="22sp"
         android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="15dp">
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -48,7 +48,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
     <LinearLayout
@@ -60,6 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_ngay_tao_detail"
+            android:textColor="#3949ab"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -81,6 +82,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_don_vi_detail"
+            android:textColor="#3949ab"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -102,6 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_trang_thai_detail"
+            android:textColor="#3949ab"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -125,6 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/label_loai_yeu_cau_detail"
+            android:textColor="#3949ab"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -259,7 +263,6 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1.5dp"
-            android:layout_marginBottom="5dp"
             android:background="@color/colorGrayDark" />
 
         <Button
@@ -267,7 +270,7 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginBottom="5dp"
+            android:layout_margin="10dp"
             android:background="@drawable/bg_btn_login"
             android:text="@string/label_tro_ve_yeu_cau_detail"
             android:textAllCaps="false"

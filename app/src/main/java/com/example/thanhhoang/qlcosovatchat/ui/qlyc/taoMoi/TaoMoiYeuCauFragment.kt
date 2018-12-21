@@ -32,7 +32,6 @@ import com.example.thanhhoang.qlcosovatchat.util.Helpers
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.dialog_show_plan_detail_for_ycms.view.*
-import kotlinx.android.synthetic.main.fragment_quan_li_tai_san.*
 import kotlinx.android.synthetic.main.fragment_tao_moi_yc.*
 
 class TaoMoiYeuCauFragment : Fragment() {
@@ -83,6 +82,9 @@ class TaoMoiYeuCauFragment : Fragment() {
 
     private fun handleListener() {
         rgYeuCau.setOnCheckedChangeListener { _, checkedId ->
+            edtTieuDeTaoMoiYc.setText("")
+            edtGiaiTrinhTaoMoiYc.setText("")
+
             if (checkedId == rbMuaSam.id) {
                 isTaoMoiSuaChua = false
                 llThemThietBiMuaSamYc.visibility = View.VISIBLE
@@ -112,7 +114,7 @@ class TaoMoiYeuCauFragment : Fragment() {
 
         btnResetYc.setOnClickListener {
             edtTieuDeTaoMoiYc.setText("")
-            edtGiaiTrinhYc.setText("")
+            edtGiaiTrinhTaoMoiYc.setText("")
             loadDataSuaChua()
         }
 
@@ -124,7 +126,7 @@ class TaoMoiYeuCauFragment : Fragment() {
                     if (taiSanIdList.size == 0) {
                         Toast.makeText(activity, "Bạn không thể tạo yêu cầu sửa chữa", Toast.LENGTH_SHORT).show()
                     } else {
-                        val yeuCauSuaChuaRequest = YeuCauSuaChuaRequest(if (edtGiaiTrinhYc.text.isNullOrEmpty()) null else edtGiaiTrinhYc.text.toString(),
+                        val yeuCauSuaChuaRequest = YeuCauSuaChuaRequest(if (edtGiaiTrinhTaoMoiYc.text.isNullOrEmpty()) null else edtGiaiTrinhTaoMoiYc.text.toString(),
                                 edtTieuDeTaoMoiYc.text.toString(), taiSanIdList)
                         dialog?.show()
 
@@ -145,7 +147,7 @@ class TaoMoiYeuCauFragment : Fragment() {
                         }, 1500)
                     }
                 } else {
-                    if (edtGiaiTrinhYc.text.isNullOrEmpty()) {
+                    if (edtGiaiTrinhTaoMoiYc.text.isNullOrEmpty()) {
                         Toast.makeText(activity, "Mời bạn nhập thông tin giải trình trước khi tạo yêu cầu", Toast.LENGTH_SHORT).show()
                     } else {
                         if (muaSamList.size == 0) {
@@ -156,7 +158,7 @@ class TaoMoiYeuCauFragment : Fragment() {
                             muaSamList.forEach {
                                 listData.add(ItemProposalRequest(it.detailPlanId, keHoachList[positionPlanSelect].planId, it.soLuongConLai))
                             }
-                            val yeuCauMuaSamRequest = YeuCauMuaSamRequest(edtTieuDeTaoMoiYc.text.toString(), edtGiaiTrinhYc.text.toString(), listData)
+                            val yeuCauMuaSamRequest = YeuCauMuaSamRequest(edtTieuDeTaoMoiYc.text.toString(), edtGiaiTrinhTaoMoiYc.text.toString(), listData)
 
                             Handler().postDelayed({
                                 viewModel?.createYeuCauMuaSam(yeuCauMuaSamRequest)

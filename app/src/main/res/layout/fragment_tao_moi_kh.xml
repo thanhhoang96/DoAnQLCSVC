@@ -7,26 +7,10 @@
     android:background="@android:color/white"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvTitleKeHoach"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:padding="5dp"
-        android:text="@string/tao_moi_ke_hoach_label"
-        android:textColor="#006064"
-        android:textSize="25sp"
-        android:textStyle="bold" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/colorGrayDark" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,8 +19,8 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="@string/tao_moi_ke_hoach_chon_ten_ke_hoach"
-            android:textColor="@color/colorGrayDark"
-            android:textSize="16sp"
+            android:textColor="#3949ab"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
@@ -53,11 +37,15 @@
             tools:ignore="Autofill,RtlSymmetry" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/colorGrayDark" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:padding="5dp">
+        android:padding="10dp">
 
         <TextView
             android:id="@+id/tvChonKeHoach"
@@ -67,7 +55,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="@string/tao_moi_ke_hoach_chon_loai_ke_hoach"
-            android:textColor="@color/colorGrayDark"
+            android:textColor="#3949ab"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -94,8 +82,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
             android:background="@drawable/ic_drop_down"
             android:contentDescription="@null" />
     </RelativeLayout>
@@ -118,7 +106,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:text="@string/tao_moi_ke_hoach_chon_thiet_bi"
-            android:textColor="@color/colorGrayDark"
+            android:textColor="#3949ab"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -273,58 +261,70 @@
         android:layout_height="1.5dp"
         android:background="@color/colorGrayDark" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvGhiChuTaoMoiKh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="5dp"
             android:text="@string/tao_moi_ke_hoach_ghi_chu_label"
-            android:textColor="@color/colorGrayDark"
+            android:textColor="#3949ab"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtGhiChuTaoMoiKh"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_above="@id/rlActionTaoMoiKh"
+            android:layout_below="@id/tvGhiChuTaoMoiKh"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:background="#b3e5fc"
             android:hint="@string/tao_moi_ke_hoach_nhap_ghi_chu"
             android:inputType="text"
-            android:padding="10dp"
+            android:padding="15dp"
             android:textSize="14sp"
             tools:ignore="Autofill" />
-    </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:layout_below="@+id/edtGhiChuTaoMoiKh"
+            android:background="@color/colorGrayDark" />
 
-        <Button
-            android:id="@+id/btnTaoGuiKeHoach"
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:id="@+id/rlActionTaoMoiKh"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/tao_moi_ke_hoach_btn_tao_gui_ke_hoach"
-            android:textAllCaps="false" />
+            android:layout_alignParentBottom="true"
+            android:padding="10dp">
 
-        <Button
-            android:id="@+id/btnTroVeTaoMoiKh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_toStartOf="@id/btnTaoGuiKeHoach"
-            android:layout_toLeftOf="@id/btnTaoGuiKeHoach"
-            android:text="@string/tao_moi_ke_hoach_btn_tro_ve"
-            android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btnTaoGuiKeHoach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:text="@string/tao_moi_ke_hoach_btn_tao_gui_ke_hoach"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnTroVeTaoMoiKh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_toStartOf="@id/btnTaoGuiKeHoach"
+                android:layout_toLeftOf="@id/btnTaoGuiKeHoach"
+                android:text="@string/tao_moi_ke_hoach_btn_tro_ve"
+                android:textAllCaps="false" />
+        </RelativeLayout>
     </RelativeLayout>
 </LinearLayout>

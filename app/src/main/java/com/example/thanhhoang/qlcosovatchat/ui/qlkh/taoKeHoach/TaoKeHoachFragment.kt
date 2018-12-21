@@ -76,7 +76,7 @@ class TaoKeHoachFragment : Fragment() {
 
     @SuppressLint("CheckResult")
     private fun initData() {
-        (activity as MainActivity).setTitleMenu("Tạo mới kế hoạch")
+        (activity as MainActivity).setTitleMenu(if (isSuaChua) "Sửa chữa kế hoạch" else "Tạo mới kế hoạch")
 
         dialog = DialogProgressbarUtils.showProgressDialog(activity as MainActivity)
         dialog?.setCancelable(false)
@@ -116,7 +116,6 @@ class TaoKeHoachFragment : Fragment() {
     }
 
     private fun updateData(keHoach: KeHoachDetail) {
-        tvTitleKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_title)
         edtTenKeHoachTaoMoi.setText(keHoach.title)
         btnTaoGuiKeHoach.text = resources.getString(R.string.sua_chua_ke_hoach_button)
         edtGhiChuTaoMoiKh.setText(keHoach.desc)
